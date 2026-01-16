@@ -16,7 +16,7 @@ class ProductsTable
             ->columns([
                 TextColumn::make('name'),
                 TextColumn::make('price'),
-                // TextColumn::make('name')
+                TextColumn::make('description')
             ])
             ->filters([
                 //

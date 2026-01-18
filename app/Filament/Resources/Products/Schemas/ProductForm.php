@@ -12,7 +12,7 @@ class ProductForm
         return $schema
             ->components([
                     TextInput::make('name'),
-                    TextInput::make('price')->label('price')
+                    TextInput::make('unit_cost')->label('unit_cost')
                     ->numeric()->step(0.01)->minValue(0)->required(),
                     TextInput::make('description')
             ]);

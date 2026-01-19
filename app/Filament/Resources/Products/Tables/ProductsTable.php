@@ -11,6 +11,8 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\DatePicker;
+use Filament\Tables\Columns\CheckboxColumn;
+use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Enums\FiltersLayout;
@@ -32,15 +34,23 @@ class ProductsTable
 
                     ->sortable()->searchable(), //search by product name
                 TextColumn::make('unit_cost')
-                ->alignEnd()//can be use to change the alignment of item
-                ->sortable(), //sort by column
+                    ->alignEnd() //can be use to change the alignment of item
+                    ->sortable(), //sort by column
                 TextColumn::make('description')
-                ->label('dexcription'),//can be use to cahgne the name of a column
-                TextColumn::make('status')->badge(),
-
-                    ToggleColumn::make('is_active'),//a togglable column to make something true or false
+                    ->label('dexcription'), //can be use to cahgne the name of a column
 
 
+
+                //edit in table, no need to go to route edit just in component table{
+
+                SelectColumn::make('status')
+                ->options(ProductStatusEnum::class),//this is a selectable like edit but in table
+
+                ToggleColumn::make('is_active'), //a togglable column to make something true or false
+
+                CheckboxColumn::make('is_active'), // a check box type, same as toggle function just defferint ui
+
+                //}
 
                 TextColumn::make('category.name') //how to show relation one to many, no need to worry about lazy loading 
                 //because its auto eager loaded, pretty nice
@@ -54,9 +64,9 @@ class ProductsTable
                 TextColumn::make('tags.name')->badge(), //this is for many to many
 
                 TextColumn::make('created_at')
-                ->since() // human readable it show 3mins ago good for udpate, but heavy
-                // ->date('d-m-Y')normal data show  19-01-2026
-                ->sortable()
+                    ->since() // human readable it show 3mins ago good for udpate, but heavy
+                    // ->date('d-m-Y')normal data show  19-01-2026
+                    ->sortable()
             ])->defaultSort('name') //full table sort
 
             ->filters([

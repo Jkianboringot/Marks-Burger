@@ -44,11 +44,17 @@ class ProductsTable
                 //edit in table, no need to go to route edit just in component table{
 
                 SelectColumn::make('status')
+                // ->requiresConfirmation() ok this is not allowed for this only for record action
+                ->searchableOptions()//is use so that you can search in the option, if its long
                 ->options(ProductStatusEnum::class),//this is a selectable like edit but in table
 
-                ToggleColumn::make('is_active'), //a togglable column to make something true or false
+                ToggleColumn::make('is_active')
+                // ->requiresConfirmation() ok this is not allowed for this only for record action
+                , //a togglable column to make something true or false
 
-                CheckboxColumn::make('is_active'), // a check box type, same as toggle function just defferint ui
+                CheckboxColumn::make('is_active')
+                // ->requiresConfirmation() ok this is not allowed for this only for record action
+                , // a check box type, same as toggle function just defferint ui
 
                 //}
 

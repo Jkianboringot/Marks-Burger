@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ProductStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -9,8 +10,9 @@ use Laravel\Sanctum\Guard;
 
 class Product extends Model
 {
-    public $fillable = ['name','unit_cost','description','status','category_id'];
+    protected $fillable = ['name','unit_cost','description','status','category_id','is_active'];
 
+protected $casts = ['status'=>ProductStatusEnum::class];
 
       public function orders()
     {

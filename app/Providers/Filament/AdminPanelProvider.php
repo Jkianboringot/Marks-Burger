@@ -30,6 +30,10 @@ class AdminPanelProvider extends PanelProvider
             
             ->colors([
                 'primary' => Color::Amber,
+                'gray'=>Color::Gray,
+                'danger'=>Color::Red,
+                'success'=>Color::Green,
+                'warning'=>Color::Yellow
             ])
             ->authGuard('web')
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')

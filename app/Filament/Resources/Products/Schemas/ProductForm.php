@@ -8,6 +8,7 @@ use Filament\Forms\Components\ModalTableSelect;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Filament\Tables\Columns\ToggleColumn;
 
 class ProductForm
 {
@@ -21,7 +22,6 @@ class ProductForm
                     TextInput::make('description'),
                     Select::make('status')->options(ProductStatusEnum::class)
                     ->required(),
-
                     //one to many relation
                     //similar to relation below but this time, its has a new table like component
                     //instead of a dropdown, its good if you want to be minimial, but modern adn high tech at the same time

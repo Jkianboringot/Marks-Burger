@@ -18,5 +18,8 @@ Route::middleware([
     // and i can use web as a route for the cashier side for livewire blade
     //probable will create a role check but that sould be easy because i can make it the be the same as prev system
     //also i only really have 2 role admin and cashier adn manager but that came later
+
+    //i might not even need to check role, i can just have a button that show if they want to login as admin, manager, or cashiers
+    //and check it here adn base on it have login for that, its like portal for catsu
     
 });

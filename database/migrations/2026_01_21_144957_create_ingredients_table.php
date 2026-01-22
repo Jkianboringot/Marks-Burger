@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('ingredients', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('threshold');
+            $table->string('measurement');
+            $table->foreignId('category_id')->constrained();
             $table->timestamps();
         });
     }

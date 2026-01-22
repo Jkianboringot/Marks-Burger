@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_order', function (Blueprint $table) {
-            $table->id();
+        Schema::create('ingredient_branch', function (Blueprint $table) {
+            $table->foreignId('branch_id')->constrained();
+            $table->foreignId('ingredient_id')->constrained();
+            $table->decimal('quantity',8,2)->unsigned();
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_order');
+        Schema::dropIfExists('ingredient_branch');
     }
 };

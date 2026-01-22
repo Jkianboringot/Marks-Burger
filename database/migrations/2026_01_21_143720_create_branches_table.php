@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('branches', function (Blueprint $table) {
             $table->id();
-            $table->string('location');
-            $table->enum('branch_type',['main','sub']);//dont really need this just mean first branch as main
+            $table->string('location',100);
+            $table->enum('branch_type',['main','sub'])->default('sub');//dont really need this just mean first branch as main
             $table->timestamps();
         });
     }

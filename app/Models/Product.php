@@ -7,7 +7,7 @@ use Laravel\Sanctum\Guard;
 
 class Product extends Model
 {
-    public $fillable = ['name','price','description'];
+    public $fillable = ['name','price'];
 
 
       public function orders()

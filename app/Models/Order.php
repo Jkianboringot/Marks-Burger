@@ -9,7 +9,8 @@ class Order extends Model
 {
 
     use SoftDeletes;
-    public $guarded = ['id'];
+          protected $fillable = ['branch_id','status'];
+
 
     public function products()
     {

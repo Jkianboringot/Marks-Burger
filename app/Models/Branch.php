@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Branch extends Model
 {
-    //
+    protected $fillable = ['location','type_branch'];
+    
 }

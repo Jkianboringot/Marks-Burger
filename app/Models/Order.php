@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use ReturnTypeWillChange;
 
 class Order extends Model
 {
@@ -16,5 +17,11 @@ class Order extends Model
     {
         return $this->belongsToMany(Product::class, 'product_order')
         ->withPivot(['quantity', 'price']);
+    }
+
+    public function returned(): Order
+    {
+        return $this->has(Returned::class);
+         
     }
 }

@@ -14,9 +14,9 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         Product::insert([
-            ['name' => 'burger', 'unit_cost' => 132, 'description' => 'good shit'],
-            ['name' => 'footlong', 'unit_cost' => 112, 'description' => 'good shit'],
-            ['name' => 'drinks', 'unit_cost' => 1332, 'description' => 'good shit']
+            ['name' => 'burger', 'price' => 132],
+            ['name' => 'footlong', 'price' => 112],
+            ['name' => 'drinks', 'price' => 1332]
         ]);
     }
 }

@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->string('status')->default(value: ProductStatusEnum::IN_STOCK->value);
+            // $table->string('status')->default(value: ProductStatusEnum::IN_STOCK->value);
         });
         //in the future if i wnat to add a new column i can just do this, 
         //aslong as the tbla name is teh same with other table, you can add as many column you wnat

@@ -16,7 +16,7 @@ class BranchSeeder extends Seeder
      Branch::insert([
             ['location' => 'Calatagan', 'branch_type' => 'sub'],
             ['location' => 'San Andres', 'branch_type' => 'sub'],
-            ['location' => 'San Juan', 'branch_type' => 'mains']
+            ['location' => 'San Juan', 'branch_type' => 'main']
         ]);
     }
 }

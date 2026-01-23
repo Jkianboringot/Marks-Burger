@@ -46,9 +46,10 @@ class CategoryResource extends Resource
                     //after your are done with this maybe recreate it but with pure laravel to learn more about backend
                     //becuase your other prject it was dont by ai not you, it has to be you
                     //this is fun but boring, so i better finish this shit in one month even without ai, adn it to be fully done
-                TextColumn::make('products_count')//will not work if its product_count needs to be prural
-                ->counts('products')->sortable()
-                ->label('Products'),//aliase name
+                // TextColumn::make('products_count')
+                // //will not work if its product_count needs to be prural
+                // ->counts('products')->sortable()
+                // ->label('Products'),aliase name
 
                 TextColumn::make('created_at')
                     ->dateTime()

@@ -14,7 +14,9 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         Category::insert([
-            ['name'=>'book'],['name'=>'bombasticksideeye'],['name'=>'vehihcle']
+            ['name'=>'Pack'],
+            ['name'=>'Kilo'],
+            ['name'=>'Gram']
         ]);
     }
 }

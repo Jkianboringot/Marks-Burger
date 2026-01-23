@@ -30,57 +30,59 @@ class ProductsTable
                 TextColumn::make('name')
 
                     //make name column clickable, if click it will go edit route of product
+                    //its like livewire:route
                     ->url(fn(Product $record): string => ProductResource::getUrl('edit', ['record' => $record]))
 
                     ->sortable()->searchable(), //search by product name
-                TextColumn::make('unit_cost')
+                TextColumn::make('price')
                     ->alignEnd() //can be use to change the alignment of item
                     ->sortable(), //sort by column
-                TextColumn::make('description')
-                    ->label('dexcription'), //can be use to cahgne the name of a column
+                // TextColumn::make('description')
+                //     ->label('dexcription'), //can be use to cahgne the name of a column
 
 
 
                 //edit in table, no need to go to route edit just in component table{
 
-                SelectColumn::make('status')
-                // ->requiresConfirmation() ok this is not allowed for this only for record action
-                ->searchableOptions()//is use so that you can search in the option, if its long
-                ->options(ProductStatusEnum::class),//this is a selectable like edit but in table
+                // SelectColumn::make('status')
+                // // ->requiresConfirmation() ok this is not allowed for this only for record action
+                // ->searchableOptions()//is use so that you can search in the option, if its long
+                // ->options(ProductStatusEnum::class),//this is a selectable like edit but in table
 
-                ToggleColumn::make('is_active')
-                // ->requiresConfirmation() ok this is not allowed for this only for record action
-                , //a togglable column to make something true or false
+                // ToggleColumn::make('is_active')
+                // // ->requiresConfirmation() ok this is not allowed for this only for record action
+                // , //a togglable column to make something true or false
 
-                CheckboxColumn::make('is_active')
-                // ->requiresConfirmation() ok this is not allowed for this only for record action
-                , // a check box type, same as toggle function just defferint ui
+                // CheckboxColumn::make('is_active')
+                // // ->requiresConfirmation() ok this is not allowed for this only for record action
+                // , // a check box type, same as toggle function just defferint ui
 
-                //}
+                // //}
 
-                TextColumn::make('category.name') //how to show relation one to many, no need to worry about lazy loading 
-                //because its auto eager loaded, pretty nice
+                // TextColumn::make('category.name') //how to show relation one to many, no need to worry about lazy loading 
+                // //because its auto eager loaded, pretty nice
 
-                //make category column clickable with relation, if click it will go edit route of product
-                //will not work becuae category was made simple meaning it has no edit route
-                // ->url(fn(Product $record): string=>CategoryResource::getUrl('edit',['record'=>$record->category]))
+                // //make category column clickable with relation, if click it will go edit route of product
+                // //will not work becuae category was made simple meaning it has no edit route
+                // // ->url(fn(Product $record): string=>CategoryResource::getUrl('edit',['record'=>$record->category]))
 
-                ,
+                // ,
 
-                TextColumn::make('tags.name')->badge(), //this is for many to many
+                // TextColumn::make('tags.name')->badge(), //this is for many to many
 
-                TextColumn::make('created_at')
-                    ->since() // human readable it show 3mins ago good for udpate, but heavy
-                    // ->date('d-m-Y')normal data show  19-01-2026
-                    ->sortable()
-            ])->defaultSort('name') //full table sort
+                // TextColumn::make('created_at')
+                //     ->since() // human readable it show 3mins ago good for udpate, but heavy
+                //     // ->date('d-m-Y')normal data show  19-01-2026
+                //     ->sortable()
+            ])
+            // ->defaultSort('name') //full table sort
 
             ->filters([
-                SelectFilter::make('category_id') //filter with relation
-                    ->relationship('category', 'name'),
+                // SelectFilter::make('category_id') //filter with relation
+                //     ->relationship('category', 'name'),
 
-                SelectFilter::make(name: 'status') //filter with no relation
-                    ->options(ProductStatusEnum::class),
+                // SelectFilter::make(name: 'status') //filter with no relation
+                //     ->options(ProductStatusEnum::class),
                 Filter::make('created_at') //normal columns
                     ->schema([
                         DatePicker::make('created_at')

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Orders\RelationManagers;
 
+use App\Models\Product;
 use Filament\Actions\AttachAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\CreateAction;
@@ -10,6 +11,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\DetachAction;
 use Filament\Actions\DetachBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
@@ -19,14 +21,31 @@ use Filament\Tables\Table;
 class ProductOrderRelationManager extends RelationManager
 {
     protected static string $relationship = 'ProductOrder';
+    protected static ?string $recordTitleAttribute = 'name';
 
     public function form(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextInput::make('product')
-                    ->required()
-                    ->maxLength(255),
+
+
+                Select::make('product_id')
+                    ->relationship('products', 'name')
+                    ->reactive()
+                    ->afterStateUpdated(
+                        fn($state, callable $set) =>
+                        $set('price', Product::find($state)?->price)
+                    )
+                    ->required(),
+
+
+                TextInput::make('quantity')
+
+                    ->numeric()
+                    ->required(),
+
+                TextInput::make('price')
+                    ->disabled(),
             ]);
     }
 
@@ -35,8 +54,10 @@ class ProductOrderRelationManager extends RelationManager
         return $table
             ->recordTitleAttribute('product')
             ->columns([
-                TextColumn::make('product')
-                    ->searchable(),
+                TextColumn::make('product.name')
+                    ->searchable(),,
+                TextColumn::make('quantity'),
+                TextColumn::make('price'),
             ])
             ->filters([
                 //

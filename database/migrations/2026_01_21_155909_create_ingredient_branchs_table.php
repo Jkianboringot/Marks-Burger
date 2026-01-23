@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ingredient_branch', function (Blueprint $table) {
+        Schema::create('ingredient_branchs', function (Blueprint $table) {
             $table->foreignId('branch_id')->constrained();
             $table->foreignId('ingredient_id')->constrained();
             $table->decimal('quantity',8,2)->unsigned();
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ingredient_branch');
+        Schema::dropIfExists('ingredient_branchs');
     }
 };

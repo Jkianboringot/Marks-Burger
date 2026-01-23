@@ -12,12 +12,12 @@ class Ingredient extends Model
     'unit_id', 'unit_quantity'];
 
     public function products(): BelongsToMany{
-        return $this->belongsToMany(Product::class,'product_ingredient')
+        return $this->belongsToMany(Product::class,'product_ingredients')
         ->withPivot(['price','quantity']);
     }
 
         public function branches(): BelongsToMany{
-        return $this->belongsToMany(Branch::class,'ingredient_branch')
+        return $this->belongsToMany(Branch::class,'ingredient_branchs')
         ->withPivot(['quantity']);
     }
 

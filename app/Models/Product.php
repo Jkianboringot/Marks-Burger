@@ -17,20 +17,20 @@ class Product extends Model
 
     public function orders()
     {
-        return $this->belongsToMany(Order::class, 'product_order')
+        return $this->belongsToMany(Order::class, 'product_orders')
             ->withPivot(['quantity', 'price']);
     }
 
 
     public function returneds()
     {
-        return $this->belongsToMany(Order::class, 'product_return')
+        return $this->belongsToMany(Order::class, 'product_returns')
             ->withPivot(['quantity', 'price']);
     }
 
     public function ingredients(): BelongsToMany
     {
-        return $this->belongsToMany(Ingredient::class, 'product_ingredient')
+        return $this->belongsToMany(Ingredient::class, 'product_ingredients')
             ->withPivot(['price', 'quantity']);
     } //might cause error, i feel it
 

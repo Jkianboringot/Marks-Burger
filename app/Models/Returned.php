@@ -12,7 +12,7 @@ class Returned extends Model
 
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'product_return')
+        return $this->belongsToMany(Product::class, 'product_returns')
             ->withPivot(['price', 'quantity']);
     }
 

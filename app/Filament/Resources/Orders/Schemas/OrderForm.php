@@ -21,6 +21,10 @@ class OrderForm
                 Select::make('branch_id')
                 ->relationship('branch','location')
 
+                 ,Select::make('product_id')
+                    ->relationship('products','name')
+                    // ->multiple() allow select multiple
+
             ]);
     }
 }

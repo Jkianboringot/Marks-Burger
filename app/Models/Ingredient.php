@@ -22,9 +22,7 @@ class Ingredient extends Model
     }
 
 
-      public function units(): BelongsTo{
-        return $this->belongsTo(Ingredient::class);
-      }
+
 
        public function categories(): BelongsTo{
         return $this->belongsTo(Ingredient::class);

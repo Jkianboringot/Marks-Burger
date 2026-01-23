@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name',75);
             $table->integer('threshold')->unsigned();
-            $table->foreignId('unit_id')->nullable()->constrained();
             $table->foreignId('category_id')->nullable()->constrained();
             $table->integer('unit_quantity')->unsigned()->nullable();
             $table->timestamps();

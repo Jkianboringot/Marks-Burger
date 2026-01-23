@@ -11,19 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-<<<<<<< HEAD
-            $table->boolean('status')->default(false);
-            $table->foreignId('branch_id')->constrained('branches');
-
-=======
-            $table->foreignId('user_id')->constrained();
+        Schema::create('product_tag', function (Blueprint $table) {
             $table->foreignId('product_id')->constrained();
-            $table->integer('price');
->>>>>>> playground
+            $table->foreignId('tag_id')->constrained();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -32,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('product_tag');
     }
 };

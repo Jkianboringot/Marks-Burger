@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-<<<<<<< HEAD
             $table->boolean('status')->default(false);
             $table->foreignId('branch_id')->constrained('branches');
-
-=======
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('product_id')->constrained();
-            $table->integer('price');
->>>>>>> playground
             $table->timestamps();
             $table->softDeletes();
+            // =======
+            // $table->foreignId('user_id')->constrained();
+            // $table->foreignId('product_id')->constrained();
+            // $table->integer('price');
+            // >>>>>>> playground
+
+
         });
     }
 

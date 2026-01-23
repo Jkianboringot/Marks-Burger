@@ -22,4 +22,10 @@ class Returned extends Model
         return $this->belongsTo(Order::class);
          
     }
+
+         public function branch(): BelongsTo
+    {
+        return $this->belongsTo(Branch::class);
+         
+    }
 }

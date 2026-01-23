@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Branch extends Model
 {
@@ -15,18 +16,16 @@ class Branch extends Model
         ->withPivot(['quantity']);
     }
 
-      public function orders()
+      public function order(): HasMany
     {
-        return $this->belongsToMany(Order::class, 'product_order')
-        ->withPivot(['quantity', 'price']);
+        return $this->hasMany(Order::class);
     }
 
-
-      public function reuturneds()
+      public function reuturned(): HasMany
     {
-        return $this->belongsToMany(Returned::class, 'product_return')
-        ->withPivot(['quantity', 'price']);
+        return $this->hasMany(Returned::class);
     }
+
 
 
 }

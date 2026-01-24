@@ -25,6 +25,24 @@ class OrderForm
                     ->relationship('branch', 'location')
                     ->required(),
 
+                    
+                Select::make('product_id')
+                    ->relationship('products', 'name')
+                    ->reactive()
+                    ->afterStateUpdated(
+                        fn($state, callable $set) =>
+                        $set('price', Product::find($state)?->price)
+                    )
+                    ->required(),
+
+
+                TextInput::make('quantity')
+
+                    ->numeric()
+                    ->required(),
+
+                TextInput::make('price')
+                    ->disabled(),
                 // ->multiple() allow select multiple
 
             ]);

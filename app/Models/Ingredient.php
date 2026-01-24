@@ -24,7 +24,7 @@ class Ingredient extends Model
 
 
 
-       public function categories(): BelongsTo{
+       public function category(): BelongsTo{
         return $this->belongsTo(Ingredient::class);
       }
 }

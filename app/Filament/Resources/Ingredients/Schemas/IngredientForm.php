@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Ingredients\Schemas;
 
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -16,10 +17,10 @@ class IngredientForm
                 TextInput::make('threshold')
                     ->required()
                     ->numeric(),
-                TextInput::make('unit_id')
-                    ->numeric(),
-                TextInput::make('category_id')
-                    ->numeric(),
+
+                Select::make('category_id')
+                    ->label('Category')
+                    ->relationship('category', 'name'),
                 TextInput::make('unit_quantity')
                     ->numeric(),
             ]);

@@ -30,8 +30,7 @@ class Product extends Model
 
     public function ingredients(): BelongsToMany
     {
-        return $this->belongsToMany(Ingredient::class, 'product_ingredients')
-            ->withPivot(['price', 'quantity']);
+        return $this->belongsToMany(Ingredient::class, 'product_ingredients');
     } //might cause error, i feel it
 
 //playground

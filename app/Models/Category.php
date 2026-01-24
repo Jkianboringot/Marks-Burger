@@ -9,7 +9,7 @@ class Category extends Model
 {
       protected $fillable = ['name'];
 
-      public function ingredient(): HasMany{
+      public function ingredients(): HasMany{
         return $this->hasMany(Ingredient::class);
       }//one to many
 

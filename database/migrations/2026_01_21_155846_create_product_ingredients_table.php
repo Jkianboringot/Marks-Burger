@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('product_ingredients', function (Blueprint $table) {
             $table->foreignId('product_id')->constrained();
             $table->foreignId('ingredient_id')->constrained();
-            $table->decimal('price',8,2)->unsigned();
-            $table->decimal('quantity',8,2)->unsigned();
             $table->timestamps();
         });
     }

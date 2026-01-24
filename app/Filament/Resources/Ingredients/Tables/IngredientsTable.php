@@ -19,11 +19,8 @@ class IngredientsTable
                 TextColumn::make('threshold')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('unit_id')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('category_id')
-                    ->numeric()
+               
+                TextColumn::make('category.name')
                     ->sortable(),
                 TextColumn::make('unit_quantity')
                     ->numeric()

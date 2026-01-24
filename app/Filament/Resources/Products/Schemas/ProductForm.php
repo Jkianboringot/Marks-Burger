@@ -20,7 +20,10 @@ class ProductForm
                 TextInput::make('price')->label('price')
                     ->numeric()->step(0.01)->minValue(0)->required(),
 
-
+                    
+                Select::make('ingredient_id')
+                    ->relationship('ingredients','name')
+                    ->multiple()
                 // TextInput::make('description'),
 
 

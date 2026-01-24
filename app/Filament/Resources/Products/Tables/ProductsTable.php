@@ -64,6 +64,7 @@ class ProductsTable
 
                 // //make category column clickable with relation, if click it will go edit route of product
                 // //will not work becuae category was made simple meaning it has no edit route
+                
                 // // ->url(fn(Product $record): string=>CategoryResource::getUrl('edit',['record'=>$record->category]))
 
                 // ,

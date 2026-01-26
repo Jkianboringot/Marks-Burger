@@ -28,6 +28,8 @@ class OrdersTable
         return $table
             ->columns([
                 TextColumn::make('id')
+                ,
+                TextColumn::make('products.name')
                 // =======
                 //                 // TextColumn::make('user.name')
                 //                 //     ->searchable(),

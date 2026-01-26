@@ -29,7 +29,13 @@ class OrdersTable
             ->columns([
                 TextColumn::make('id')
                 ,
-                TextColumn::make('products.name')
+                TextColumn::make('products.name'),
+                TextColumn::make('product.quantity')
+                ->label('QTY'),
+                // TextColumn::make('products.price')
+                // ->label('PRIce'),
+                TextColumn::make('branch.location'),
+
                 // =======
                 //                 // TextColumn::make('user.name')
                 //                 //     ->searchable(),

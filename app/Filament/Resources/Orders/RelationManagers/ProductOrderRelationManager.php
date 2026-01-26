@@ -20,7 +20,7 @@ use Filament\Tables\Table;
 
 class ProductOrderRelationManager extends RelationManager
 {
-    protected static string $relationship = 'ProductOrder';
+    protected static string $relationship = 'products';
 
     public function form(Schema $schema): Schema
     {
@@ -51,9 +51,9 @@ class ProductOrderRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->recordTitleAttribute('product')
+            ->recordTitleAttribute('products')
             ->columns([
-                TextColumn::make('product.name')
+                TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('quantity'),
                 TextColumn::make('price'),

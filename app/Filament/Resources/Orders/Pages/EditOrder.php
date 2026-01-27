@@ -10,6 +10,8 @@ class EditOrder extends EditRecord
 {
     protected static string $resource = OrderResource::class;
 
+    protected array $pivotOrderProducts;
+
     protected function getHeaderActions(): array
     {
         return [
@@ -37,7 +39,7 @@ class EditOrder extends EditRecord
     protected function mutateFormDataBeforeSave(array $data): array
     {
         // Store products data temporarily
-        $this->cachedOrderProducts = $data['orderProducts'] ?? [];
+        $this->pivotOrderProducts = $data['orderProducts'] ?? [];
         
         // Remove from main data
         unset($data['orderProducts']);
@@ -50,7 +52,7 @@ class EditOrder extends EditRecord
         // Sync products - this will update the pivot table
         $syncData = [];
         
-        foreach ($this->cachedOrderProducts as $item) {
+        foreach ($this->pivotOrderProducts as $item) {
             $syncData[$item['product_id']] = [
                 'quantity' => $item['quantity'],
                 'price' => $item['price'],

@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Returneds;
 use App\Filament\Resources\Returneds\Pages\CreateReturned;
 use App\Filament\Resources\Returneds\Pages\EditReturned;
 use App\Filament\Resources\Returneds\Pages\ListReturneds;
+use App\Filament\Resources\Returneds\RelationManagers\ProductsRelationManager;
 use App\Filament\Resources\Returneds\Schemas\ReturnedForm;
 use App\Filament\Resources\Returneds\Tables\ReturnedsTable;
 use App\Models\Returned;
@@ -33,7 +34,7 @@ class ReturnedResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            ProductsRelationManager::class
         ];
     }
 

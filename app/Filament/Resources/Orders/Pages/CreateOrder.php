@@ -9,14 +9,30 @@ class CreateOrder extends CreateRecord
 {
     protected static string $resource = OrderResource::class;
 
-    protected function mutateFormDataBeforeCreate(array $data): array
+    protected function mutateFormDataBeforeCreate(array $data): array //this execute before save
     {
-        // Temporarily store the products data
+
+        //         $data = [
+        //   'status' => true,
+        //   'branch_id' => 1,
+        //   'orderProducts' => [
+        //      ['product_id' => 3, 'quantity' => 2, 'price' => 120],
+        //      ['product_id' => 5, 'quantity' => 1, 'price' => 80],
+        //   ],
+        // ];
+        // store the pivot data select to cache
         $this->cachedOrderProducts = $data['orderProducts'] ?? [];
-        
-        // Remove from main data to avoid trying to insert into orders table
+
+        //         $this->cachedProducts = [
+        //   ['product_id' => 3, 'quantity' => 2, 'price' => 120],
+        //   ['product_id' => 5, 'quantity' => 1, 'price' => 80],
+        // ];
+
+
+        // Remove from main pivot data from $data so it only has the order column not pivot, becuase it could cause
+        //error like before 
         unset($data['orderProducts']);
-        
+        //return the clean data, status,branch_id , to let the order id exist first, that the pivot will use
         return $data;
     }
 

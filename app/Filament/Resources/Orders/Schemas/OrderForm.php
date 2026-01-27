@@ -45,6 +45,8 @@ class OrderForm
                                     $set('price', $product->price);
                                 }
                             }),
+
+                          
                         
                         TextInput::make('quantity')
                             ->numeric()

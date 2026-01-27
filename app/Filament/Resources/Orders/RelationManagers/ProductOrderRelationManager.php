@@ -20,7 +20,7 @@ use Filament\Tables\Table;
 
 class ProductOrderRelationManager extends RelationManager
 {
-    protected static string $relationship = 'ProductOrder';
+    protected static string $relationship = 'products';
 
     public function form(Schema $schema): Schema
     {

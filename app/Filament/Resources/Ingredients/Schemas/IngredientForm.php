@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Ingredients\Schemas;
 
+use App\Models\Branch;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
@@ -16,13 +18,34 @@ class IngredientForm
                     ->required(),
                 TextInput::make('threshold')
                     ->required()
-                    ->numeric(),
+                    ->numeric()
+                    ->minValue(0.01)
+                    ->step(0.01),
 
                 Select::make('category_id')
                     ->label('Category')
                     ->relationship('category', 'name'),
                 TextInput::make('unit_quantity')
-                    ->numeric(),
+                    ->required()
+                    ->numeric()
+                    ->minValue(0.01)
+                    ->step(0.01),
+
+
+                    
+                Repeater::make('ingredientBranch')->label('Branch')
+                    ->schema([
+                        Select::make('branch_id')
+                            ->options(Branch::pluck('location', 'id'))
+                            ->required(),
+
+                        TextInput::make('quantity')
+                            ->numeric()
+                            ->required()
+                            ->default(1)
+                            ->minValue(0.01)
+                            ->step(0.01),
+                    ])
             ]);
     }
 }

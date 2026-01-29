@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\Products\RelationManagers;
+namespace App\Filament\Resources\Ingredients\RelationManagers;
 
+use App\Models\Branch;
 use Filament\Actions\AttachAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\CreateAction;
@@ -10,23 +11,37 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\DetachAction;
 use Filament\Actions\DetachBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class TagsRelationManager extends RelationManager
+class BranchesRelationManager extends RelationManager
 {
-    protected static string $relationship = 'tags';
+    protected static string $relationship = 'branches';
 
     public function form(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
+          
+
+                     Repeater::make('ingredientBranch')->label('Branch')
+                    ->schema([
+                        Select::make('branch_id')
+                            ->options(Branch::pluck('location', 'id'))
+                            ->required(),
+
+                        TextInput::make('quantity')
+                            ->numeric()
+                            ->required()
+                            ->default(1)
+                            ->minValue(0.01)
+                            ->step(0.01),
+                    ])
             ]);
     }
 

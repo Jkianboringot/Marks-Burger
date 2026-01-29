@@ -16,8 +16,7 @@ class Ingredient extends Model
     }
 
         public function branches(): BelongsToMany{
-        return $this->belongsToMany(Branch::class,'ingredient_branchs')
-        ->withPivot(['quantity']);
+        return $this->belongsToMany(Branch::class,'ingredient_branchs');
     }
 
 

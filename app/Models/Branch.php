@@ -12,8 +12,7 @@ class Branch extends Model
 
     
      public function ingredients(): BelongsToMany{
-        return $this->belongsToMany(Ingredient::class,'ingredient_branchs')
-        ->withPivot(['quantity']);
+        return $this->belongsToMany(Ingredient::class,'ingredient_branchs');
     }
 
       public function order(): HasMany

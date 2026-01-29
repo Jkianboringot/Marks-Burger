@@ -19,7 +19,7 @@ class IngredientsTable
                 TextColumn::make('threshold')
                     ->numeric()
                     ->sortable(),
-               
+
                 TextColumn::make('category.name')
                     ->sortable(),
                 TextColumn::make('unit_quantity')
@@ -33,6 +33,9 @@ class IngredientsTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('branches.location')->badge()
+
             ])
             ->filters([
                 //

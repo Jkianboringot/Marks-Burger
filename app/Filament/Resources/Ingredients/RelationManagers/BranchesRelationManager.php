@@ -35,12 +35,7 @@ class BranchesRelationManager extends RelationManager
                             ->options(Branch::pluck('location', 'id'))
                             ->required(),
 
-                        TextInput::make('quantity')
-                            ->numeric()
-                            ->required()
-                            ->default(1)
-                            ->minValue(0.01)
-                            ->step(0.01),
+                    
                     ])
             ]);
     }

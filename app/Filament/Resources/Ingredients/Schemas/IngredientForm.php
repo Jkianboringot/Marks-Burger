@@ -32,20 +32,11 @@ class IngredientForm
                     ->step(0.01),
 
 
-                    
-                Repeater::make('ingredientBranch')->label('Branch')
-                    ->schema([
-                        Select::make('branch_id')
-                            ->options(Branch::pluck('location', 'id'))
-                            ->required(),
 
-                        TextInput::make('quantity')
-                            ->numeric()
-                            ->required()
-                            ->default(1)
-                            ->minValue(0.01)
-                            ->step(0.01),
-                    ])
+                Select::make('branches')
+                    ->relationship('branches', 'location')
+                    ->multiple()
+
             ]);
     }
 }

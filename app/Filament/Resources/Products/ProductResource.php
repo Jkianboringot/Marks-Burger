@@ -20,7 +20,7 @@ class ProductResource extends Resource
     protected static ?string $model = Product::class;
 
     protected static bool $isTransaction=true;//enable transaction atomic operation for all create,edit,delete in products
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-cube';
 
     public static function form(Schema $schema): Schema
     {
@@ -39,6 +39,7 @@ class ProductResource extends Resource
         ];
     }
 
+ 
     public static function getPages(): array
     {
         return [

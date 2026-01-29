@@ -19,7 +19,7 @@ class ReturnedResource extends Resource
 {
     protected static ?string $model = Returned::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-arrow-uturn-left';
 
     public static function form(Schema $schema): Schema
     {
@@ -37,7 +37,7 @@ class ReturnedResource extends Resource
             ProductsRelationManager::class
         ];
     }
-
+   
     public static function getPages(): array
     {
         return [

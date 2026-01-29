@@ -18,8 +18,7 @@ use Filament\Tables\Table;
 class IngredientResource extends Resource
 {
     protected static ?string $model = Ingredient::class;
-
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-cube';
 
     public static function form(Schema $schema): Schema
     {
@@ -37,7 +36,10 @@ class IngredientResource extends Resource
             // BranchesRelationManager::class
         ];
     }
-
+    //    public static function getNavigationIcon(): string
+    //     {
+    //         return 'heroicon-o-puzzle'; // Use any Heroicon or your custom icon
+    //     }
     public static function getPages(): array
     {
         return [

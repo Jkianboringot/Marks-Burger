@@ -18,7 +18,7 @@ class BranchResource extends Resource
 {
     protected static ?string $model = Branch::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon ='heroicon-o-map';
 
     public static function form(Schema $schema): Schema
     {
@@ -37,6 +37,7 @@ class BranchResource extends Resource
         ];
     }
 
+  
     public static function getPages(): array
     {
         return [

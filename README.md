@@ -24,25 +24,25 @@ Before this system:
 
 ---
 
-## 🔹 Impact
--  Reduced order errors and waiting times.  
--  Minimized lost sales from out-of-stock ingredients.  
--  Gave managers control and visibility across all branches.  
--  Supported business growth by making expansion more manageable.
+## 🔹 Architecture Diagram
 
----
+```mermaid
+flowchart LR
 
-## 🔹 Technologies Used
-- **Frontend:** HTML, CSS, JavaScript  
-- **Backend:** PHP / Laravel (or your backend framework)  
-- **Database:** MySQL 
-- **Web-based Interface:** Accessible on any browser for staff and managers  
-- **Optional:** Any libraries or tools for charts, dashboards, or notifications  
+A[Branch Staff<br/>Cashier • Crew]
+B[Branch Managers]
+C[Business Owner]
 
----
+A --> D[Web Browser POS]
+B --> D
+C --> D
 
-## 🔹 Who Benefits
-- **Staff:** Faster, easier order handling.  
-- **Managers:** Clear visibility of inventory and branch needs.  
-- **Owners:** Scalable operations that grow with the business.
+D --> E[Frontend<br/>HTML • CSS • JS]
+E --> F[Laravel Backend API]
 
+F --> G[(Central Database<br/>MySQL/MariaDB)]
+
+F --> H[Inventory Module]
+F --> I[Order/Transaction Module]
+F --> J[Notifications & Alerts]
+F --> K[Branch Dashboard]

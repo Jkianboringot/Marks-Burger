@@ -9,6 +9,7 @@ use Filament\Resources\Pages\EditRecord;
 class EditAddIngredient extends EditRecord
 {
     protected static string $resource = AddIngredientResource::class;
+      protected array $pivotData;
 
     protected function getHeaderActions(): array
     {
@@ -16,4 +17,35 @@ class EditAddIngredient extends EditRecord
             DeleteAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeFill(array $data): array
+    {   
+        $data['AddIngredient']=$this->record->ingredients->map(function ($ingredient){
+           return [ 'ingredient_id' => $ingredient->ingredient_id,
+                        'quantity' => $ingredient->pivot->quantity];
+        })->toArray();
+       
+        return $data;
+    }
+
+
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        $this->pivotData = $data['AddIngredient'];
+
+        unset($data['AddIngredient']);
+
+        return $data;
+    }
+
+    protected function afterCreate(){
+        if(!empty($this->pivotData)){
+            foreach($this->pivotData as $pData){
+                $this->record->ingredients->attach($pData['ingredient_id'],[
+                    'quantity'=>$pData['quantity']
+                ]);
+            }
+        }
+    }
+
 }

@@ -27,7 +27,7 @@ class AddIngredientsRelationManager extends RelationManager
         return $schema
             ->components([
                   Select::make('ingredient_id')
-                    ->label('Product')
+                    ->label('Ingredient')
                     ->options(Ingredient::pluck('name', 'id'))
                     ->required(),
 
@@ -37,10 +37,7 @@ class AddIngredientsRelationManager extends RelationManager
                     ->default(1)
                     ->minValue(0.01),
 
-                TextInput::make('price')
-                    ->numeric()
-                    ->required()
-                    ->minValue(0.01),
+                    
             ]);
     }
 

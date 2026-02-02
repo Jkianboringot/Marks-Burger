@@ -32,9 +32,9 @@ class EditAddIngredient extends EditRecord
 
 
 
-    protected function mutateFormDataBeforeCreate(array $data): array
+    protected function mutateFormDataBeforeSave(array $data): array
     {
-        $this->pivotData = $data['AddIngredient'];
+        $this->pivotData = $data['AddIngredient']??[];
 
         unset($data['AddIngredient']);
 
@@ -43,14 +43,19 @@ class EditAddIngredient extends EditRecord
 
 
 
-    protected function afterCreate()
+    protected function afterSave()
     {
+        $data = [];
         if (!empty($this->pivotData)) {
             foreach ($this->pivotData as $item) {
-                $this->record->ingredients()->attach($item['ingredient_id'], [
+                $data[$item['ingredient_id']] = [
                     'quantity' => $item['quantity'],
-                ]);
+                ];
             }
+
+            $this->record->ingredients()->sync($data);
         }
     }
+
+   
 }

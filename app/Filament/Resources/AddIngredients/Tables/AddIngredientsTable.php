@@ -14,7 +14,13 @@ class AddIngredientsTable
     {
         return $table
             ->columns([
-                TextColumn::make('id')
+               TextColumn::make('id')
+                ,
+                TextColumn::make('ingredients.name'),
+                TextColumn::make('ingredients.quantity')
+                ->label('QTY'),
+                // TextColumn::make('ingredients.price')
+                // ->label('PRIce'),
             ])
             ->filters([
                 //

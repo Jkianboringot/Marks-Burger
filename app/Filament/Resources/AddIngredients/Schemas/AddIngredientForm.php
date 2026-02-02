@@ -38,7 +38,7 @@ class AddIngredientForm
                     ])
                     ->columns(3)
                     ->defaultItems(0)
-                    ->addActionLabel('Add Product')
+                    ->addActionLabel('Add New Stock')
                     ->reorderable(false)
                     ->collapsible()
                     ->collapsed(false)

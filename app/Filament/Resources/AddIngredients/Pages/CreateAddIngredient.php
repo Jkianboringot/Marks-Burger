@@ -20,10 +20,10 @@ class CreateAddIngredient extends CreateRecord
     }
 
     protected function afterCreate(){
-        if(!empty($this->pivotData)){
-            foreach($this->pivotData as $pData){
-                $this->record->ingredients->attach($pData['ingredient_id'],[
-                    'quantity'=>$pData['quantity']
+        if (!empty($this->pivotData)) {
+            foreach ($this->pivotData as $item) {
+                $this->record->ingredients()->attach($item['ingredient_id'], [
+                    'quantity' => $item['quantity'],
                 ]);
             }
         }

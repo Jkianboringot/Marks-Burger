@@ -8,21 +8,34 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Ingredient extends Model
 {
-    protected $fillable = ['name', 'threshold', 'category_id', 
-    'unit_id', 'unit_quantity'];
+    protected $fillable = [
+        'name',
+        'threshold',
+        'category_id',
+        'unit_id',
+        'unit_quantity'
+    ];
 
-    public function products(): BelongsToMany{
-        return $this->belongsToMany(Product::class,'product_ingredients');
+    public function products(): BelongsToMany
+    {
+        return $this->belongsToMany(Product::class, 'product_ingredients');
     }
 
-        public function branches(): BelongsToMany{
-        return $this->belongsToMany(Branch::class,'ingredient_branchs');
+    public function branches(): BelongsToMany
+    {
+        return $this->belongsToMany(Branch::class, 'ingredient_branchs');
+    }
+
+    public function addIngredients(): BelongsToMany
+    {
+        return $this->belongsToMany(AddIngredient::class, 'add_to_ingredient')
+            ->withPivot(['quantity']);
     }
 
 
 
-
-       public function category(): BelongsTo{
+    public function category(): BelongsTo
+    {
         return $this->belongsTo(Ingredient::class);
-      }
+    }
 }

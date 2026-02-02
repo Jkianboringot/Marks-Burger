@@ -8,10 +8,18 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class AddIngredient extends Model
 {
-    protected $guard=['id','created_at','updated_at'];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    protected function ingredients(): BelongsToMany{
-        return $this->belongsToMany(Ingredient::class,'add_to_ingredient')
-        ->withPivot(['quantity']);
+    public function ingredients(): BelongsToMany
+    {
+        return $this->belongsToMany(Ingredient::class, 'add_to_ingredient')
+            ->withPivot(['quantity']);
     }
+
+    
+    // public function add_ingredients(): BelongsToMany
+    // {
+    //     return $this->belongsToMany(AddIngredient::class, 'add_to_ingredient')
+    //         ->withPivot(['quantity']);
+    // }
 }

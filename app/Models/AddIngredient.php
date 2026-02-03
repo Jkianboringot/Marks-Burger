@@ -16,6 +16,13 @@ class AddIngredient extends Model
             ->withPivot(['quantity']);
     }
 
+      public function branches(): BelongsToMany
+    {
+        return $this->belongsToMany(Branch::class, 'add_to_ingredient')
+            ->withPivot(['quantity']);
+        ;
+    }
+
     
     // public function add_ingredients(): BelongsToMany
     // {

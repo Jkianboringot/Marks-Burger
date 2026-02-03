@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\AddIngredients\Schemas;
 
+use App\Models\Branch;
 use App\Models\Ingredient;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
@@ -25,7 +26,13 @@ class AddIngredientForm
                             ->distinct()
                         // ->disableOptionsWhenSelectedInSiblingRepeaterItems()
                         ,
-
+                        Select::make('branch_id')
+                            ->label('Ingredient')
+                            ->options(Branch::pluck('name', 'id'))
+                            ->searchable()
+                            ->required()
+                            ->distinct() //make sure that only want can be select
+                        ,
 
 
                         TextInput::make('quantity')

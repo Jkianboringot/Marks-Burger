@@ -11,16 +11,18 @@ class Branch extends Model
   protected $fillable = ['location', 'type_branch'];
 
 
-  public function ingredients(): BelongsToMany
+  // public function ingredients(): BelongsToMany
+  // {
+  //   return $this->belongsToMany(Ingredient::class, 'ingredient_branchs');
+  // }
+
+
+
+  public function addIngredients(): HasMany
   {
-    return $this->belongsToMany(Ingredient::class, 'ingredient_branchs');
+    return $this->hasMany(AddIngredient::class);
   }
 
-  public function addIngredients(): BelongsToMany
-  {
-    return $this->belongsToMany(AddIngredient::class, 'add_to_ingredient')
-      ->withPivot(['quantity']);
-  }
   public function order(): HasMany
   {
     return $this->hasMany(Order::class);

@@ -33,10 +33,6 @@ class IngredientForm
 
 
 
-                Select::make('branches')
-                    ->relationship('branches', 'location')
-                    ->multiple()
-
             ]);
     }
 }

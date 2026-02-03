@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('add_ingredients', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('branch_id')->constrained();
             $table->timestamps();
         });
     }

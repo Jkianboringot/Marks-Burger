@@ -21,6 +21,8 @@ class AddIngredientsTable
                 ->label('QTY'),
                 // TextColumn::make('ingredients.price')
                 // ->label('PRIce'),
+
+                
             ])
             ->filters([
                 //

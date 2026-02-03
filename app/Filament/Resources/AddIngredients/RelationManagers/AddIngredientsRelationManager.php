@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\AddIngredients\RelationManagers;
 
+use App\Models\Branch;
 use App\Models\Ingredient;
 use Filament\Actions\AttachAction;
 use Filament\Actions\BulkActionGroup;
@@ -36,6 +37,15 @@ class AddIngredientsRelationManager extends RelationManager
                     ->required()
                     ->default(1)
                     ->minValue(0.01),
+
+                      Select::make('branch_id')
+                    ->label('Branch')
+                    ->options(Branch::pluck('name', 'id'))
+                    ->required(),
+
+
+                 
+
 
                     
             ]);

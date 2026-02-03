@@ -24,6 +24,9 @@ class ProductForm
                 Select::make('ingredient_id')
                     ->relationship('ingredients','name')
                     ->multiple()
+
+
+                    
                 // TextInput::make('description'),
 
 

@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('ingredient_branchs', function (Blueprint $table) {
             $table->foreignId('branch_id')->constrained();
             $table->foreignId('ingredient_id')->constrained();
-            $table->timestamps();
         });
     }
 

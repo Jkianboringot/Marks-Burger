@@ -25,14 +25,11 @@ class IngredientsTable
                 TextColumn::make('unit_quantity')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+
+                TextColumn::make('Stock')
+                    // //will not work if its product_count needs to be prural
+                    ->counts('addIngredients')->sortable()
+                    ->label('Ingredients'), //  aliase name
 
                 TextColumn::make('branches.location')->badge()
 

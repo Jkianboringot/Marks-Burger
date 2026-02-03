@@ -18,7 +18,7 @@ use Filament\Tables\Table;
 
 class ProductIngredientRelationManager extends RelationManager
 {
-    protected static string $relationship = 'product_ingredient';
+    protected static string $relationship = 'ingredients';
 
 
 //pretty sure i dint need this, since we are just conencting with id which filament can do 

@@ -37,7 +37,7 @@ class ProductResource extends Resource
     {
         return [
             // TagsRelationManager::class,
-            ProductIngredientRelationManager::class
+            // ProductIngredientRelationManager::class uncomment this to bring back table below edit or create
         ];
     }
 

@@ -17,7 +17,7 @@ class AddIngredientsTable
                TextColumn::make('id')
                 ,
                 TextColumn::make('ingredients.name'),
-                TextColumn::make('ingredients.quantity')
+                TextColumn::make('ingredients.pivot.quantity')
                 ->label('QTY'),
                 // TextColumn::make('ingredients.price')
                 // ->label('PRIce'),

@@ -28,10 +28,14 @@ class IngredientsTable
 
                 TextColumn::make('Stock')
                     // //will not work if its product_count needs to be prural
-                    ->counts('addIngredients')->sortable()
+                 ->getStateUsing(function ($record) {
+        return $record->addIngredients
+            ->sum(fn ($add) => $add->pivot->quantity);
+    })
+
                     ->label('Stock'), //  aliase name
 
-                TextColumn::make('branches.location')->badge()
+            
 
             ])
             ->filters([

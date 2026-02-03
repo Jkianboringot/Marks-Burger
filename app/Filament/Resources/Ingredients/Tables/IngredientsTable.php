@@ -29,7 +29,7 @@ class IngredientsTable
                 TextColumn::make('Stock')
                     // //will not work if its product_count needs to be prural
                     ->counts('addIngredients')->sortable()
-                    ->label('Ingredients'), //  aliase name
+                    ->label('Stock'), //  aliase name
 
                 TextColumn::make('branches.location')->badge()
 

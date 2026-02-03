@@ -21,7 +21,7 @@ class AddIngredientsTable
                 ->label('QTY'),
                 // TextColumn::make('ingredients.price')
                 // ->label('PRIce'),
-
+                TextColumn::make('branch.location')
                 
             ])
             ->filters([

@@ -15,6 +15,14 @@ class AddIngredientForm
     {
         return $schema
             ->components([
+                Select::make('branch_id')
+                    ->label('Branch')
+                    ->options(Branch::pluck('location', 'id'))
+                    ->searchable()
+                    ->required()
+                    ->distinct() //make sure that only want can be select
+                ,
+
                 Repeater::make('AddIngredient')
                     ->label('Ingredient')
                     ->schema([
@@ -26,13 +34,6 @@ class AddIngredientForm
                             ->distinct()
                         // ->disableOptionsWhenSelectedInSiblingRepeaterItems()
                         ,
-                        Select::make('branch_id')
-                            ->label('Ingredient')
-                            ->options(Branch::pluck('name', 'id'))
-                            ->searchable()
-                            ->required()
-                            ->distinct() //make sure that only want can be select
-                        ,
 
 
                         TextInput::make('quantity')
@@ -43,7 +44,7 @@ class AddIngredientForm
                             ->step(0.01),
 
                     ])
-                    ->columns(3)
+                    ->columns(2)
                     ->defaultItems(0)
                     ->addActionLabel('Add New Stock')
                     ->reorderable(false)

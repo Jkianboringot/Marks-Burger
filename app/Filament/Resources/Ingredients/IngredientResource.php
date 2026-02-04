@@ -30,6 +30,7 @@ class IngredientResource extends Resource
         return IngredientsTable::configure($table);
     }
 
+   
     public static function getRelations(): array
     {
         return [

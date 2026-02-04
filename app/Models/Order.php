@@ -13,7 +13,7 @@ class Order extends Model
     use SoftDeletes;
     protected $fillable = ['branch_id', 'status'];
 
-
+    protected $casts = ['product_order'=>'integer'];
 
     public function products()
     {

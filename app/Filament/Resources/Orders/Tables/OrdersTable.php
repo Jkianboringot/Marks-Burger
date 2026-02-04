@@ -30,7 +30,7 @@ class OrdersTable
                 TextColumn::make('id')
                 ,
                 TextColumn::make('products.name'),
-                TextColumn::make('product.quantity')
+                TextColumn::make('products.pivot.quantity')
                 ->label('QTY'),
                 // TextColumn::make('products.price')
                 // ->label('PRIce'),

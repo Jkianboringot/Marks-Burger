@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Products\Tables;
 use App\Enums\ProductStatusEnum;
 use App\Filament\Resources\Categories\CategoryResource;
 use App\Filament\Resources\Products\ProductResource;
+use App\Models\Ingredient;
 use App\Models\Product;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
@@ -39,9 +40,17 @@ class ProductsTable
                     ->sortable(), //sort by column
 
 
-                TextColumn::make('ingredients.name')->badge()
+                TextColumn::make('ingredients.name')->badge(),
 
 
+                // TextColumn::make('Stock')
+                //     // //will not work if its product_count needs to be prural
+                //     ->getStateUsing(function ($record) {
+                //     //  return $record->productStock();
+                //     // dd($record->ingredients());
+                //     })
+
+                //     ->label('Stock'), //  aliase name
 
 
 

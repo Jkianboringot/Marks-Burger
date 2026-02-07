@@ -33,29 +33,55 @@ class Ingredient extends Model
     {
 
         return Order::join('product_orders', 'orders.id', '=', 'product_orders.order_id')
-        ->sum('product_orders.quantity');
+            ->sum('product_orders.quantity');
     }
 
-    public function stock(): int
+    public function returns(): int
     {
-        return max(($this->addIngredients()->sum('add_to_ingredient.quantity') ?? 0)
-         -$this->orders()
-         ,0);
-        //okay currently this works but we need to have checks like making sure a transaction will not go through if 
-        //this become zero, that is done in resource i think, also i need to cache this, or make it ledger-derived balance
-        //for system or caching it somewhere and if its not auto calculte it we cal this, becuase am sure, this is heavy in 
-        //query especially because of orders method, which has no relation with ingredient, make this better, and think it over
-        //and over again
+
+        return Returned::join('product_returns', 'returneds.id', '=', 'product_returns.returned_id')
+            ->sum('product_returns.quantity');
+    }
+
+    public function ingredientStock(): int
+    {
+        return ($this->addIngredients()->sum('add_to_ingredient.quantity') ?? 0)
+                - $this->returns()
+                - $this->orders()
+        ;
+
+
+        /*  this is respoble for increase and decreasing stock by use ORM:
+        here is raw sql
+        //  SELECT SUM(add_to_ingredient.quantity) AS total_quantity
+        // FROM ingredients
+        // INNER JOIN add_to_ingredient
+        //     ON ingredients.id = add_to_ingredient.ingredient_id
+         WHERE add_to_ingredient.parent_id = 5;
+
+            this pretty much just take the sum of all ingredient quantity  in pivot , 
+            then it it either add or decrease
+
+            this is a visualize docs in tablet, i nreallly dont fully understand this yet
 
 
 
-        //         // - ($this->addIngredients()->sum('add_to_ingredient.quantity') ?? 0),
-        //         //ok now the problem how the fuck are we suppose to decrease i really did not design this well did i
-        //         //i need to figure out how can i conenct to product_order in here when i do that , am done with this,
-        //         //i could just brute force it for now and call order,lets try temporarly
 
-        //     0
-        // );
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+*/
     }
 
     public function category(): BelongsTo

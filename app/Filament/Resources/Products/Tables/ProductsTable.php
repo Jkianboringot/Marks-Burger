@@ -43,14 +43,14 @@ class ProductsTable
                 TextColumn::make('ingredients.name')->badge(),
 
 
-                // TextColumn::make('Stock')
-                //     // //will not work if its product_count needs to be prural
-                //     ->getStateUsing(function ($record) {
-                //     //  return $record->productStock();
-                //     // dd($record->ingredients());
-                //     })
+                TextColumn::make('Stock')
+                    // //will not work if its product_count needs to be prural
+                    // ->getStateUsing(function ($record) {
+                    // //  return $record->productStock();
+                    // // dd($record->ingredients());
+                    // })
 
-                //     ->label('Stock'), //  aliase name
+                    ->label('Stock'), //  aliase name
 
 
 
@@ -106,11 +106,11 @@ class ProductsTable
 
                 // SelectFilter::make(name: 'status') //filter with no relation
                 //     ->options(ProductStatusEnum::class),
-                Filter::make('created_at') //normal columns
-                    ->schema([
-                        DatePicker::make('created_at')
+                // Filter::make('created_at') //normal columns
+                //     ->schema([
+                //         DatePicker::make('created_at')
 
-                    ])
+                //     ])
 
                 // ->query(fn (Builder $query): Builder=>$query->where('is_featured',true))
             ], layout: FiltersLayout::AboveContent)

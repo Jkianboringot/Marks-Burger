@@ -50,31 +50,18 @@ class Product extends Model
     }
 
 
+/*
+i think i need to use case for this to work
+first we need to access product join that with product ingedient, then check if this still has stock, but
+that think about this is, we need to knw the stock of ingedient, so e becuase product_ingredient does not really tell me
+anything about stock it just tells me the connection between product and ingredient, and i cannot really use return adn order
+here because that would mean am jsut recreating what is in stock, so either i do this or we can access the method
+in ingedient stock and put it here,
 
+i know we ahve to use case sql for this, lets ignore this for now, and make the cashier side, mostly the livewire controller 
+and view, then figure this out, also viszualize what you did in ingredient to the tablet
 
-    // public function orders(): int
-    // {
-
-    //     return Order::join('product_orders', 'orders.id', '=', 'product_orders.order_id')
-    //         ->sum('product_orders.quantity');
-    // }
-
-    // public function returns(): int
-    // {
-
-    //     return Returned::join('product_returns', 'returneds.id', '=', 'product_returns.returned_id')
-    //         ->sum('product_returns.quantity');
-    // }
-
-    // public function ingredientStock(): int
-    // {
-    //     return max(($this->addIngredients()->sum('add_to_ingredient.quantity') ?? 0)
-    //             - $this->returns()
-    //             - $this->orders(),
-    //         0
-    //     );
-
-
+*/
 
 
 

@@ -57,7 +57,8 @@ class Ingredient extends Model
     {
 
         return Returned::join('product_returns', 'returneds.id', '=', 'product_returns.returned_id')
-            ->join('returneds')->sum('product_returns.quantity');
+            ->join('product_returns','product_ingredients.product_id','=','product_returns.product_id')
+            ->where('product_ingredients.product_id','=',$this->id)->sum('product_returns.quantity');
     }
 
     public function ingredientStock(): int

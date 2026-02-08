@@ -23,13 +23,7 @@ class ProductForm
                 TextInput::make('price')->label('price')
                     ->numeric()->step(0.01)->minValue(0)->required(),
 
-                    
-                Select::make('ingredient_id')
-                    ->relationship('ingredients','name')
-                    ->multiple()
-,
-
-                       Repeater::make('ingredientProducts')
+                Repeater::make('ingredientProducts')
                     ->label('Ingredient')
                     ->schema([
                         Select::make('ingredient_id')
@@ -38,19 +32,18 @@ class ProductForm
                             ->searchable()
                             ->required()
                             ->distinct()
-                            ->disableOptionsWhenSelectedInSiblingRepeaterItems()
-                            ,
+                            ->disableOptionsWhenSelectedInSiblingRepeaterItems(),
 
-                          
-                        
+
+
                         TextInput::make('quantity')
                             ->numeric()
                             ->required()
                             ->default(1)
                             ->minValue(0.01)
                             ->step(0.01),
-                        
-                      
+
+
                     ])
                     ->columns(3)
                     ->defaultItems(0)
@@ -58,9 +51,9 @@ class ProductForm
                     ->reorderable(false)
                     ->collapsible()
                     ->collapsed(false),
-                    // ->itemLabel(fn (array $state): ?string => 
-                    //     Ingredient::find($state['product_id'] ?? null)?->name ?? 'New Product'
-                    // ),
+                // ->itemLabel(fn (array $state): ?string => 
+                //     Ingredient::find($state['product_id'] ?? null)?->name ?? 'New Product'
+                // ),
 
                 // TextInput::make('description'),
 
@@ -72,7 +65,7 @@ class ProductForm
                 //one to many relation
                 //similar to relation below but this time, its has a new table like component
                 //instead of a dropdown, its good if you want to be minimial, but modern adn high tech at the same time
-                
+
                 //     ModalTableSelect::make('category_id')
                 //     ->relationship('category','name')
                 //     ->tableConfiguration(CategoriesTable::class)

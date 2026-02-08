@@ -12,6 +12,7 @@ class ProductIngredient extends Model
     protected $fillable = [
         'product_id',
         'ingredient_id',
+        'quantity'
     ];
     
    

@@ -17,8 +17,38 @@ class EditProduct extends EditRecord
         ];
     }
 
-    // protected function getRedirectUrl(): string
-    // {
-    //     return $this->getResource()::getUrl('index');
-    // } local redirect or component redirect
+    protected array $pivotData;
+
+    protected function mutateFormDataBeforeFill(array $data): array
+    {
+        $data['ingredientProducts'] = $this->record->ingredients->map(function ($ingredient) {
+            return [
+                'ingredient_id' => $ingredient->id,
+                'quantity' => $ingredient->quantity,
+            ];
+        })->toArray();
+        return $data;
+    }
+
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+
+        $this->pivotData = $data['ingredientProducts'] ?? [];
+
+        unset($data['ingredientProducts']);
+        return $data;
+    }
+
+
+    protected function afterCreate()
+    {
+
+        if (!empty($this->pivotData)) {
+            foreach ($this->pivotData as $pData) {
+                $this->record->ingredients()->attach($pData['ingredient_id'], [
+                    'quantity' => $pData['quantity'],
+                ]);
+            }
+        }
+    }
 }

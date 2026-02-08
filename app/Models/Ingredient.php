@@ -20,7 +20,8 @@ class Ingredient extends Model
 
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'product_ingredients');
+        return $this->belongsToMany(Product::class, 'product_ingredients')
+        ->withPivot(['quantity']);
     }
 
 
@@ -41,11 +42,11 @@ class Ingredient extends Model
         return Product::join('product_ingredients', 'products.id', '=', "product_ingredients.product_id")->count();
     }
 
-    public function returns(): void
+    public function returns(): int
     {
 
-        dd(Returned::join('product_returns', 'returneds.id', '=', 'product_returns.returned_id')
-            ->sum('product_returns.quantity'));
+        return Returned::join('product_returns', 'returneds.id', '=', 'product_returns.returned_id')
+            ->sum('product_returns.quantity');
     }
 
     public function ingredientStock(): int

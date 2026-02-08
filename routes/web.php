@@ -6,27 +6,23 @@ Route::get('/', function () {
     return redirect('dashboard');
 });
 
-Route::prefix('cashier')->group(function () {
-    Route::get('sold/index', function () {
-            return redirect('dashboard');
-
-    })->name('order_index');
-    Route::get('sold/create', App\Livewire\Cashier\Orders\Create::class)->name('order_create');
-
-    Route::get('returns/index', App\Livewire\Cashier\Returns\Index::class)->name('return_index');
-    Route::get('returns/create', App\Livewire\Cashier\Returns\Create::class)->name('return_create');
-});
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', fn() => redirect('admin'))->name('dashboard');
+    Route::get('/dashboard', fn () => redirect('admin'))->name('dashboard');
 
 
+    Route::prefix('cashier')->group(function (){
+        Route::get('orders/index',App\Livewire\Cashier\Orders\index::class)->name('order_index');
+        Route::get('orders/create',App\Livewire\Cashier\Orders\Create::class)->name('order_create');
 
+        Route::get('returns/index',App\Livewire\Cashier\Returns\Index::class)->name('return_index');
+        Route::get('returns/create',App\Livewire\Cashier\Returns\Create::class)->name('return_create');
+    });
 
+    
     // i will be using this so that i can seperate the admin panel and it having full filament suport no issues
     // and i can use web as a route for the cashier side for livewire blade
     //probable will create a role check but that sould be easy because i can make it the be the same as prev system
@@ -34,5 +30,5 @@ Route::middleware([
 
     //i might not even need to check role, i can just have a button that show if they want to login as admin, manager, or cashiers
     //and check it here adn base on it have login for that, its like portal for catsu
-
+    
 });

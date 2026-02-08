@@ -29,9 +29,9 @@ class IngredientsTable
                 TextColumn::make('Stock')
                     // //will not work if its product_count needs to be prural
                  ->getStateUsing(function ($record) {
-        // return $record->orders()
+        return $record->sold()
 
-        dd($record->orders())
+        // dd($record->sold())
            ;
     })
 

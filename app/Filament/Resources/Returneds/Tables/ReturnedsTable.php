@@ -14,7 +14,7 @@ class ReturnedsTable
     {
         return $table
             ->columns([
-                TextColumn::make('order.id')
+                TextColumn::make('return.id')
                     ->searchable(),
                 TextColumn::make('branch.id')
                     ->searchable(),

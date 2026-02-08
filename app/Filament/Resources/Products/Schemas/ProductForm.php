@@ -4,9 +4,12 @@ namespace App\Filament\Resources\Products\Schemas;
 
 use App\Enums\ProductStatusEnum;
 use App\Filament\Tables\CategoriesTable;
+use App\Models\Ingredient;
 use Filament\Forms\Components\ModalTableSelect;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\ToggleColumn;
 
@@ -24,9 +27,41 @@ class ProductForm
                 Select::make('ingredient_id')
                     ->relationship('ingredients','name')
                     ->multiple()
+,
 
+                       Repeater::make('ingredientProducts')
+                    ->label('Ingredient')
+                    ->schema([
+                        Select::make('ingredient_id')
+                            ->label('Ingredient')
+                            ->options(Ingredient::pluck('name', 'id'))
+                            ->searchable()
+                            ->required()
+                            ->distinct()
+                            ->disableOptionsWhenSelectedInSiblingRepeaterItems()
+                            ,
 
-                    
+                          
+                        
+                        TextInput::make('quantity')
+                            ->numeric()
+                            ->required()
+                            ->default(1)
+                            ->minValue(0.01)
+                            ->step(0.01),
+                        
+                      
+                    ])
+                    ->columns(3)
+                    ->defaultItems(0)
+                    ->addActionLabel('Add Product')
+                    ->reorderable(false)
+                    ->collapsible()
+                    ->collapsed(false),
+                    // ->itemLabel(fn (array $state): ?string => 
+                    //     Ingredient::find($state['product_id'] ?? null)?->name ?? 'New Product'
+                    // ),
+
                 // TextInput::make('description'),
 
 

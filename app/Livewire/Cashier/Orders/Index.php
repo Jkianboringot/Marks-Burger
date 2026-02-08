@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Cashier\Order;
+namespace App\Livewire\Cashier\Orders;
 
 use Livewire\Component;
 

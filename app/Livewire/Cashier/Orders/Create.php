@@ -8,6 +8,6 @@ class Create extends Component
 {
     public function render()
     {
-        return view('livewire.cashier.order.create');
+        return view('livewire.cashier.orders.create');
     }
 }

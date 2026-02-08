@@ -14,6 +14,15 @@ Route::middleware([
     Route::get('/dashboard', fn () => redirect('admin'))->name('dashboard');
 
 
+    Route::prefix('cashier')->group(function (){
+        Route::get('orders/index',[App\Livewire\Cashier\Orders\index::class,'index'])->name('order_index');
+        Route::get('orders/create',[App\Livewire\Cashier\Orders\Create::class,'create'])->name('order_create');
+
+        Route::get('returns/index',[App\Livewire\Cashier\Returns\Index::class,'index'])->name('return_index');
+        Route::get('returns/create',[App\Livewire\Cashier\Returns\Create::class,'create'])->name('return_create');
+    });
+
+    
     // i will be using this so that i can seperate the admin panel and it having full filament suport no issues
     // and i can use web as a route for the cashier side for livewire blade
     //probable will create a role check but that sould be easy because i can make it the be the same as prev system

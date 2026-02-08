@@ -8,6 +8,6 @@ class Index extends Component
 {
     public function render()
     {
-        return view('livewire.cashier.order.index');
+        return view('livewire.cashier.orders.index');
     }
 }

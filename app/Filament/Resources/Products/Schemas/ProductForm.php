@@ -45,7 +45,7 @@ class ProductForm
 
 
                     ])
-                    ->columns(3)
+                    ->columns(2)
                     ->defaultItems(0)
                     ->addActionLabel('Add Product')
                     ->reorderable(false)

@@ -32,28 +32,43 @@ class Ingredient extends Model
     }
 
 
-    public function sold(): int
-    {
-        // 1. product_order->product->ingredient_product 
-        // dd(ProductOrder::join('products','product_orders.product_id','=',"products.id")
-        // ->join('product_ingredients','products.id','=','product_ingredients.product_id')->get('product_ingredients.ingredient_id'));
+  
+        //i was missing hte where, i thougth of doing it by i dont really know what id to point to, thats why i ruled out doing where
+        //becuase i just op to how relation like addIngredient work, but that is not possible since productOrder is not a relation
+        //but $this->id solve that, since we are in Ingredient model we can do $this->id becuase that model has an automatic $this-id
+        //that give you the id of an instance , and this i did not know , so maybe read about it, read more laravel docs, you need more 
+        //knowledge in laravel to be able to create a more solid plan in the future
 
-        // 2. product->ingredient_product
-        return Product::join('product_ingredients', 'products.id', '=', "product_ingredients.product_id")->count();
-    }
+
+
+
+
+// // dd(ProductOrder::join('products','product_orders.product_id','=',"products.id")
+// //         ->join('product_ingredients','products.id','=','product_ingredients.product_id')->sum('product_ingredients.quantity')
+// // )
+// // ;
+//         // 2. product->ingredient_product
+//             // -this is not good, everytime we add a new product it decrease in ingredient, this the job of order
+//         // return Product::join('product_ingredients', 'products.id', '=', "product_ingredients.product_id")->sum('product_ingredients.quantity');
+
+
 
     public function returns(): int
     {
 
         return Returned::join('product_returns', 'returneds.id', '=', 'product_returns.returned_id')
-            ->sum('product_returns.quantity');
+            ->join('returneds')->sum('product_returns.quantity');
     }
 
     public function ingredientStock(): int
     {
-        return ($this->addIngredients()->sum('add_to_ingredient.quantity') ?? 0)
-            - $this->returns()
-            - $this->sold();
+        return max(($this->addIngredients()->sum('add_to_ingredient.quantity') ?? 0)
+            - $this->returns(),0);
+
+// ($this->products()->sum('product_ingredients.quantity') ?? 0)
+// this one work and decrease the ingredient that is only connected to product, but its wrong, because it decrease
+// the ingredient everytime a product is created
+
 
 
         /*  this is respoble for increase and decreasing stock by use ORM:

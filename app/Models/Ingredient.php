@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Pivots\ProductIngredient;
 use App\Models\Pivots\ProductOrder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -30,25 +31,28 @@ class Ingredient extends Model
     }
 
 
-    public function sold(): void
+    public function sold(): int
     {
+        // 1. product_order->product->ingredient_product 
+        // dd(ProductOrder::join('products','product_orders.product_id','=',"products.id")
+        // ->join('product_ingredients','products.id','=','product_ingredients.product_id')->get('product_ingredients.ingredient_id'));
 
-dd(ProductOrder::join('products','product_orders.product_id','=',"products.id")
-->join('product_ingredients','products.id','=','product_ingredients.product_id')->get('*'));
+        // 2. product->ingredient_product
+        return Product::join('product_ingredients', 'products.id', '=', "product_ingredients.product_id")->count();
     }
 
-    public function returns(): int
+    public function returns(): void
     {
 
-        return Returned::join('product_returns', 'returneds.id', '=', 'product_returns.returned_id')
-            ->sum('product_returns.quantity');
+        dd(Returned::join('product_returns', 'returneds.id', '=', 'product_returns.returned_id')
+            ->sum('product_returns.quantity'));
     }
 
     public function ingredientStock(): int
     {
         return ($this->addIngredients()->sum('add_to_ingredient.quantity') ?? 0)
             - $this->returns()
-            - $this->orders();
+            - $this->sold();
 
 
         /*  this is respoble for increase and decreasing stock by use ORM:

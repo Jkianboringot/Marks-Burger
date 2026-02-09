@@ -7,6 +7,12 @@
 }
 
 
-.cashier-bg{
-    background-image: radial-gradient(circle,rgb(241, 194, 105),rgb(248, 170, 25));
+:root{
+--orange: 30 100% 50%; /* bright orange */
+--orange-light: 30 100% 65%; /* lighter version for gradients */
 }
+
+.cashier-bg{
+    background: radial-gradient(circle,  hsl(var(--orange-light)),hsl(var(--orange)));
+}
+

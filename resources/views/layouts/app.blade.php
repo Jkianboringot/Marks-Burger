@@ -17,12 +17,19 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased" >
         <x-banner />
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+        <!-- this guy controll the background -->
+         <!-- i should probably understnad what is that min-h-screen thing base on the
+          name its for view port or somehting like min size fo screen -->
+        <div class="min-h-screen cashier-bg">
 
+        <!-- this is what show Navigation on top, make this footer
+         i will remove it for now though -->
+        {{-- @livewire('navigation-menu') --}}
+
+            
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">

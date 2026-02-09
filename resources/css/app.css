@@ -5,3 +5,8 @@
 [x-cloak] {
     display: none;
 }
+
+
+.cashier-bg{
+    background-image: radial-gradient(circle,rgb(241, 194, 105),rgb(248, 170, 25));
+}

@@ -5,8 +5,9 @@
 [x-cloak] {
     display: none;
 }
-
-
+/* 
+variable is define in root becuase they need to be one of the think that need to exist fist
+before anything */
 :root{
 --orange: 30 100% 50%; /* bright orange */
 --orange-light: 30 100% 65%; /* lighter version for gradients */

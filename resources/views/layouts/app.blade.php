@@ -23,7 +23,7 @@
         <!-- this guy controll the background -->
          <!-- i should probably understnad what is that min-h-screen thing base on the
           name its for view port or somehting like min size fo screen -->
-        <div class="min-h-screen cashier-bg">
+        <div class=" cashier-bg">
 
         <!-- this is what show Navigation on top, make this footer
          i will remove it for now though -->

@@ -8,21 +8,53 @@
 /* 
 variable is define in root becuase they need to be one of the think that need to exist fist
 before anything */
-:root{
---orange: 30 100% 50%; /* bright orange */
---orange-light: 30 100% 65%; /* lighter version for gradients */
+:root {
+    --orange: 30 100% 50%; /* bright orange */
+    --orange-light: 30 100% 65%; /* lighter version for gradients */
 }
 
-.cashier-bg{
-    background: radial-gradient(circle,  hsl(var(--orange-light)),hsl(var(--orange)));
+.cashier-container {
+    display: flex;
+
+    height: 50vh;
+    width: 50vw;
+    background-color: red;
+    position: relative;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
-.footer-navigation{
+.cashier-bg {
+    background: radial-gradient(
+        circle,
+        hsl(var(--orange-light)),
+        hsl(var(--orange))
+    );
+    overflow: hidden;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.footer-navigation {
     position: fixed;
     width: 100%;
     height: 3rem;
     background: hsl(var(--orange));
-    border: 2px solid hsl(30, 94%, 45%); 
+    border: 2px solid hsl(30, 94%, 45%);
     box-shadow: inset;
     bottom: 0;
+}
+
+.cashier-item {
+    display: flex;
+    width: 30px;
+    background-color: red;
+    border: 3px solid blue;
+    padding: 50px;
+    margin-left: 3%;
+    margin-bottom: 3%;
+    margin-right: 3%;
+    align-items: center;
+    flex: 1;
 }

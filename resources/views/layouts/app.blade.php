@@ -43,6 +43,8 @@
             <main>
                 {{ $slot }}
             </main>
+       @livewire('navigation-menu') 
+
         </div>
 
         @stack('modals')

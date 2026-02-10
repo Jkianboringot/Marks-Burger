@@ -16,7 +16,7 @@ Route::middleware([
 
     Route::prefix('cashier')->group(function (){
         Route::get('/',App\Livewire\Cashier\CashierView::class)->name('cashier-view');
-        Route::get('/orders/index',App\Livewire\Cashier\Orders\index::class)->name('order_index');
+        Route::get('orders/index',App\Livewire\Cashier\Orders\index::class)->name('order_index');
         Route::get('orders/create',App\Livewire\Cashier\Orders\Create::class)->name('order_create');
 
         Route::get('returns/index',App\Livewire\Cashier\Returns\Index::class)->name('return_index');

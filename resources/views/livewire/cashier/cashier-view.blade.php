@@ -12,30 +12,49 @@
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            <div class="product-button">
+                button
             </div>
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
+             <div class="product-button">
+                button
+            </div>
+
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+             <div class="product-button">
+                button
             </div>
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
+             <div class="product-button">
+                button
+            </div>
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+             <div class="product-button">
+                button
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+             <div class="product-button">
+                button
             </div>
         </div>
         <div class="card product-box">
@@ -43,30 +62,49 @@
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+             <div class="product-button">
+                button
             </div>
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+             <div class="product-button">
+                button
             </div>
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
+             <div class="product-button">
+                button
+            </div>
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+             <div class="product-button">
+                button
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+             <div class="product-button">
+                button
+                
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+             <div class="product-button">
+                button
             </div>
         </div>
         <div class="card product-box">
@@ -74,30 +112,48 @@
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+             <div class="product-button">
+                button
             </div>
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+             <div class="product-button">
+                button
             </div>
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
+             <div class="product-button">
+                button
+            </div>
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+             <div class="product-button">
+                button
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+             <div class="product-button">
+                button
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+             <div class="product-button">
+                button
             </div>
         </div>
     </div>

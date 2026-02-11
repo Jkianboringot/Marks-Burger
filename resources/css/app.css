@@ -154,3 +154,14 @@ before anything */
     width: 100%;
     height: auto;
 }
+
+.product-container .product-button{
+    margin-top:0.2rem;
+}
+.product-button{
+    border: var(--border-solid);
+    width: 60%;
+    background: red;
+    height: 2.5rem;
+    border-radius: var(--border-radius);
+}

@@ -15,7 +15,6 @@ before anything */
     --1rem: 1rem;
     --0-5rem: 0.5rem;
     --border-solid: 2px solid hsl(30, 94%, 45%);
-    --box-shadow:2px 3px 4px 2px hsla(30, 97%, 15%, 0.233);
 }
 
 .cashier-container {
@@ -49,17 +48,17 @@ before anything */
 
 .product-container {
     display: flex;
-    width: 60%;
+    width: 65%;
     position: absolute;
     scrollbar-width: none;
     padding: var(--0-5rem) 12px;
-    /* background-color: hsla(0, 81%, 51%, 0.247); */
+    background-color: hsla(0, 0%, 100%, 0.247);
     overflow: auto;
-    bottom: 4rem;
+    bottom: 5rem;
     height: 75%;
     /* max-height: 75%; */
-    left: 4rem;
-    justify-content: space-evenly;
+    left: 1.5rem;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     border-radius: var(--border-radius);
@@ -71,13 +70,12 @@ before anything */
     overflow: auto;
     padding: var(--0-5rem);
     width: 30%;
-    bottom: 4rem;
-    right: 4rem;
+    bottom: 5rem;
+    right: 1.5rem;
     height: 75%;
     background-color: hsla(120, 1%, 18%, 0.062);
     border-radius: var(--border-radius);
     scrollbar-width: none;
-    box-shadow: var(--box-shadow);
 }
 
 .selected-container div {
@@ -98,10 +96,10 @@ before anything */
 
 .selection-box {
     border: var(--border-solid);
-    background-color:hsl(66, 86%, 46%);
+    background-color:hsl(24, 73%, 42%);
 
     padding: 1rem;
-    min-height: 10rem;
+    min-height: 100px;
     width: 100%;
     align-items: center;
     border-radius: var(--border-radius);

@@ -1,7 +1,11 @@
-<div class="cashier-container">
+<div class="cashier-container" >
     <!-- class="cashier-container" -->
 
-    <div class="product-container">
+    <div>
+        
+    </div>
+
+    <div class="product-container" >
 
         <div class="card product-box">
 

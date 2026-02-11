@@ -1,6 +1,11 @@
 <div class="cashier-container">
     <!-- class="cashier-container" -->
 
+    <div class="total-container">
+         <h1>Total</h1>
+    </div>
+
+
     <div class="product-container">
 
         <div class="card product-box">

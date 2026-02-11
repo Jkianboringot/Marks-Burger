@@ -15,7 +15,7 @@ before anything */
     --1rem: 1rem;
     --0-5rem: 0.5rem;
     --border-solid: 2px solid hsl(30, 94%, 45%);
-    --box-shadow:2px 3px 4px 2px hsla(30, 97%, 15%, 0.233);
+    --box-shadow: 2px 3px 4px 2px hsla(30, 97%, 15%, 0.233);
 }
 
 .cashier-container {
@@ -26,7 +26,7 @@ before anything */
     flex-wrap: wrap;
 }
 
-.total-container{
+.total-container {
     position: relative;
     border-bottom: 2px solid hsla(30, 94%, 45%, 0.336);
     font-weight: 500;
@@ -84,12 +84,11 @@ before anything */
     min-height: 10rem;
     width: 30%;
     margin: 5px;
-  
-    background-color:hsl(61, 87%, 49%);
+
+    background-color: hsl(30, 100%, 53%);
     align-items: center;
     border-radius: var(--border-radius);
 }
-
 
 .selected-container {
     display: grid;
@@ -112,30 +111,46 @@ before anything */
 
 .selection-box {
     border: var(--border-solid);
-    background-color:hsl(66, 86%, 46%);
+    background-color: hsl(66, 86%, 46%);
 
-    padding: 1rem;
+    padding-left: 0.3rem;
+    padding-bottom: 1rem;
+
     min-height: 10rem;
     width: 100%;
     align-items: center;
     border-radius: var(--border-radius);
 }
 
-
-
-
-.inner{
+.inner-product {
     border: var(--border-solid);
     height: 6.5rem;
     border-radius: var(--border-radius);
-    /* background: #ddd8d8cc; */
+    background: #ddd8d8cc;
     justify-content: center;
     align-items: center;
     display: flex;
     overflow: hidden;
 }
 
-.inner img{
+.inner-product img {
+    width: 100%;
+    height: auto;
+}
+
+.inner-selection {
+    border: var(--border-solid);
+    height: 100%;
+    width: 50%;
+    border-radius: 1rem;
+    background: #ddd8d8cc;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+}
+
+.inner-selection img {
     width: 100%;
     height: auto;
 }

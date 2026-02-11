@@ -13,7 +13,9 @@
             <h1>asdjfalds</h1>
         </div>
         <div class="card product-box">
-            <h1>asdjfalds</h1>
+            <div class="inner">
+                <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image">
+            </div>
         </div>
         <div class="card product-box">
             <h1>asdjfalds</h1>

@@ -80,7 +80,7 @@ before anything */
 
 .product-box {
     border: var(--border-solid);
-    padding: 1rem;
+    padding: 0.3rem;
     min-height: 10rem;
     width: 30%;
     margin: 5px;
@@ -119,4 +119,23 @@ before anything */
     width: 100%;
     align-items: center;
     border-radius: var(--border-radius);
+}
+
+
+
+
+.inner{
+    border: var(--border-solid);
+    height: 6.5rem;
+    border-radius: var(--border-radius);
+    /* background: #ddd8d8cc; */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+}
+
+.inner img{
+    width: 100%;
+    height: auto;
 }

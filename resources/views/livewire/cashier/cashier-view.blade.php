@@ -185,6 +185,7 @@
         <div class="card selection-box">
 
             <div class="inner-selection">
+                <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image">
 
             </div>
             <div class="selection-description">

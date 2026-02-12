@@ -12,115 +12,167 @@
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
-            
+            <div class="product-description">
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
+            </div>
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
-             
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
+            </div>
 
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
-             
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-             
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-             
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-             
-        </div>
-        <div class="card product-box">
-
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-             
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-             
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-             
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-             
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-             <div class="product-button">
-                button
-                
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
             </div>
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
-             
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
+            </div>
         </div>
         <div class="card product-box">
 
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
-             
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
+            </div>
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
-             
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
+            </div>
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
-             
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
+            </div>
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
-             
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
+            </div>
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
-             
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
+
+            </div>
         </div>
         <div class="card product-box">
             <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
-             
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
+            </div>
+        </div>
+        <div class="card product-box">
+
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">product-price text-title</h2>
+                <h2 class="product-quantity">product-quantity</h2>
+            </div>
         </div>
     </div>
 

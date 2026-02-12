@@ -155,13 +155,44 @@ before anything */
     height: auto;
 }
 
-.product-container .product-button{
-    margin-top:0.2rem;
+.product-container .product-description {
+    margin-top: 0.2rem;
 }
-.product-button{
-    border: var(--border-solid);
-    width: 60%;
-    background: red;
+.product-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.product-price {
+    display: flex;
+    width: 50%;
     height: 2.5rem;
-    border-radius: var(--border-radius);
+    left: 0;
+}
+
+.product-quantity {
+    display: flex;
+    width: 50%;
+    right: 0;
+    height: 2.5rem;
+}
+.product-description .price {
+    left: 0;
+}
+.product-description .price {
+    right: 0;
+}
+
+.text-variable {
+    font-weight: 700;
+    color: #fff;
+    padding-left:4px ;
+    font-size: 1.3rem;
+}
+
+.text-title {
+    font-weight: 500;
+    color: #fff;
+    font-size: 1.1rem;
 }

@@ -10,6 +10,92 @@
 
         <div class="card product-box">
             <div class="inner-product">
+
+                <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image">
+                <h1 class="inner-product-text">Burger</h1>
+
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
+            </div>
+
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
+            </div>
+        </div>
+        <div class="card product-box">
+
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="product-description">
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
+            </div>
+        </div>
+        <div class="card product-box">
+            <div class="inner-product">
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
             <div class="product-description">
@@ -24,89 +110,6 @@
             <div class="product-description">
                 <h2 class="product-price text-title">product-price text-title</h2>
                 <h2 class="product-quantity">product-quantity</h2>
-            </div>
-
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-            <div class="product-description">
-                <h2 class="product-price text-title">product-price text-title</h2>
-                <h2 class="product-quantity">product-quantity</h2>
-            </div>
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-            <div class="product-description">
-                <h2 class="product-price text-title">product-price text-title</h2>
-                <h2 class="product-quantity">product-quantity</h2>
-            </div>
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-            <div class="product-description">
-                <h2 class="product-price text-title">product-price text-title</h2>
-                <h2 class="product-quantity">product-quantity</h2>
-            </div>
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-            <div class="product-description">
-                <h2 class="product-price text-title">product-price text-title</h2>
-                <h2 class="product-quantity">product-quantity</h2>
-            </div>
-        </div>
-        <div class="card product-box">
-
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-            <div class="product-description">
-                <h2 class="product-price text-title">product-price text-title</h2>
-                <h2 class="product-quantity">product-quantity</h2>
-            </div>
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-            <div class="product-description">
-                <h2 class="product-price text-title">product-price text-title</h2>
-                <h2 class="product-quantity">product-quantity</h2>
-            </div>
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-            <div class="product-description">
-                <h2 class="product-price text-title">product-price text-title</h2>
-                <h2 class="product-quantity">product-quantity</h2>
-            </div>
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-            <div class="product-description">
-                <h2 class="product-price text-title">product-price text-title</h2>
-                <h2 class="product-quantity">product-quantity</h2>
-            </div>
-        </div>
-        <div class="card product-box">
-            <div class="inner-product">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-            <div class="product-description">
-                <h2 class="product-price text-title">product-price text-title</h2>
-                <h2 class="product-quantity">product-quantity</h2>
 
             </div>
         </div>
@@ -115,8 +118,8 @@
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
             <div class="product-description">
-                <h2 class="product-price text-title">product-price text-title</h2>
-                <h2 class="product-quantity">product-quantity</h2>
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
             </div>
         </div>
         <div class="card product-box">
@@ -125,8 +128,8 @@
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
             <div class="product-description">
-                <h2 class="product-price text-title">product-price text-title</h2>
-                <h2 class="product-quantity">product-quantity</h2>
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
             </div>
         </div>
         <div class="card product-box">
@@ -134,8 +137,8 @@
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
             <div class="product-description">
-                <h2 class="product-price text-title">product-price text-title</h2>
-                <h2 class="product-quantity">product-quantity</h2>
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
             </div>
         </div>
         <div class="card product-box">
@@ -143,8 +146,8 @@
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
             <div class="product-description">
-                <h2 class="product-price text-title">product-price text-title</h2>
-                <h2 class="product-quantity">product-quantity</h2>
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
             </div>
         </div>
         <div class="card product-box">
@@ -152,8 +155,8 @@
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
             <div class="product-description">
-                <h2 class="product-price text-title">product-price text-title</h2>
-                <h2 class="product-quantity">product-quantity</h2>
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
             </div>
         </div>
         <div class="card product-box">
@@ -161,8 +164,8 @@
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
             <div class="product-description">
-                <h2 class="product-price text-title">product-price text-title</h2>
-                <h2 class="product-quantity">product-quantity</h2>
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
             </div>
         </div>
         <div class="card product-box">
@@ -170,8 +173,8 @@
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
             <div class="product-description">
-                <h2 class="product-price text-title">product-price text-title</h2>
-                <h2 class="product-quantity">product-quantity</h2>
+                <h2 class="product-price text-title">Price: <span class="text-variable">89</span></h2>
+                <h2 class="product-quantity text-title">Quantity: <span class="text-variable">89</span></h2>
             </div>
         </div>
     </div>
@@ -185,6 +188,22 @@
 
             </div>
             <div class="selection-description">
+                <h2 class="text-title">Name<span class="text-variable">89</span></h2>
+                <!-- <h2 class="text-title">Price<span class="text-variable">89</span></h2> -->
+                <h2 class="text-title">Quantity<span class="text-variable">89</span></h2>
+                <h2 class="text-title">total<span class="text-variable">89</span></h2>
+            </div>
+        </div>
+        <div class="card selection-box">
+
+            <div class="inner-selection">
+                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
+            </div>
+            <div class="selection-description">
+                <h2 class="text-title">Name<span class="text-variable">89</span></h2>
+                <!-- <h2 class="text-title">Price<span class="text-variable">89</span></h2> -->
+                <h2 class="text-title">Quantity<span class="text-variable">89</span></h2>
+                <h2 class="text-title">total<span class="text-variable">89</span></h2>
 
             </div>
         </div>
@@ -194,9 +213,11 @@
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
             <div class="selection-description">
-                <h2 class="text-title">total Price<span class="text-variable">89</span></h2>
-                <h2 class="text-title">total Quantity<span class="text-variable">89</span></h2>                <h2 class="text-title">total Quantity<span class="text-variable">89</span></h2>
-                                <h2 class="text-title">total Quantity<span class="text-variable">89</span></h2>
+                <h2 class="text-title">Name<span class="text-variable">89</span></h2>
+                <!-- <h2 class="text-title">Price<span class="text-variable">89</span></h2> -->
+                <h2 class="text-title">Quantity<span class="text-variable">89</span></h2>
+                <h2 class="text-title">total<span class="text-variable">89</span></h2>
+
             </div>
         </div>
         <div class="card selection-box">
@@ -205,9 +226,11 @@
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
             <div class="selection-description">
-                <h2 class="text-title">total Price<span class="text-variable">89</span></h2>
-                <h2 class="text-title">total Quantity<span class="text-variable">89</span></h2>                <h2 class="text-title">total Quantity<span class="text-variable">89</span></h2>
-                                <h2 class="text-title">total Quantity<span class="text-variable">89</span></h2>
+                <h2 class="text-title">Name<span class="text-variable">89</span></h2>
+                <!-- <h2 class="text-title">Price<span class="text-variable">89</span></h2> -->
+                <h2 class="text-title">Quantity<span class="text-variable">89</span></h2>
+                <h2 class="text-title">total<span class="text-variable">89</span></h2>
+
             </div>
         </div>
         <div class="card selection-box">
@@ -216,9 +239,11 @@
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
             <div class="selection-description">
-                <h2 class="text-title">total Price<span class="text-variable">89</span></h2>
-                <h2 class="text-title">total Quantity<span class="text-variable">89</span></h2>                <h2 class="text-title">total Quantity<span class="text-variable">89</span></h2>
-                                <h2 class="text-title">total Quantity<span class="text-variable">89</span></h2>
+                <h2 class="text-title">Name<span class="text-variable">89</span></h2>
+                <!-- <h2 class="text-title">Price<span class="text-variable">89</span></h2> -->
+                <h2 class="text-title">Quantity<span class="text-variable">89</span></h2>
+                <h2 class="text-title">total<span class="text-variable">89</span></h2>
+
             </div>
         </div>
         <div class="card selection-box">
@@ -227,20 +252,11 @@
                 <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
             </div>
             <div class="selection-description">
-                <h2 class="text-title">total Price<span class="text-variable">89</span></h2>
-                <h2 class="text-title">total Quantity<span class="text-variable">89</span></h2>                <h2 class="text-title">total Quantity<span class="text-variable">89</span></h2>
-                                <h2 class="text-title">total Quantity<span class="text-variable">89</span></h2>
-            </div>
-        </div>
-        <div class="card selection-box">
+                <h2 class="text-title">Name<span class="text-variable">89</span></h2>
+                <!-- <h2 class="text-title">Price<span class="text-variable">89</span></h2> -->
+                <h2 class="text-title">Quantity<span class="text-variable">89</span></h2>
+                <h2 class="text-title">total<span class="text-variable">89</span></h2>
 
-            <div class="inner-selection">
-                <!-- <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image"> -->
-            </div>
-            <div class="selection-description">
-                <h2 class="text-title">total Price<span class="text-variable">89</span></h2>
-                <h2 class="text-title">total Quantity<span class="text-variable">89</span></h2>                <h2 class="text-title">total Quantity<span class="text-variable">89</span></h2>
-                                <h2 class="text-title">total Quantity<span class="text-variable">89</span></h2>
             </div>
         </div>
     </div>

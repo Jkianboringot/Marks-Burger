@@ -16,11 +16,10 @@ Route::middleware([
 
     Route::prefix('cashier')->group(function (){
         Route::get('/',App\Livewire\Cashier\CashierView::class)->name('cashier-view');
-        Route::get('orders/index',App\Livewire\Cashier\Orders\index::class)->name('order_index');
-        Route::get('orders/create',App\Livewire\Cashier\Orders\Create::class)->name('order_create');
+        Route::get('receiving_stock',App\Livewire\Cashier\RecievingStock::class)->name('recieving_stock');
+        Route::get('current_stock',App\Livewire\Cashier\CurrentStock::class)->name('current_stock');
 
-        Route::get('returns/index',App\Livewire\Cashier\Returns\Index::class)->name('return_index');
-        Route::get('returns/create',App\Livewire\Cashier\Returns\Create::class)->name('return_create');
+        
     });
 
     

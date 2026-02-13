@@ -130,7 +130,8 @@ before anything */
     justify-content: center;
     flex: wrap;
     border: var(--border-solid);
-    background-color: hsl(66, 86%, 46%);
+    background-color: hsla(17, 97%, 55%, 0.986);
+
 
     padding-left: 0.3rem;
     padding-bottom: 1rem;

@@ -27,16 +27,32 @@ before anything */
 }
 
 .total-container {
+    display: flex;
     position: relative;
     border-bottom: 2px solid hsla(30, 94%, 45%, 0.336);
-    font-weight: 500;
     color: #fff;
     width: 50%;
     height: 10%;
-    top: 23px;
     left: 2rem;
-    font-size: 2rem;
+    top: 23px;
+    font-weight: 500;
+
     background-color: var(--orange);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.total-container div:first-child {
+    width: 50%;
+    font-size: 1.5rem;
+
+}
+
+.total {
+    font-size: 2rem;
+
+    width: 50%;
+    padding-left: 35%;
 }
 
 .cashier-bg {

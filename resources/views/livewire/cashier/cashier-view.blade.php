@@ -2,7 +2,14 @@
     <!-- class="cashier-container" -->
 
     <div class="total-container">
-        <h1>Total</h1>
+
+        <div>
+            <h1>Total
+            </h1>
+        </div>
+        <div class="total">
+            <h3 >89</h3>
+        </div>
     </div>
 
 

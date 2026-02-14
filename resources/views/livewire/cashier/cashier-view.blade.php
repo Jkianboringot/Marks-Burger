@@ -26,11 +26,12 @@
             <div class="inner-product">
 
                 <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image">
-                <h1 class="inner-product-text">product_name</h1>
+                <!-- <h1 class="inner-product-text">product_name</h1> -->
 
             </div>
             <div class="product-description">
-                <h2 class="product-name text-title">Product Name</h2>
+                <h2 class="product-name text-title">Product Name
+                </h2>
                 <h2 class=" text-title">Quantity:
                     <!-- current_quantity_variable -->
                 </h2>
@@ -284,6 +285,9 @@
             </div>
         </div>
     </div>
+        <div class="order-button">
+            <h1>fuck</h1>
+        </div>
 
 
 </div>

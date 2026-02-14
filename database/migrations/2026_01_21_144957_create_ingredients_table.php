@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('threshold')->unsigned();
             $table->foreignId('category_id')->nullable()->constrained();
             $table->integer('unit_quantity')->unsigned()->nullable();
+            //pretty sure i was suppose to remove unit_quantity
             $table->timestamps();
         });
     }

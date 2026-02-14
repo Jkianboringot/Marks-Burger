@@ -85,7 +85,7 @@ class Ingredient extends Model
             ->value('total') ?? 0;
     }
 
-    public function ingredientStock(): int
+    public function getIngredientStockAttribute(): int
     {
         return ($this->addIngredients()->sum('add_to_ingredient.quantity') ?? 0)
             + $this->returns()
@@ -109,24 +109,6 @@ class Ingredient extends Model
             then it it either add or decrease
 
             this is a visualize docs in tablet, i nreallly dont fully understand this yet
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
 */
     }
 

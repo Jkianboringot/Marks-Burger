@@ -45,7 +45,6 @@ before anything */
 .total-container div:first-child {
     width: 50%;
     font-size: 1.5rem;
-
 }
 
 .total {
@@ -78,14 +77,14 @@ before anything */
 
 .product-container {
     display: flex;
-    width: 60%;
+    width: 65%;
     position: absolute;
     scrollbar-width: none;
     padding: var(--0-5rem) 12px;
     /* background-color: hsla(0, 81%, 51%, 0.247); */
     overflow: auto;
     bottom: 4rem;
-    height: 75%;
+    height: 90%;
     /* max-height: 75%; */
     left: 3rem;
     justify-content: space-evenly;
@@ -111,8 +110,8 @@ before anything */
     position: absolute;
     overflow: auto;
     padding: var(--0-5rem);
-    width: 32%;
-    bottom: 4rem;
+    width: 27%;
+    top: 1rem;
     right: 4rem;
     height: 75%;
     background-color: hsla(120, 1%, 18%, 0.062);
@@ -132,7 +131,6 @@ before anything */
     border: var(--border-solid);
     background-color: hsla(17, 97%, 55%, 0.986);
 
-
     padding-left: 0.3rem;
     padding-bottom: 1rem;
 
@@ -144,7 +142,7 @@ before anything */
 
 .inner-product {
     border: var(--border-solid);
-    height: 6.5rem;
+    height: 7rem;
     border-radius: var(--border-radius);
     background: #ddd8d8cc;
     justify-content: center;
@@ -183,14 +181,19 @@ before anything */
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    border: var(--border-solid);
+    height: 5rem;
+    text-align: center;
 }
-.product-price {
-    display: flex;
-    width: 50%;
-    height: 2.5rem;
-    left: 0;
+.product-name {
+    text-align: center;
+
+    overflow: hidden;
+    height: 3rem;
 }
+/* 
+
 
 .product-quantity {
     display: flex;
@@ -203,7 +206,7 @@ before anything */
 }
 .product-description .price {
     right: 0;
-}
+} */
 
 .text-variable {
     font-weight: 700;

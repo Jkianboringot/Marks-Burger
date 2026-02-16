@@ -16,7 +16,7 @@ Route::middleware([
 
     Route::prefix('cashier')->group(function (){
         Route::get('/',App\Livewire\Cashier\CashierView::class)->name('cashier-view');
-        Route::get('recieving_stock',App\Livewire\Cashier\RecievingStock::class)->name('recieving_stock');
+        Route::get('receiving_stock',App\Livewire\Cashier\RecievingStock::class)->name('receiving_stock');
         Route::get('current_stock',App\Livewire\Cashier\CurrentStock::class)->name('current_stock');
 
         

@@ -5,7 +5,8 @@
         <div class="card-body table-responsive">
             <div class="card-body table-responsive">
 
-                <table class="table table-hover" style="table-layout: fixed;">
+                            <table class="table table-hover" style="width:100%">
+
                     <thead class="thead-inverse">
 
 

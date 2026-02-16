@@ -73,6 +73,9 @@ before anything */
     border: var(--border-solid);
     box-shadow: inset;
     bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .product-container {

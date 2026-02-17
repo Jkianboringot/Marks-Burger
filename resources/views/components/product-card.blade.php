@@ -8,10 +8,10 @@
 
         </div>
         <div class="product-description">
-            <h2 class="product-name text-title">Product Name
+            <h2 class="product-name text-title">{{$productName}}
             </h2>
             <h2 class=" text-title">Price:
-                <!-- current_quantity_variable -->
+               {{$price}}
             </h2>
         </div>
     </div>

@@ -20,30 +20,33 @@
 
     <div class="product-container">
 
-
         <!-- when this is only one product it just puts it in the center i dont want that, fix it later -->
-    @for ($i=0;$i<10;$i++)
-        <x-product-card/>
-    @endfor
-        
+        @foreach($products as $product)
+        <x-product-card
+            :productName="$product->name"
+            :price="$product->price" />
+
+            <!-- ok am dumb fuck i got too impatient and let ai do this one -->
+        @endforeach
+
     </div>
 
 
     <div class="selected-container">
 
-     <!-- when this is only one product it just puts it in the center i dont want that, fix it later -->
-    @for ($i=0;$i<3;$i++)
-        <x-selected-product-card/>
-    @endfor
-        
 
-    
-      
-       
+
+
+
+
+
     </div>
-        <div class="order-button">
-            <h1>fuck</h1>
-        </div>
+    <div class="order-button">
+
+        <form wire:click="save">
+            <h1>Order</h1>
+        </form>
+    </div>
 
 
 </div>

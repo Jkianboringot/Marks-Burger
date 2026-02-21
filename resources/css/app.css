@@ -56,11 +56,7 @@ before anything */
 }
 
 .cashier-bg {
-    background: radial-gradient(
-        circle,
-        hsl(var(--orange-light)),
-        hsl(var(--orange))
-    );
+    background:#cfcacab6;
     overflow: hidden;
     height: 100vh;
     margin: 0 auto;
@@ -116,6 +112,10 @@ before anything */
     border-radius: var(--border-radius);
 }
 
+.product-box:hover{
+    background-color: hsl(30, 92%, 67%);
+}
+
 .selected-container {
     display: grid;
     position: absolute;
@@ -142,6 +142,10 @@ before anything */
     border-radius: 1rem;
     scrollbar-width: none;
     box-shadow: var(--box-shadow);
+}
+
+.order-button:hover{
+    background-color: rgb(136, 243, 86);
 }
 
 .selected-container div {

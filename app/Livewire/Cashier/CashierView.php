@@ -14,17 +14,17 @@ class CashierView extends Component
 {
     public Order $orders;
 
-    public array $productList;
+    public array $productList = [];
 
 
     // public  Decimal $price;
 
-    public Integer $quantity;
+    public  $quantity;
     protected function rules()
     {
         return [
-            'order.price' => 'required|numeric|min:1',
-            // 'quantity' => 'required|integer|min:1',
+            // 'order.price' => 'required|numeric|min:1',
+            'quantity' => 'required|min:1',
             'productList' => 'required'
         ];
     }
@@ -49,7 +49,7 @@ class CashierView extends Component
         array_push($this->productList, [
             'price' => $product->price,
             'product_id' => $id,
-            // 'quantity' => $this->quantity
+            'quantity' => 1
             //i can maybe just not put this here then later when attaching that is when i put it
         ]);
         // dd($this->productList);
@@ -60,21 +60,25 @@ class CashierView extends Component
 
     public function save()
     {
-        $this->validate();
-
+        // $this->validate();
         try {
+            $this->orders->status=true;
+            $this->orders->branch_id=1;
             $this->orders->save();
 
             foreach ($this->productList as $product) {
                 // we need to attach this to relation
-                $this->products()->attach(
-                    [$product['product_id']],
+                $this->orders->products()->attach(
+                    $product['product_id'],
                     [
-                        'price' => $product->price,
-                        'quantity' => 3,
+                        'price' => $product['price'],
+                        'quantity' => $product["quantity"],
                     ]
                 );
             }
+            dd($this->productList);
+
+            $this->dispatch('done', success: 'Order complete');
         } catch (\Throwable $th) {
             $this->dispatch('done', error: 'Something went wrong' . $th->getMessage());
         }

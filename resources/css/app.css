@@ -162,7 +162,7 @@ before anything */
     padding-left: 0.3rem;
     padding-bottom: 1rem;
 
-    min-height: 10rem;
+        height: 10rem;
     width: 100%;
     align-items: center;
     border-radius: var(--border-radius);
@@ -187,7 +187,7 @@ before anything */
 
 .inner-selection {
     border: var(--border-solid);
-    height: 100%;
+    height: 9rem;
     width: 60%;
     border-radius: 1rem;
     background: #ddd8d8cc;

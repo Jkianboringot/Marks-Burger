@@ -76,7 +76,6 @@ class CashierView extends Component
                     ]
                 );
             }
-            dd($this->productList);
 
             $this->dispatch('done', success: 'Order complete');
         } catch (\Throwable $th) {

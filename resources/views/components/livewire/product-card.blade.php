@@ -1,6 +1,6 @@
-@props(['productName','price'])  
+@props(['product'])  
    
-   <div class="card product-box">
+   <div class="card product-box" wire:click="addToList({{ $product->id }})">
         <div class="inner-product">
 
             <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image">
@@ -8,10 +8,10 @@
 
         </div>
         <div class="product-description">
-            <h2 class="product-name text-title">{{$productName}}
+            <h2 class="product-name text-title">{{$product->name}}
             </h2>
             <h2 class=" text-title">Price:
-               {{$price}}
+               {{$product->price}}
             </h2>
         </div>
     </div>

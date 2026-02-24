@@ -22,11 +22,11 @@
 
         <!-- when this is only one product it just puts it in the center i dont want that, fix it later -->
         @foreach($products as $product)
-        <x-product-card
-            :productName="$product->name"
-            :price="$product->price" />
+        <x-livewire.product-card
+            :product="$product"
+          />
 
-            <!-- ok am dumb fuck i got too impatient and let ai do this one -->
+        <!-- ok am dumb fuck i got too impatient and let ai do this one -->
         @endforeach
 
     </div>
@@ -34,7 +34,15 @@
 
     <div class="selected-container">
 
+        @foreach($productList as $product)
+        <x-livewire.selected-product-card
+            :product="$product"
+         />
 
+         <!-- we never even go inside the selected-product-card component -->
+
+        <!-- ok am dumb fuck i got too impatient and let ai do this one -->
+        @endforeach
 
 
 

@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('location',100);
             $table->enum('branch_type',['main','sub'])->default('sub');//dont really need this just mean first branch as main
             $table->timestamps();
+
+            //check what is joining with this by location, becuase from my knowlegde thier should be little 
+            //locatoin maybe under 50 so maybe its not even worth making it indexes
+            //same goes for branch_type
         });
     }
 

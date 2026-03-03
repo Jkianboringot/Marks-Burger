@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('add_to_ingredient', function (Blueprint $table) {
             $table->foreignId('add_ingredient_id')->constrained();
             $table->foreignId('ingredient_id')->constrained();
+            $table->primary(['add_ingredient_id','ingredient_id']);
             $table->integer('quantity')->unsigned();
                     });
     }

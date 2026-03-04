@@ -13,7 +13,7 @@
 
      LIVEWIRE METHODS  (public function ... in your Livewire component class)
      ─────────────────────────────────────────────────────────────────────
-       addToList($productId)       → add 1 of product to $productList (or increment qty)
+       addProduct($productId)       → add 1 of product to $productList (or increment qty)
        cancelOrder()                → clear $productList and reset $total
        holdOrder()                  → park order, clear cart (implement as you see fit)
        openPaymentModal()           → set $showPaymentModal = true
@@ -23,8 +23,6 @@
        completeOrder()              → save transaction, clear cart, close modal
        increment($productId)        → +1 qty on item in $productList; recalc $total
        decrement($productId)        → -1 qty (remove item if qty reaches 0); recalc $total
-
-       <!-- i might actually use this as method naming is good, also this how it would ahve work anyway -->
      =====================================================================
 --}}
 

@@ -1,31 +1,60 @@
 @props(['product','quantity'])
-<div class="card selection-box" >
+{{-- =====================================================================
+     selected-product-card.blade.php
+     resources/views/components/livewire/selected-product-card.blade.php
+     =====================================================================
 
-    <div class="inner-selection">
-        <img src="admin-lte\assets\img\ego-profile.jpg" alt="No Image">
+     Renders as a <tr> — parent template must wrap @foreach in a <tbody>
 
-    </div>
-    <div class="selection-description">
-        <h2 class="text-title">Name:<span class="text-variable">89
-                {{ $product['product_id'] }}
-                <!-- product_name
-                     really need this shit to be eager loaded and hydrated what ever that means -->
-            </span></h2>
-        <!-- <h2 class="text-title">Product Name<span class="text-variable">89</span></h2> -->
-        <input wire:model="quantity" type="number" min="1" max="999999">
-        
+     PROPS
+     ─────────────────────────────────────────────────────────────────────
+       $product->id        int
+       $product->name      string
+       $product->price     float    — unit price (line total = price × qty)
+       $product->quantity  int      — current quantity in cart
 
-<!-- ⚠️⚠️i dont know if i remove quantity in props will that not allow wire:model but i dont think it will -->
+     METHODS FIRED
+     ─────────────────────────────────────────────────────────────────────
+       increment($productId)
+         → qty++ on matching $productList item; recalc $total
 
-        @error('quantity')
-        <small id="helpId" class="form-text text-danger">{{ $message }} </small>
-        @enderror
-        <h2 class="text-title">total:<span class="text-variable">
+       decrement($productId)
+         → qty-- on matching item
+         → if qty reaches 0: remove item from $productList
+         → recalc $total
+     =====================================================================
+--}}
 
-        <!-- this is not good but i will do this for now since my focus is on making it work
-        nohing more, i dont care if its bad i only care if it works, once it does i will
-        optimize it in the future -->
-            {{ $product['price'] * 3}}
-            </span></h2>
-    </div>
-</div>
+<tr>
+
+    {{-- Product name --}}
+    <td>{{ $product->name }}</td>
+
+    {{-- QTY stepper --}}
+    <td>
+        <div class="qty-control">
+
+            {{-- METHOD: decrement($product->id) --}}
+            <button class="qty-btn"
+                    wire:click="decrement({{ $product->id }})"
+                    title="Remove one">
+                &minus;
+            </button>
+
+            {{-- PROPERTY: $product->quantity --}}
+            <span class="qty-value">{{ $product->quantity }}</span>
+
+            {{-- METHOD: increment($product->id) --}}
+            <button class="qty-btn"
+                    wire:click="increment({{ $product->id }})"
+                    title="Add one">
+                &plus;
+            </button>
+
+        </div>
+    </td>
+
+    {{-- Unit price (display only — multiply in backend for line total) --}}
+    <td>{{ number_format($product->price, 2) }}</td>
+
+</tr>

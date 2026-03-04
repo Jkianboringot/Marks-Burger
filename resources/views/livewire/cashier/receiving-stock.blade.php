@@ -1,41 +1,83 @@
-<div>
+{{-- =====================================================================
+     receiving-stock.blade.php
+     =====================================================================
 
-    <div class="card">
+     LIVEWIRE PROPERTIES
+     ─────────────────────────────────────────────────────────────────────
+       $addToProducts   → Collection — each record has a ->ingredients relationship
+                          each ingredient: ->name, ->category_id, ->pivot->quantity
 
-        <div class="card-body table-responsive">
-            <div class="card-body table-responsive">
+     LIVEWIRE METHODS
+     ─────────────────────────────────────────────────────────────────────
+       markAsReceived()
+         → mark selected records as received (update DB status / timestamps)
+         → refresh $addToProducts
+         → show success feedback (flash or property flag)
 
-                <table class="table table-hover" style="width:100%">
-                    <thead class="thead-inverse">
-                        <tr class="text-center">
-                            <th>date</th>
+       logout()
+         → Auth::logout(), redirect to login
+     =====================================================================
+--}}
 
-                            <th>ingredient</th>
-                            <th>quantity</th>
+<div class="stock-page">
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($addToProducts as $addToProduct)
-                        <tr class="text-center" style="padding: 3rem;">
-                            <td>{{ $addToProduct->created_at }}</td>
-                            <td>
-                                @foreach ($addToProduct->ingredients as $ingredient)
-                                {{ $ingredient->name }}
-                                @endforeach
-                            </td>
-                            <td>
-                               @foreach ($addToProduct->ingredients as $ingredient)
-                                {{ $ingredient->pivot->quantity }}
-                                @endforeach
-                            </td>
+    <div class="stock-container">
+
+        {{-- ── Header ── --}}
+        <div class="stock-header">
+            <span>Receive Ingredient</span>
+        </div>
+
+        {{-- ── Table ── --}}
+        <div class="stock-card">
+            <table class="stock-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @forelse($addToProducts as $addToProduct)
+
+                        {{-- One addToProduct can contain multiple ingredients --}}
+                        @foreach($addToProduct->ingredients as $ingredient)
+                        <tr>
+                            <td>{{ $ingredient->name }}</td>
+
+                            {{-- category_id: swap for $ingredient->category->name if
+                                 you have the relationship loaded --}}
+                            <td>{{ $ingredient->category_id }}</td>
+
+                            {{-- pivot->quantity: set in your BelongsToMany pivot table --}}
+                            <td>{{ number_format($ingredient->pivot->quantity) }}</td>
                         </tr>
                         @endforeach
-                    </tbody>
-                </table>
 
+                    @empty
+                    <tr>
+                        <td colspan="3"
+                            style="text-align: center; color: var(--text-light);
+                                   padding: 2rem; font-size: 0.85rem;">
+                            No incoming stock records.
+                        </td>
+                    </tr>
+                    @endforelse
 
-            </div>
+                </tbody>
+            </table>
         </div>
+
+        {{-- ── Received button
+             METHOD: markAsReceived()
+             ── --}}
+        <button class="btn-received" wire:click="markAsReceived">
+            Received
+        </button>
+
     </div>
+    {{-- Footer is rendered by app.blade.php layout — nothing needed here --}}
+
 </div>

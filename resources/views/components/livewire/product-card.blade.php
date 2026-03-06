@@ -22,16 +22,17 @@
 --}}
 
 <div class="product-box"
-     wire:click="addToList({{ $product->id }})"
-     title="{{ $product->name }}">
+     wire:click="addToList({{ $product->id }})">
 
     {{-- Image area — gray bg shows when no image is set --}}
     <div class="inner-product">
-        @if(!empty($product->image))
+<img src="admin-lte/assets/img/ego-profile.jpg" alt="">
+
+       {{--   @if(!empty($product->image))
             <img src="{{ asset('storage/' . $product->image) }}"
                  alt="{{ $product->name }}"
                  loading="lazy">
-        @endif
+        @endif--}}
     </div>
 
     {{-- Name + price --}}

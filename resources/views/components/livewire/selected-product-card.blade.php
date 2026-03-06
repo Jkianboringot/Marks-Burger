@@ -28,7 +28,7 @@
 <tr>
 
     {{-- Product name --}}
-    <td>{{ $product->name }}</td>
+    <td>{{ $product['product_id'] }}</td>
 
     {{-- QTY stepper --}}
     <td>
@@ -36,17 +36,17 @@
 
             {{-- METHOD: decrement($product->id) --}}
             <button class="qty-btn"
-                    wire:click="decrement({{ $product->id }})"
+                    wire:click="decrement({{ $product['product_id'] }})"
                     title="Remove one">
                 &minus;
             </button>
 
             {{-- PROPERTY: $product->quantity --}}
-            <span class="qty-value">{{ $product->quantity }}</span>
+            <span class="qty-value">{{ $product['quantity'] }}</span>
 
             {{-- METHOD: increment($product->id) --}}
             <button class="qty-btn"
-                    wire:click="increment({{ $product->id }})"
+                    wire:click="increment({{ $product['product_id'] }})"
                     title="Add one">
                 &plus;
             </button>
@@ -55,6 +55,6 @@
     </td>
 
     {{-- Unit price (display only — multiply in backend for line total) --}}
-    <td>{{ number_format($product->price, 2) }}</td>
+    <td>{{ number_format($product['price'], 2) }}</td>
 
 </tr>

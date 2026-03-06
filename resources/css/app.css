@@ -92,6 +92,8 @@
 }
 .product-box:active { transform: translateY(-1px) scale(0.97); }
 
+
+
 .inner-product {
     background: #ddd8d8cc;
     height: 7rem;

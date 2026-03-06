@@ -27,7 +27,20 @@
 --}}
 
 <div class="cashier-bg">
-
+    @if (session()->has('success'))
+    <div class="alert alert-success alert-dismissible fade show">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+       @elseif ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     {{-- ================================================================
          MAIN LAYOUT ROW
          ================================================================ --}}
@@ -41,14 +54,14 @@
 
             @forelse($products as $product)
 
-                {{-- product-card renders a .product-box
+            {{-- product-card renders a .product-box
                      It fires: wire:click="addProduct({{ $product->id }})" internally --}}
-                <x-livewire.product-card :product="$product" />
+            <x-livewire.product-card :product="$product" />
 
             @empty
-                <p style="color: var(--text-light); font-size: 0.9rem; margin: auto;">
-                    No products available.
-                </p>
+            <p style="color: var(--text-light); font-size: 0.9rem; margin: auto;">
+                No products available.
+            </p>
             @endforelse
 
         </div>
@@ -77,7 +90,7 @@
                             {{-- selected-product-card renders a <tr>
                                  It fires: wire:click="increment/decrement($product->id)" internally --}}
                             @foreach($productList as $product)
-                                <x-livewire.selected-product-card :product="$product" />
+                            <x-livewire.selected-product-card :product="$product" />
                             @endforeach
                         </tbody>
                     </table>
@@ -108,7 +121,7 @@
 
             {{-- ── Order / proceed to payment ── --}}
             {{-- METHOD: openPaymentModal() — set $showPaymentModal = true --}}
-            <button class="btn-order-now" wire:click="openPaymentModal">
+            <button class="btn-order-now" wire:click="save">
                 Order
             </button>
 
@@ -123,7 +136,7 @@
          ================================================================ --}}
     @if($showPaymentModal ?? false)
     <div class="payment-modal-overlay"
-         wire:click.self="closePaymentModal">   {{-- METHOD: closePaymentModal() --}}
+        wire:click.self="closePaymentModal"> {{-- METHOD: closePaymentModal() --}}
 
         <div class="payment-modal">
 
@@ -155,22 +168,22 @@
                 <div class="numpad-grid">
 
                     @foreach([1,2,3,4,5,6,7,8,9] as $digit)
-                        {{-- METHOD: appendToPayment('digit') --}}
-                        <button class="numpad-btn"
-                                wire:click="appendToPayment('{{ $digit }}')">
-                            {{ $digit }}
-                        </button>
+                    {{-- METHOD: appendToPayment('digit') --}}
+                    <button class="numpad-btn"
+                        wire:click="appendToPayment('{{ $digit }}')">
+                        {{ $digit }}
+                    </button>
                     @endforeach
 
                     {{-- Bottom row: 00 · 0 · dot --}}
                     <button class="numpad-btn"
-                            wire:click="appendToPayment('00')">00</button>
+                        wire:click="appendToPayment('00')">00</button>
 
                     <button class="numpad-btn numpad-zero"
-                            wire:click="appendToPayment('0')">0</button>
+                        wire:click="appendToPayment('0')">0</button>
 
                     <button class="numpad-btn"
-                            wire:click="appendToPayment('.')">.</button>
+                        wire:click="appendToPayment('.')">.</button>
 
                 </div>
 

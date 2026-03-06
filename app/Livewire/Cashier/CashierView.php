@@ -60,7 +60,8 @@ class CashierView extends Component
 
     public function save()
     {
-        // $this->validate();
+        $this->validate();
+        //i dont now why this is not showing fuck this
         try {
             $this->orders->status=true;
             $this->orders->branch_id=1;
@@ -77,9 +78,13 @@ class CashierView extends Component
                 );
             }
 
-            $this->dispatch('done', success: 'Order complete');
+            // $this->dispatch('done', success: 'Order complete');
+            $this->reset();
+            session()->flash('success', 'Order complete');
         } catch (\Throwable $th) {
             $this->dispatch('done', error: 'Something went wrong' . $th->getMessage());
+            session()->flash('error', 'Something gone wrong'.$th);
+
         }
     }
 

@@ -24,25 +24,37 @@
     <x-banner />
 
     <div class="cashier-bg">
+        <!-- <div wire:offline.class="bg-red-300">
+            You are now offline.
+        </div> 
+        
+        bring this back later
 
-        {{-- Error messages --}}
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        -->
+
+
+
+
+        {{-- Error messages 
+        <!-- @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div> -->
+       
+        @endif--}}
+
 
         {{-- Page header (optional, only shows when $header slot is used) --}}
         @if (isset($header))
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
+        <header class="bg-white shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                {{ $header }}
+            </div>
+        </header>
         @endif
 
         {{-- Page Content --}}
@@ -64,8 +76,8 @@
              ============================================================ --}}
         <div class="footer-navigation">
 
-            <a href="{{ route('cashier-view') }}"         class="footer-nav-link">Cashier</a>
-            <a href="{{ route('current_stock') }}"           class="footer-nav-link">Current Stock</a>
+            <a href="{{ route('cashier-view') }}" class="footer-nav-link">Cashier</a>
+            <a href="{{ route('current_stock') }}" class="footer-nav-link">Current Stock</a>
             <a href="{{ route('receiving_stock') }}" class="footer-nav-link">Receiving Stock</a>
 
             {{-- Sign Out — submits to Laravel's built-in logout route --}}

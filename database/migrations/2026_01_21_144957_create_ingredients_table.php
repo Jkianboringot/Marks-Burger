@@ -22,8 +22,9 @@ return new class extends Migration
 
             $table->integer('unit_quantity')->unsigned()->nullable();
             //pretty sure i was suppose to remove unit_quantity
-            $table->index('name');
-            $table->index('category_id');
+            $table->index('name','ingredient_name_index');
+            $table->index('category_id','category_id_index');
+            
             //lets do it, i will use this actually in filter, but it depends on how much is category if it 
             //exceed 100 record then this is fine,
 

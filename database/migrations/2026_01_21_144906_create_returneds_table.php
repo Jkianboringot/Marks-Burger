@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('order_id')->constrained();
             $table->foreignId('branch_id')->constrained();
-            $table->index('branch_id');
-            $table->index('order_id');
+            $table->index('branch_id','returns_branch_id_index');
+            $table->index('order_id','returns_order_id_index');
+
             //this feels wrong , later justify to me why is this not just a pivot table, or why does it needs
             //id(pk) i count just make order_id, branch_id pk
             //rethink this later

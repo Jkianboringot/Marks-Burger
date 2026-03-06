@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->boolean('status')->default(false);
             $table->foreignId('branch_id')->constrained('branches');
-            $table->index('branch_id');
+            $table->index('branch_id','orders_branch_id_index');
+
             $table->timestamps();
             $table->softDeletes();
             // =======

@@ -1,4 +1,4 @@
-@props(['product','quantity'])
+@props(['product','quantity','productList'])
 {{-- =====================================================================
      selected-product-card.blade.php
      resources/views/components/livewire/selected-product-card.blade.php
@@ -26,35 +26,45 @@
 --}}
 
 <tr>
+  @php
+  use App\Models\Product;
+  @endphp
 
-    {{-- Product name --}}
-    <td>{{ $product['product_id'] }}</td>
 
-    {{-- QTY stepper --}}
-    <td>
-        <div class="qty-control">
 
-            {{-- METHOD: decrement($product->id) --}}
-            <button class="qty-btn"
-                    wire:click="decrement({{ $product['product_id'] }})"
-                    title="Remove one">
-                &minus;
-            </button>
+@foreach ($productList as $p )
+@php
+  $product=Product::find($p);
+@endphp
 
-            {{-- PROPERTY: $product->quantity --}}
-            <span class="qty-value">{{ $product['quantity'] }}</span>
+  {{-- Product name --}}
+  <td>{{ Product::find($p['product_id'])->name }}</td>
+  {{-- QTY stepper --}}
+  <td>
+    <div class="qty-control">
 
-            {{-- METHOD: increment($product->id) --}}
-            <button class="qty-btn"
-                    wire:click="increment({{ $product['product_id'] }})"
-                    title="Add one">
-                &plus;
-            </button>
+      {{-- METHOD: decrement($product->id) --}}
+      <button class="qty-btn"
+        wire:click="decrement({{ $p['product_id'] }})"
+        title="Remove one">
+        &minus;
+      </button>
 
-        </div>
-    </td>
+      {{-- PROPERTY: $product->quantity --}}
+      <span class="qty-value">{{ $p['quantity'] }}</span>
 
-    {{-- Unit price (display only — multiply in backend for line total) --}}
-    <td>{{ number_format($product['price'], 2) }}</td>
+      {{-- METHOD: increment($product->id) --}}
+      <button class="qty-btn"
+        wire:click="increment({{ $p['product_id']  }})"
+        title="Add one">
+        &plus;
+      </button>
+
+    </div>
+  </td>
+
+  {{-- Unit price (display only — multiply in backend for line total) --}}
+  <td>{{ number_format( $p['price'], 2) }}</td>
+  @endforeach
 
 </tr>

@@ -77,12 +77,15 @@
 
 .product-box {
     width: calc(33.33% - 0.52rem); /* desktop: 3-col */
+    /* width: 25%; */
+    /* change this ot with 25 later its better  */
     border: var(--border-solid);
     border-radius: var(--border-radius);
     overflow: hidden;
     cursor: pointer;
     background-color: hsl(30, 100%, 53%);
     box-shadow: var(--box-shadow);
+    
     transition: transform 0.15s, background-color 0.15s, box-shadow 0.15s;
 }
 .product-box:hover {

@@ -89,12 +89,13 @@
                         <tbody>
                             {{-- selected-product-card renders a <tr>
                                  It fires: wire:click="increment/decrement($product->id)" internally --}}
-                            @foreach($productList as $product)
-                            <x-livewire.selected-product-card :product="$product" />
+                            @foreach($products as $product)
+                            <x-livewire.selected-product-card :orders="$orders" :productList="$productList" />
                             @endforeach
                         </tbody>
                     </table>
                 </div>
+
 
                 {{-- METHOD: none needed — $total is a computed property --}}
                 <div class="checkout-total">

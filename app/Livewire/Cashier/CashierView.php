@@ -55,6 +55,11 @@ class CashierView extends Component
         // dd($this->productList);
     }
 
+    public function cancelOrder()
+    {
+        session()->flash('success', 'Ordered Cancel');
+        $this->reset();
+    }
 
 
 
@@ -63,8 +68,8 @@ class CashierView extends Component
         $this->validate();
         //i dont now why this is not showing fuck this
         try {
-            $this->orders->status=true;
-            $this->orders->branch_id=1;
+            $this->orders->status = true;
+            $this->orders->branch_id = 1;
             $this->orders->save();
 
             foreach ($this->productList as $product) {
@@ -83,8 +88,7 @@ class CashierView extends Component
             session()->flash('success', 'Order complete');
         } catch (\Throwable $th) {
             $this->dispatch('done', error: 'Something went wrong' . $th->getMessage());
-            session()->flash('error', 'Something gone wrong'.$th);
-
+            session()->flash('error', 'Something gone wrong' . $th);
         }
     }
 

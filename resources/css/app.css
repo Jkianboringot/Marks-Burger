@@ -456,7 +456,8 @@
 
 .stock-card {
     background: var(--white); border-radius: var(--radius-lg);
-    overflow: hidden; box-shadow: var(--shadow-card);
+    overflow: auto; box-shadow: var(--shadow-card);
+    max-height: 29rem;
 }
 .stock-table { width: 100%; border-collapse: collapse; }
 .stock-table thead th {

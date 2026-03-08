@@ -11,9 +11,9 @@ class RecievingStock extends Component
     {
         //this where are the data form add_to_product
 
-        $addToProducts=AddIngredient::latest()->first();
+        $addToIngredients=AddIngredient::latest()->first();
 
         // dd($addToProducts->ingredients);
-        return view('livewire.cashier.receiving-stock',['addToProducts'=>$addToProducts]);
+        return view('livewire.cashier.receiving-stock',['addToIngredients'=>$addToIngredients]);
     }
 }

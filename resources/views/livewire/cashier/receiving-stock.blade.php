@@ -40,7 +40,7 @@
                 </thead>
                 <tbody>
 
-                    @if(!$addToProducts)
+                    @if(!$addToIngredients)
                     <tr>
                         <td colspan="3"
                             style="text-align: center; color: var(--text-light);
@@ -51,7 +51,7 @@
                     @endif
 
                     {{-- One addToProduct can contain multiple ingredients --}}
-                    @foreach($addToProducts->ingredients as $ingredient)
+                    @foreach($addToIngredients->ingredients as $ingredient)
                     <tr>
                         <td>{{ $ingredient->name }}</td>
 
@@ -73,10 +73,14 @@
         {{-- ── Received button
              METHOD: markAsReceived()
              ── --}}
-        <button class="btn-received" wire:click="markAsReceived">
-            Received
-        </button>
-
+        <div class="action-buttons-row">
+            <button class="btn-received" wire:click="markAsReceived">
+                Received
+            </button>
+            <button class="btn-rejected" wire:click="markAsRejected">
+                Reject
+            </button>
+        </div>
     </div>
     {{-- Footer is rendered by app.blade.php layout — nothing needed here --}}
 

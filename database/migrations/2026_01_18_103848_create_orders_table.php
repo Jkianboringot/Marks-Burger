@@ -16,6 +16,8 @@ return new class extends Migration
             $table->boolean('status')->default(false);
             $table->foreignId('branch_id')->constrained('branches');
             $table->index('branch_id','orders_branch_id_index');//even if its small its essential for faster query and filter
+//even if its small its essential for faster query and filter go ingredient table and read example 
+
 
             $table->timestamps();
             $table->softDeletes();

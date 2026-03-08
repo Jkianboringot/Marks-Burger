@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('add_ingredients', function (Blueprint $table) {
             $table->id();
             $table->foreignId('branch_id')->constrained();
+            $table->index('branch_id','add_ingredient_branch_id_index');//even if its small its essential for faster query and filter
             //branch_id wont be big again, no random indexes 
+            //maybe when we expand but for now not needed since mb only has about 10 branch
             $table->timestamps();
         });
     }

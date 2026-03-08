@@ -52,7 +52,7 @@ class CashierView extends Component
             'quantity' => 1
             //i can maybe just not put this here then later when attaching that is when i put it
         ]);
-        // dd($this->productList);
+        // dd($this->productList);D
     }
 
     public function cancelOrder()
@@ -61,6 +61,20 @@ class CashierView extends Component
         $this->reset();
     }
 
+    public function decrement($id)
+    {
+        array_push($this->productList,[
+            'product_id'=>$id,
+            'quantity'=>  $this->quantity--
+        ]);
+
+    }
+
+    public function increment($id)
+    {
+        dd('add');
+        // $this->quantity--;
+    }
 
 
     public function save()

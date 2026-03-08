@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('name',75)->unique();
+            $table->string('name',75);
             $table->decimal('price')->unsigned()->default(0);
             $table->index('name','products_name_index');
             // btw this is not good practice am only doing it becuase am a solo dev , but never ever do this on production

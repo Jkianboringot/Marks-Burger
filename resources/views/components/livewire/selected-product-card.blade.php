@@ -1,4 +1,4 @@
-@props(['product','quantity','productList'])
+@props(['productItem'])
 {{-- =====================================================================
      selected-product-card.blade.php
      resources/views/components/livewire/selected-product-card.blade.php
@@ -16,11 +16,11 @@
      METHODS FIRED
      ─────────────────────────────────────────────────────────────────────
        increment($productId)
-         → qty++ on matching $productList item; recalc $total
+         → qty++ on matching $productItem item; recalc $total
 
        decrement($productId)
          → qty-- on matching item
-         → if qty reaches 0: remove item from $productList
+         → if qty reaches 0: remove item from $productItem
          → recalc $total
      =====================================================================
 --}}
@@ -32,30 +32,32 @@
 
 
 
-@foreach ($productList as $p )
-@php
-  $product=Product::find($p);
-@endphp
+
+
+
+
+
+<!-- fuck optimization for now do it later, just fix it for now -->
 
   {{-- Product name --}}
-  <td>{{ Product::find($p['product_id'])->name }}</td>
+  <td>{{ Product::find($productItem['product_id'])->name }}</td>
   {{-- QTY stepper --}}
   <td>
     <div class="qty-control">
 
       {{-- METHOD: decrement($product->id) --}}
       <button class="qty-btn"
-        wire:click="decrement({{ $p['product_id'] }})"
+        wire:click="decrement({{ $productItem['product_id'] }})"
         title="Remove one">
         &minus;
       </button>
 
       {{-- PROPERTY: $product->quantity --}}
-      <span class="qty-value">{{ $p['quantity'] }}</span>
+      <span class="qty-value">{{ $productItem['quantity'] }}</span>
 
       {{-- METHOD: increment($product->id) --}}
       <button class="qty-btn"
-        wire:click="increment({{ $p['product_id']  }})"
+        wire:click="increment({{ $productItem['product_id']  }})"
         title="Add one">
         &plus;
       </button>
@@ -64,7 +66,6 @@
   </td>
 
   {{-- Unit price (display only — multiply in backend for line total) --}}
-  <td>{{ number_format( $p['price'], 2) }}</td>
-  @endforeach
+  <td>{{ number_format( $productItem['price'], 2) }}</td>
 
 </tr>

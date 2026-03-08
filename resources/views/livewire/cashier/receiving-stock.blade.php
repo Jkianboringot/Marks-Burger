@@ -23,11 +23,20 @@
 
     <div class="stock-container">
 
-        {{-- ── Header ── --}}
+
+
         <div class="stock-header">
             <span>Receive Ingredient</span>
-        </div>
 
+            {{-- METHOD (optional): addIngredient() --}}
+            <button class="stock-header-btn" wire:click="addIngredientHistory">
+                <!-- // return AddIngredient::all();
+        // this must show as a modal -->
+
+                History
+            </button>
+
+        </div>
         {{-- ── Table ── --}}
         <div class="stock-card">
             <table class="stock-table">
@@ -72,15 +81,17 @@
 
         {{-- ── Received button
              METHOD: markAsReceived()
-             ── --}}
-        <div class="action-buttons-row">
+             ── 
+
+             i actually done need this for now as i remove it but maybe i will add it later
+         <div class="action-buttons-row">
             <button class="btn-received" wire:click="markAsReceived">
                 Received
             </button>
             <button class="btn-rejected" wire:click="markAsRejected">
                 Reject
             </button>
-        </div>
+        </div> --}}
     </div>
     {{-- Footer is rendered by app.blade.php layout — nothing needed here --}}
 

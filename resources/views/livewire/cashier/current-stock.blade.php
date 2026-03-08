@@ -27,7 +27,10 @@
             <span>Ingredient</span>
 
             {{-- METHOD (optional): addIngredient() --}}
-            <button class="stock-header-btn" wire:click="addIngredient">
+            <button class="stock-header-btn" wire:click="lowStockNotification">
+                <!-- // return Ingredint::stock() min something like this;
+        // this must show as a modal -->
+
                 Notifications
             </button>
         </div>
@@ -44,7 +47,7 @@
             class="stock-search"
             placeholder="Search..."
             wire:model.live.debounce.300ms="search" />
-            <!-- //make this defer in the future ,but we will transition this to vue so upto you
+        <!-- //make this defer in the future ,but we will transition this to vue so upto you
              read livewire submitting form -->
 
         {{-- ── Table ── --}}
@@ -89,8 +92,9 @@
                 </tbody>
             </table>
         </div>
-        {{$ingredients->links()}}
-
+        <div class="mt-2">
+            {{$ingredients->links()}}
+        </div>
     </div>
     {{-- Footer is rendered by app.blade.php layout — nothing needed here --}}
 </div>

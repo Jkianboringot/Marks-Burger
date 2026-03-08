@@ -12,6 +12,11 @@ class CurrentStock extends Component
     // this just show the ingredient stock
     public  $search;
 
+    public function lowStockNotification(){
+        dd('current stock');
+            // return Ingredint::stock() min something like this;
+        // this must show as a modal 
+    }
 
     public function render()
     {

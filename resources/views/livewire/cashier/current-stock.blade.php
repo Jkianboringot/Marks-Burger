@@ -43,8 +43,7 @@
             type="text"
             class="stock-search"
             placeholder="Search..."
-            wire:model.debounce.300ms="search"
-        />
+            wire:model.debounce.300ms="search" />
 
         {{-- ── Table ── --}}
         <div class="stock-card">
@@ -66,8 +65,7 @@
                     <tr
                         {{-- Add stock-row-low class when stock is at or below threshold.
                              CSS colours name + stock columns red automatically. --}}
-                        class="{{ $ingredient->ingredient_stock <= $ingredient->threshold ? 'stock-row-low' : '' }}"
-                    >
+                        class="{{ $ingredient->ingredient_stock <= $ingredient->threshold ? 'stock-row-low' : '' }}">
                         <td>{{ $ingredient->name }}</td>
                         <td>{{ number_format($ingredient->threshold) }}</td>
                         <td>{{ $ingredient->category_id }}</td>
@@ -89,8 +87,8 @@
                 </tbody>
             </table>
         </div>
+        {{$ingredients->links()}}
 
     </div>
     {{-- Footer is rendered by app.blade.php layout — nothing needed here --}}
-
 </div>

@@ -40,23 +40,7 @@
                 </thead>
                 <tbody>
 
-                    @forelse($addToProducts as $addToProduct)
-
-                        {{-- One addToProduct can contain multiple ingredients --}}
-                        @foreach($addToProduct->ingredients as $ingredient)
-                        <tr>
-                            <td>{{ $ingredient->name }}</td>
-
-                            {{-- category_id: swap for $ingredient->category->name if
-                                 you have the relationship loaded --}}
-                            <td>{{ $ingredient->category_id }}</td>
-
-                            {{-- pivot->quantity: set in your BelongsToMany pivot table --}}
-                            <td>{{ number_format($ingredient->pivot->quantity) }}</td>
-                        </tr>
-                        @endforeach
-
-                    @empty
+                    @if(!$addToProducts)
                     <tr>
                         <td colspan="3"
                             style="text-align: center; color: var(--text-light);
@@ -64,7 +48,23 @@
                             No incoming stock records.
                         </td>
                     </tr>
-                    @endforelse
+                    @endif
+
+                    {{-- One addToProduct can contain multiple ingredients --}}
+                    @foreach($addToProducts->ingredients as $ingredient)
+                    <tr>
+                        <td>{{ $ingredient->name }}</td>
+
+                        {{-- category_id: swap for $ingredient->category->name if
+                                 you have the relationship loaded --}}
+                        <td>{{ $ingredient->category_id }}</td>
+
+                        {{-- pivot->quantity: set in your BelongsToMany pivot table --}}
+                        <td>{{ number_format($ingredient->pivot->quantity) }}</td>
+                    </tr>
+                    @endforeach
+
+
 
                 </tbody>
             </table>

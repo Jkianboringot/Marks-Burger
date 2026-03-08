@@ -28,7 +28,7 @@
 
             {{-- METHOD (optional): addIngredient() --}}
             <button class="stock-header-btn" wire:click="addIngredient">
-                + Add
+                Notifications
             </button>
         </div>
 
@@ -43,7 +43,9 @@
             type="text"
             class="stock-search"
             placeholder="Search..."
-            wire:model.debounce.300ms="search" />
+            wire:model.live.debounce.300ms="search" />
+            <!-- //make this defer in the future ,but we will transition this to vue so upto you
+             read livewire submitting form -->
 
         {{-- ── Table ── --}}
         <div class="stock-card">

@@ -13,10 +13,6 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::insert([
-            ['name'=>'Pack'],
-            ['name'=>'Kilo'],
-            ['name'=>'Gram']
-        ]);
+         Category::factory()->count(100)->create();
     }
 }

@@ -13,28 +13,6 @@ class IngredientSeeder extends Seeder
      */
     public function run(): void
     {
-        Ingredient::insert([
-            [
-                'name' => 'patty',
-                'unit_quantity' => 132,
-                'threshold' => 4,
-                'category_id' => 1,
-              
-            ],
-            [
-                'name' => 'buns',
-                'unit_quantity' => 112,
-                'threshold' => 4,
-                'category_id' => 1,
-              
-            ],
-            [
-                'name' => 'cheese',
-                'unit_quantity' => 1332,
-                'threshold' => 4,
-                'category_id' => 1,
-              
-            ]
-        ]);
+           Ingredient::factory(100)->create();
     }
 }

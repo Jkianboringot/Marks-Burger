@@ -7,6 +7,7 @@ namespace App\Models;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -81,5 +82,10 @@ class User extends Authenticatable implements FilamentUser
 {
     return $this->is_admin;
 }//just global one, all componenet or panel, just not spcific panel like other one
+
+    public function branchs(){
+        return $this->belongsToMany(Branch::class);
+       
+    }
 
 }

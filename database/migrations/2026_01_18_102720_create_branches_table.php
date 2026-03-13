@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('location',100);
             $table->enum('branch_type',['main','sub'])->default('sub');//dont really need this just mean first branch as main
-            $table->index('locatoin','branches_location_index');
+            $table->index('location','branches_location_index');
             // i index this becauase i will use locaton alot for filter , joins , and search espicailly in admin Sidebar
             // and cashier view for branch_ingredient, branch_order, etc
 

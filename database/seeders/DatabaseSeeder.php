@@ -21,10 +21,10 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
 
             IngredientSeeder::class,
+            BranchSeeder::class,
 
             UserSeeder::class,
             ProductSeeder::class,
-            BranchSeeder::class,
             ]
         );
     

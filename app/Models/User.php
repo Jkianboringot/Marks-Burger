@@ -83,8 +83,8 @@ class User extends Authenticatable implements FilamentUser
     return $this->is_admin;
 }//just global one, all componenet or panel, just not spcific panel like other one
 
-    public function branches(){
-        return $this->belongsToMany(Branch::class,'branch_users');
+    public function branch(){
+        return $this->belongsTo(Branch::class);
        
     }
 

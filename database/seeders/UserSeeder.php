@@ -14,11 +14,14 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-         User::factory()->insert([
+        //  User::factory()->insert([
+         User::insert([
             'name' => 'Admin User',
             'email' => 'admin@gmail.com',
             'password' => Hash
             ::make('123'),
+            'branch_id'=>1
+            
         ]);
     }
 }

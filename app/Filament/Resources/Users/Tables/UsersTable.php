@@ -18,7 +18,7 @@ class UsersTable
                     ->searchable(),
                         TextColumn::make('email')
                     ->searchable(),
-                TextColumn::make('branches.id')
+                TextColumn::make('branches.location')
                     ->searchable(),
               
             ])

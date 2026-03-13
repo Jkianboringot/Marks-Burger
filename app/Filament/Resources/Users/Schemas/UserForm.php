@@ -14,23 +14,18 @@ class UserForm
     {
         return $schema
             ->components([
-                 TextInput::make('name'),
-                 TextInput::make('email'),
-                 TextInput::make('password'),
-                
+                TextInput::make('name'),
+                TextInput::make('email'),
+                TextInput::make('password'),
 
-                Repeater::make('userBranch')
-                    ->label('Branch to be Assign')
-                    ->schema([
-                        Select::make('branch_id')
-                            ->label('Branch available')
-                            ->options(Branch::pluck('location', 'id')) //take the location id
-                            ->searchable()
-                            ->required()
-                            ->distinct()
-                            ->disableOptionsWhenSelectedInSiblingRepeaterItems()
 
-        ])
-        ]);
+                Select::make('branch_id')
+                    ->relationship('branch', 'location')
+                    ->required()
+                    ->distinct()
+                    ->disableOptionsWhenSelectedInSiblingRepeaterItems(),
+                //this is what allow you to select multiple value
+
+            ]);
     }
 }

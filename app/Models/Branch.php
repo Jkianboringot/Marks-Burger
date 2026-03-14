@@ -34,7 +34,7 @@ class Branch extends Model
   }
   public function users(): HasMany
   {
-    return $this->hasMany(User::class,'users');
+    return $this->hasMany(User::class);
   }
 
 

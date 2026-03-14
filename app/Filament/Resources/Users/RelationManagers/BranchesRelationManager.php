@@ -18,7 +18,7 @@ use Filament\Tables\Table;
 
 class BranchesRelationManager extends RelationManager
 {
-    protected static string $relationship = 'branches';
+    protected static string $relationship = 'branch';
 
     public function form(Schema $schema): Schema
     {

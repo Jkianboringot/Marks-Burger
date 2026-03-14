@@ -34,7 +34,7 @@ class UserResource extends Resource
     public static function getRelations(): array
     {
         return [
-            BranchesRelationManager::class
+            // BranchesRelationManager::class
         ];
     }
 

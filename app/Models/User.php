@@ -33,6 +33,7 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'branch_id'
     ];
 
     /**
@@ -79,13 +80,12 @@ class User extends Authenticatable implements FilamentUser
     //this becuase we have manager, cahier , and admin but it depends
 
     public function canAccessFilament(): bool
-{
-    return $this->is_admin;
-}//just global one, all componenet or panel, just not spcific panel like other one
+    {
+        return $this->is_admin;
+    } //just global one, all componenet or panel, just not spcific panel like other one
 
-    public function branch(){
+    public function branch():BelongsTo
+    {
         return $this->belongsTo(Branch::class);
-       
     }
-
 }

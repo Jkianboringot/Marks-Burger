@@ -17,11 +17,9 @@ class UserForm
                 TextInput::make('name'),
                 TextInput::make('email'),
                 TextInput::make('password'),
-
-
                 Select::make('branch_id')
+                    ->label('Assign Branch')
                     ->relationship('branch', 'location')
-                    ->required()
                     ->distinct()
                     ->disableOptionsWhenSelectedInSiblingRepeaterItems(),
                 //this is what allow you to select multiple value

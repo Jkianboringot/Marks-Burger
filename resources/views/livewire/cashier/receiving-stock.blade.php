@@ -23,6 +23,7 @@
 
     <div class="stock-container">
 
+      
 
 
         <div class="stock-header">
@@ -48,8 +49,8 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     @if(!$addToIngredients)
+
                     <tr>
                         <td colspan="3"
                             style="text-align: center; color: var(--text-light);
@@ -57,8 +58,7 @@
                             No incoming stock records.
                         </td>
                     </tr>
-                    @endif
-
+                    @else
                     {{-- One addToProduct can contain multiple ingredients --}}
                     @foreach($addToIngredients->ingredients as $ingredient)
                     <tr>
@@ -72,6 +72,7 @@
                         <td>{{ number_format($ingredient->pivot->quantity) }}</td>
                     </tr>
                     @endforeach
+                    @endif
 
 
 

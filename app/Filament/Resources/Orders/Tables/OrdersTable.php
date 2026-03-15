@@ -40,7 +40,7 @@ class OrdersTable
 
                 //making a query -- dangerous 
                 //this is note for functions that is causing too much query
-                ToggleColumn::make('status')
+                ToggleColumn::make('status'),
 
                 // =======
                 //                 // TextColumn::make('user.name')
@@ -65,7 +65,14 @@ class OrdersTable
                 //                 //     ->dateTime()
                 //                 //     ->sortable()
                 //                 //     ->toggleable(isToggledHiddenByDefault: true),
-
+                TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             // ->defaultGroup('product.name')  
             // grouping data in table
@@ -73,7 +80,7 @@ class OrdersTable
             // >>>>>>> playground
 
             ->filters([
-                     SelectFilter::make('branch_id') //filter with relation
+                SelectFilter::make('branch_id') //filter with relation
                     ->relationship('branch', 'location'),
             ])
             ->recordActions([

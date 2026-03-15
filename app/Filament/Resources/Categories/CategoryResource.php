@@ -68,9 +68,7 @@ class CategoryResource extends Resource
                 DeleteAction::make(),
             ])
             ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
+            
             ]);
     }
 

@@ -27,13 +27,17 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            
+            ->viteTheme('resources/css/filament/admin/theme.css')
+            ->brandName('Admin Panel')
+
             ->colors([
-                'primary' => Color::Amber,
-                'gray'=>Color::Gray,
-                'danger'=>Color::Red,
-                'success'=>Color::Green,
-                'warning'=>Color::Yellow
+                // Changed from Amber → Blue to match cashier-side primary #2563EB
+           
+                'primary' => Color::Amber,   // orange — matches --adm-orange in theme
+                'gray'    => Color::Gray,
+                'danger'  => Color::Red,
+                'success' => Color::Green,
+                'warning' => Color::Yellow,
             ])
             ->authGuard('web')
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')

@@ -3,9 +3,11 @@
 namespace App\Filament\Resources\Returneds\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
 class ReturnedsTable
@@ -28,15 +30,13 @@ class ReturnedsTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                SelectFilter::make('branch_id')
+                    ->relationship('branch', 'location')
             ])
             ->recordActions([
                 EditAction::make(),
+                DeleteAction::make()
             ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ]);
+            ->toolbarActions([]);
     }
 }

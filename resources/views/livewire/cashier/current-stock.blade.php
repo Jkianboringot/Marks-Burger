@@ -67,16 +67,14 @@
                 </thead>
                 <tbody>
 
-                <!-- ok this works but its shit, but i will let it be for now, also i ahve no clue how i did this hahah
+                    <!-- ok this works but its shit, but i will let it be for now, also i ahve no clue how i did this hahah
                 fuck, my understanding of laravel is really still to low, like i needed gpt help just to know that
                 i can use 'with' relation like that, i always thought it was just for eager loading, the more you know
                 in the future i think i will just make a custome query fro it -->
 
                     @forelse($addIngredients as $addIngredient)
-                    @php
-                    $ingredients = $addIngredient->ingredients;
-                    @endphp
-                    @foreach($ingredients as $ingredient)
+
+                    @foreach($addIngredient->ingredients as $ingredient)
 
                     <tr
                         class="{{ $ingredient->branch_ingredient_stock <= $ingredient->threshold ? 'stock-row-low' : '' }}">

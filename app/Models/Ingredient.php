@@ -118,9 +118,11 @@ class Ingredient extends Model
 
     function getBranchIngredientStockAttribute()
     {
-        return ($this->addIngredients()->where('branch_id',Auth::user()->branch_id)->sum('add_to_ingredient.quantity') ?? 0)
+        return ($this->addIngredients()->where('branch_id',Auth::user()->branch_id)->value('add_to_ingredient.quantity') ?? 0)
             + $this->returns()
             - $this->sold();
+
+            // ok this is whats being shown but check if its actually valid or not
     }
 
     public function category(): BelongsTo

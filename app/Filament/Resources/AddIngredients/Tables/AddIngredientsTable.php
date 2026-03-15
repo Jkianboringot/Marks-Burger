@@ -16,7 +16,6 @@ class AddIngredientsTable
     {
         return $table
             ->columns([
-                TextColumn::make('id'),
                 TextColumn::make('ingredients.name'),
                 TextColumn::make('ingredients.pivot.quantity')
                     ->label('QTY'),

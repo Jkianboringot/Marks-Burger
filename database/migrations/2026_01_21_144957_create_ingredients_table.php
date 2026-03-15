@@ -29,7 +29,7 @@ return new class extends Migration
                 // i will let this be a comment and in category i will make it not unique for now, becuase its unlike branch which will be use alot
                 // in filter for , branch_order , for branch_return, branch_add_ingredient , this does not have that, but branch does, but this is mytake 
                 // for now i need to learn mroe
-
+            
 
 
 

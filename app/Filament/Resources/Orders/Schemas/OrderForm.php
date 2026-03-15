@@ -16,10 +16,7 @@ class OrderForm
     {
         return $schema
             ->components([
-                Toggle::make('status')
-                    ->label('Active')
-                    ->default(false)
-                    ->inline(false),
+               
 
                 Select::make('branch_id')
                     ->label('Branch')
@@ -45,7 +42,7 @@ class OrderForm
                                     $set('price', $product->price);
                                 }
                             }),
-
+                            //state is the input value btw
                           
                         
                         TextInput::make('quantity')

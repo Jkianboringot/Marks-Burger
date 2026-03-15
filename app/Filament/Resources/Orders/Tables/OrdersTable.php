@@ -7,6 +7,7 @@ use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\BulkAction;
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
@@ -17,6 +18,8 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\Summarizers\Sum;
 // >>>>>>> playground
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Collection;
@@ -27,14 +30,17 @@ class OrdersTable
     {
         return $table
             ->columns([
-                TextColumn::make('id')
-                ,
                 TextColumn::make('products.name'),
                 TextColumn::make('products.pivot.quantity')
-                ->label('QTY'),
+                    ->label('QTY'),
                 // TextColumn::make('products.price')
                 // ->label('PRIce'),
                 TextColumn::make('branch.location'),
+
+
+                //making a query -- dangerous 
+                //this is note for functions that is causing too much query
+                ToggleColumn::make('status')
 
                 // =======
                 //                 // TextColumn::make('user.name')
@@ -59,6 +65,7 @@ class OrdersTable
                 //                 //     ->dateTime()
                 //                 //     ->sortable()
                 //                 //     ->toggleable(isToggledHiddenByDefault: true),
+
             ])
             // ->defaultGroup('product.name')  
             // grouping data in table
@@ -66,7 +73,8 @@ class OrdersTable
             // >>>>>>> playground
 
             ->filters([
-                TrashedFilter::make(),
+                     SelectFilter::make('branch_id') //filter with relation
+                    ->relationship('branch', 'location'),
             ])
             ->recordActions([
 
@@ -74,7 +82,7 @@ class OrdersTable
                 // pretty nice, anything inside it is hidden
 
                 EditAction::make(),
-
+                DeleteAction::make()
 
                 // ok this is just like the table toggle or checkboxcolumn no clue what is the
                 //diffrence
@@ -89,23 +97,25 @@ class OrdersTable
                 //     ->action(fn(Order $record) => $record->update(['is_completed' => true]))
             ])
             ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    ForceDeleteBulkAction::make(),
-                    RestoreBulkAction::make(),
+
+                // remove this becuase its ugly i dont need bulk actions
+                // BulkActionGroup::make([
+                //     DeleteBulkAction::make(),
+                //     ForceDeleteBulkAction::make(),
+                //     RestoreBulkAction::make(),
 
 
-                    //bulk action, making all order select to be mark as completed
-                    // BulkAction::make('Makrs as Complete')
-                    //     ->requiresConfirmation()
-                    //     ->icon(Heroicon::OutlinedCheckBadge)
+                //     //bulk action, making all order select to be mark as completed
+                //     // BulkAction::make('Makrs as Complete')
+                //     //     ->requiresConfirmation()
+                //     //     ->icon(Heroicon::OutlinedCheckBadge)
 
-                    //     // hidden work if is_completed is true then it hides it, this can be good for inventory sytem
-                    //     // since i do this thing in my system,
-                    //     ->action(fn(Collection $records) => $records->each->update(['is_completed' => true]))
-                    //     ->deselectRecordsAfterCompletion()
+                //     //     // hidden work if is_completed is true then it hides it, this can be good for inventory sytem
+                //     //     // since i do this thing in my system,
+                //     //     ->action(fn(Collection $records) => $records->each->update(['is_completed' => true]))
+                //     //     ->deselectRecordsAfterCompletion()
 
-                ]),
+                // ]),
             ]);
     }
 }

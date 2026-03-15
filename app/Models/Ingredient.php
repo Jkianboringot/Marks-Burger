@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Auth;
 
 class Ingredient extends Model
 {
-  use HasFactory;
+    use HasFactory;
 
     protected $fillable = [
         'name',
@@ -113,6 +114,13 @@ class Ingredient extends Model
 
             this is a visualize docs in tablet, i nreallly dont fully understand this yet
 */
+    }
+
+    function getBranchIngredientStockAttribute()
+    {
+        return ($this->addIngredients()->where('branch_id',Auth::user()->branch_id)->sum('add_to_ingredient.quantity') ?? 0)
+            + $this->returns()
+            - $this->sold();
     }
 
     public function category(): BelongsTo

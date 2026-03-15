@@ -66,11 +66,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($ingredients as $ingredient)
+
+                <!-- ok this works but its shit, but i will let it be for now, also i ahve no clue how i did this hahah
+                fuck, my understanding of laravel is really still to low, like i needed gpt help just to know that
+                i can use 'with' relation like that, i always thought it was just for eager loading, the more you know
+                in the future i think i will just make a custome query fro it -->
+
+                    @forelse($addIngredients as $addIngredient)
+                    @php
+                    $ingredients = $addIngredient->ingredients;
+                    @endphp
+                    @foreach($ingredients as $ingredient)
+
                     <tr
-                        {{-- Add stock-row-low class when stock is at or below threshold.
-                             CSS colours name + stock columns red automatically. --}}
-                        class="{{ $ingredient->ingredient_stock <= $ingredient->threshold ? 'stock-row-low' : '' }}">
+                        class="{{ $ingredient->branch_ingredient_stock <= $ingredient->threshold ? 'stock-row-low' : '' }}">
                         <td>{{ $ingredient->name }}</td>
                         <td>{{ number_format($ingredient->threshold) }}</td>
                         <td>{{ $ingredient->category_id }}</td>
@@ -78,8 +87,11 @@
                         {{-- unit_quantity: add this column to your ingredients table + model if missing --}}
                         <td class="col-unit">{{ number_format($ingredient->unit_quantity ?? 0) }}</td>
 
-                        <td>{{ number_format($ingredient->ingredient_stock) }}</td>
+                        <td>{{ number_format($ingredient->branch_ingredient_stock) }}</td>
+
                     </tr>
+
+                    @endforeach
                     @empty
                     <tr>
                         <td colspan="5"
@@ -93,7 +105,7 @@
             </table>
         </div>
         <div class="mt-2">
-            {{$ingredients->links()}}
+            {{$addIngredients->links()}}
         </div>
     </div>
     {{-- Footer is rendered by app.blade.php layout — nothing needed here --}}

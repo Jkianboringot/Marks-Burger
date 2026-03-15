@@ -25,10 +25,10 @@ class RecievingStock extends Component
 
         $userId = Auth::user();
         //this show the branch of where the user is assigned too, only id
-        $branch = Branch::find($userId->branch_id);
+        // $branch = Branch::find($userId->branch_id);
 
         // making sure a function do only one thing, to avoid bugs
-        return $branch->id; 
+        return $userId->branch_id; 
     }
     function addIngredientHistory()
     {
@@ -38,7 +38,7 @@ class RecievingStock extends Component
     {
        
         //this where are the data form add_to_product
-        $addToIngredients = AddIngredient::where('branch_id', $this->UserBranchId())->latest()->first();
+        $addToIngredients = AddIngredient::where('branch_id',3)->latest()->first();
 
         // dd($addToProducts->ingredients);
         return view('livewire.cashier.receiving-stock', ['addToIngredients' => $addToIngredients]);

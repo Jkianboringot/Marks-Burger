@@ -45,7 +45,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Category</th>
-                        <th>Stock</th>
+                        <th>Quantity</th>
                     </tr>
                 </thead>
                 <tbody>

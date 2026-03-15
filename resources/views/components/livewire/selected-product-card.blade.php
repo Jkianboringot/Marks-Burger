@@ -1,4 +1,4 @@
-@props(['productItem','quantity'])
+@props(['productItem','quantity'=>0])
 {{-- =====================================================================
      selected-product-card.blade.php
      resources/views/components/livewire/selected-product-card.blade.php
@@ -28,6 +28,7 @@
 <tr>
   @php
   use App\Models\Product;
+ 
   @endphp
 
 
@@ -53,7 +54,7 @@
       </button>
 
       {{-- PROPERTY: $product->quantity --}}
-      <span class="qty-value">{{ $quantity }}</span>
+      <span class="qty-value">{{$quantity }}</span>
 
       {{-- METHOD: increment($product->id) --}}
       <button class="qty-btn"

@@ -5,6 +5,7 @@ namespace App\Livewire\Cashier;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Queue\QueueManager;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use PhpParser\Error;
 use Ramsey\Uuid\Type\Decimal;
@@ -19,13 +20,13 @@ class CashierView extends Component
 
     // public  Decimal $price;
 
-    public  $quantity;
+    public  $quantity = 0;
     protected function rules()
     {
         return [
             // 'order.price' => 'required|numeric|min:1',
-            'quantity' => 'required|min:1',
-            'productList' => 'required'
+            'quantity' => 'required',
+            'productList' => 'required',
         ];
     }
 
@@ -63,11 +64,10 @@ class CashierView extends Component
 
     public function decrement($id)
     {
-        array_push($this->productList,[
-            'product_id'=>$id,
-            'quantity'=>  $this->quantity--
+        array_push($this->productList, [
+            'product_id' => $id,
+            'quantity' =>  $this->quantity--
         ]);
-
     }
 
     public function increment($id)
@@ -82,8 +82,14 @@ class CashierView extends Component
         $this->validate();
         //i dont now why this is not showing fuck this
         try {
-            $this->orders->status = true;
-            $this->orders->branch_id = 1;
+
+            //making a query -- dangerous 
+            //this is note for functions that is causing too much query
+            //temporary for now, just to make sure that order->branch_id gets the assigned user->branch_id
+            $user = Auth::user();
+
+
+            $this->orders->branch_id = $user->branch_id;
             $this->orders->save();
 
             foreach ($this->productList as $product) {

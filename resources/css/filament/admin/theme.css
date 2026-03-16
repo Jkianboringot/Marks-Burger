@@ -499,6 +499,32 @@ html, body, .fi-body {
     border-color: #16a34a !important;
 }
 
+/* Small table action buttons */
+.fi-btn.fi-size-sm.fi-ac-btn-action {
+    background-color: #fff8f0 !important;
+    border: 1px solid #f97316 !important;
+    color: #ea580c !important;
+    border-radius: 0.375rem !important;
+    box-shadow: 0 1px 3px rgba(249, 115, 22, 0.25) !important;
+    transition: all 0.15s !important;
+}
+.fi-btn.fi-size-sm.fi-ac-btn-action svg,
+.fi-btn.fi-size-sm.fi-ac-btn-action svg * {
+    color: #ea580c !important;
+    fill: #ea580c !important;
+}
+.fi-btn.fi-size-sm.fi-ac-btn-action:hover {
+    background-color: #f97316 !important;
+    border-color: #ea580c !important;
+    box-shadow: 0 2px 6px rgba(249, 115, 22, 0.4) !important;
+}
+.fi-btn.fi-size-sm.fi-ac-btn-action:hover svg,
+.fi-btn.fi-size-sm.fi-ac-btn-action:hover svg * {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+
+
 /* ════════════════════════════════════════════════════════════════════
    12. FORM INPUTS
 ════════════════════════════════════════════════════════════════════ */

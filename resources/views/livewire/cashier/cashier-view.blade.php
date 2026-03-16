@@ -13,16 +13,16 @@
 
      LIVEWIRE METHODS  (public function ... in your Livewire component class)
      ─────────────────────────────────────────────────────────────────────
-       addProduct($productId)       → add 1 of product to $productList (or increment qty)✅
-       cancelOrder()                → clear $productList and reset $total✅
+       ✅addProduct($productId)       → add 1 of product to $productList (or increment qty)✅
+       ✅cancelOrder()                → clear $productList and reset $total✅
        holdOrder()                  → park order, clear cart (implement as you see fit)
-       openPaymentModal()           → set $showPaymentModal = true
-       closePaymentModal()          → set $showPaymentModal = false; reset $customerPay
+       ✅openPaymentModal()           → set $showPaymentModal = true
+       ✅closePaymentModal()          → set $showPaymentModal = false; reset $customerPay
        appendToPayment($digit)      → append digit/dot to $customerPay string; recalc $customerChange
-       clearPayment()               → reset $customerPay = '0'; reset $customerChange
+       ✅clearPayment()               → reset $customerPay = '0'; reset $customerChange
        completeOrder()              → save transaction, clear cart, close modal
-       increment($productId)        → +1 qty on item in $productList; recalc $total✅
-       decrement($productId)        → -1 qty (remove item if qty reaches 0); recalc $total✅
+       ✅increment($productId)        → +1 qty on item in $productList; recalc $total✅
+       ✅decrement($productId)        → -1 qty (remove item if qty reaches 0); recalc $total✅
      =====================================================================
 --}}
 
@@ -32,14 +32,14 @@
         {{ session('success') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>
-       @elseif ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+    @elseif ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
     @endif
     {{-- ================================================================
          MAIN LAYOUT ROW
@@ -122,7 +122,7 @@
 
             {{-- ── Order / proceed to payment ── --}}
             {{-- METHOD: openPaymentModal() — set $showPaymentModal = true --}}
-            <button class="btn-order-now" wire:click="save">
+            <button class="btn-order-now" wire:click="openPaymentModal">
                 Order
             </button>
 
@@ -199,6 +199,9 @@
                     {{-- METHOD: closePaymentModal() --}}
                     <button class="btn-cancel-pay" wire:click="closePaymentModal">
                         Cancel
+                    </button>
+                    <button class="btn-cancel-pay" wire:click="backSpace">
+                        backspace
                     </button>
 
                     {{-- METHOD: completeOrder() — save, clear cart, close modal --}}

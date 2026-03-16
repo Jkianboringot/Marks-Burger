@@ -14,12 +14,13 @@ use Ramsey\Uuid\Type\Integer;
 class CashierView extends Component
 {
     public Order $orders;
-
+    public bool $showPaymentModal = false;
     public array $productList = [];
 
-
+    public  string $customerPay = '0';
     // public  Decimal $price;
 
+    public  string $customerChange = '0';
     public  $quantity = 0;
     protected function rules()
     {
@@ -32,6 +33,7 @@ class CashierView extends Component
 
     public function mount()
     {
+        $this->showPaymentModal = true;
         $this->orders = new Order();
     }
 
@@ -58,20 +60,66 @@ class CashierView extends Component
 
     public function total()
     {
-        $total=0;
+        $total = 0;
         foreach ($this->productList as $item) {
-            $total += $item['quantity']*$item['price'];
+            $total += $item['quantity'] * $item['price'];
         }
         return $total;
-    // return collect($$this->productList)->sum(fn($item) => $item['quantity'] * $item['price']);
 
+        // this ofcourse have to be check later if its optimize not too confident on what
+        // i build personal, since am focus on making it work for now, not making it 
+        // production ready, two different things
+
+        // return collect($$this->productList)->sum(fn($item) => $item['quantity'] * $item['price']);
+        // ⚠️⚠️problem and solution
         //   two ways can be done, get all the quantity and price in one go,
         //   or we loop to it nad get the quantity and price then add it to var
     }
 
 
 
+    public  function openPaymentModal()
+    {
+        $this->showPaymentModal = true;
+    }
 
+    public  function closePaymentModal()
+    {
+        $this->showPaymentModal = false;
+    }
+
+    protected function customerChange()
+    {
+        $this->customerChange = 100 - (int)$this->customerPay;
+    }
+
+    public function appendToPayment($num)
+    {
+
+        $this->customerPay .= $num;
+        $this->customerChange();
+    }
+
+
+    public function backSpace()
+    {
+        $this->customerPay = substr($this->customerPay, 0, -1);
+        $this->customerChange();
+
+    }
+
+
+
+
+    public function completeOrder()
+    {
+        dd($this->customerPay);
+    }
+
+    public  function clearPayment()
+    {
+        $this->customerPay = '0';
+    }
 
     public function cancelOrder()
     {

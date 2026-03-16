@@ -22,6 +22,9 @@ class CashierView extends Component
 
     public  string $customerChange = '0';
     public  $quantity = 0;
+
+
+
     protected function rules()
     {
         return [
@@ -79,7 +82,11 @@ class CashierView extends Component
 
     public  function openPaymentModal()
     {
-        $this->showPaymentModal = true;
+        if ($this->productList) {
+            $this->showPaymentModal = true;
+        }
+
+        $this->dispatch('toast', message: 'No order', type: 'cancel');
     }
 
     public  function closePaymentModal()
@@ -89,7 +96,7 @@ class CashierView extends Component
 
     protected function customerChange()
     {
-        $this->customerChange =max((int)$this->customerPay-$this->total() ,0);
+        $this->customerChange = max((int)$this->customerPay - $this->total(), 0);
     }
 
     public function appendToPayment($num)
@@ -105,7 +112,6 @@ class CashierView extends Component
         // subtract the last part of a string, 0 is start and -1 is the very last char
         $this->customerPay = substr($this->customerPay, 0, -1);
         $this->customerChange();
-
     }
 
 
@@ -123,7 +129,9 @@ class CashierView extends Component
 
     public function cancelOrder()
     {
-        session()->flash('success', 'Ordered Cancel');
+        $this->dispatch('toast', message: 'Order Cancelled', type: 'cancel');
+
+
         $this->reset();
     }
 
@@ -168,11 +176,19 @@ class CashierView extends Component
 
             // $this->dispatch('done', success: 'Order complete');
             $this->reset();
-            $this->showPaymentModal=false;
-            session()->flash('success', 'Order complete');
+            $this->showPaymentModal = false;
+
+
+
+            // unsure add hard code noti
+
+            $this->dispatch('toast', message: 'Order completed!', type: 'success');
         } catch (\Throwable $th) {
-            $this->dispatch('done', error: 'Something went wrong' . $th->getMessage());
-            session()->flash('error', 'Something gone wrong' . $th);
+
+
+            // unsure add hard code noti
+
+            $this->dispatch('toast', message: 'Something went wrong: ' . $th->getMessage(), type: 'error');
         }
     }
 

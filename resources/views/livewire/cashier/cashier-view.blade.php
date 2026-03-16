@@ -27,20 +27,7 @@
 --}}
 
 <div class="cashier-bg">
-    @if (session()->has('success'))
-    <div class="alert alert-success alert-dismissible fade show">
-        {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    </div>
-    @elseif ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+
     {{-- ================================================================
          MAIN LAYOUT ROW
          ================================================================ --}}
@@ -204,7 +191,7 @@
                     <button class="btn-cancel-pay" wire:click="closePaymentModal">
                         Cancel
                     </button>
-                 
+
 
                     {{-- METHOD: completeOrder() — save, clear cart, close modal --}}
                     <button class="btn-complete" wire:click="save">

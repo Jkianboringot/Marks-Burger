@@ -41,28 +41,28 @@
             <ul>
                 @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div> -->
-       
-        @endif--}}
+        @endforeach
+        </ul>
+    </div> -->
+
+    @endif--}}
 
 
-        {{-- Page header (optional, only shows when $header slot is used) --}}
-        @if (isset($header))
-        <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $header }}
-            </div>
-        </header>
-        @endif
+    {{-- Page header (optional, only shows when $header slot is used) --}}
+    @if (isset($header))
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            {{ $header }}
+        </div>
+    </header>
+    @endif
 
-        {{-- Page Content --}}
-        <main>
-            {{ $slot }}
-        </main>
+    {{-- Page Content --}}
+    <main>
+        {{ $slot }}
+    </main>
 
-        {{-- ============================================================
+    {{-- ============================================================
              FOOTER NAVIGATION
              Replaces @livewire('navigation-menu')
 
@@ -74,25 +74,50 @@
              METHOD needed in your Livewire component:
                logout()  →  Auth::logout(); redirect()->route('login');
              ============================================================ --}}
-        <div class="footer-navigation">
+    <div class="footer-navigation">
 
-            <a href="{{ route('cashier-view') }}" class="footer-nav-link">Cashier</a>
-            <a href="{{ route('current_stock') }}" class="footer-nav-link">Current Stock</a>
-            <a href="{{ route('receiving_stock') }}" class="footer-nav-link">Receiving Stock</a>
+        <a href="{{ route('cashier-view') }}" class="footer-nav-link">Cashier</a>
+        <a href="{{ route('current_stock') }}" class="footer-nav-link">Current Stock</a>
+        <a href="{{ route('receiving_stock') }}" class="footer-nav-link">Receiving Stock</a>
 
-            {{-- Sign Out — submits to Laravel's built-in logout route --}}
-            <form method="POST" action="{{ route('logout') }}" style="display:inline;margin:0;">
-                @csrf
-                <button type="submit" class="footer-nav-link">Sign Out</button>
-            </form>
+        {{-- Sign Out — submits to Laravel's built-in logout route --}}
+        <form method="POST" action="{{ route('logout') }}" style="display:inline;margin:0;">
+            @csrf
+            <button type="submit" class="footer-nav-link">Sign Out</button>
+        </form>
 
-        </div>
+    </div>
 
     </div>
 
     @stack('modals')
 
     @livewireScripts
+
+    <!-- Toast container — place before closing </body> -->
+    <div
+        x-data="{
+        toasts: [],
+        add(msg, type) {
+            const id = Date.now();
+            this.toasts.push({ id, msg, type, show: true });
+            setTimeout(() => this.remove(id), 3500);
+        },
+        remove(id) {
+            this.toasts = this.toasts.filter(t => t.id !== id);
+        }
+    }"
+        @toast.window="add($event.detail.message, $event.detail.type)"
+        class="toast-stack">
+        <template x-for="t in toasts" :key="t.id">
+            <div
+                class="cashier-toast"
+                :class="'cashier-toast--' + t.type"
+                x-show="t.show"
+                x-transition
+                x-text="t.msg"></div>
+        </template>
+    </div>
 </body>
 
 </html>

@@ -457,7 +457,10 @@
     align-items: center;
     justify-content: center;
     color: var(--red);
-    transition: background 0.1s, border-color 0.1s, transform 0.08s;
+    transition:
+        background 0.1s,
+        border-color 0.1s,
+        transform 0.08s;
     font-family: "Poppins", sans-serif;
 }
 .numpad-backspace:hover {
@@ -709,11 +712,12 @@
         background 0.15s,
         transform 0.1s;
     letter-spacing: 0.03em;
-     border: 2px solid  #2f855a; color: var(--green);
+    border: 2px solid #2f855a;
+    color: var(--green);
     background: transparent;
 }
 .btn-received:hover {
-     color: var(--white);
+    color: var(--white);
 
     background: #2f855a;
     transform: translateY(-1px);
@@ -735,26 +739,15 @@
         background 0.15s,
         transform 0.1s;
     letter-spacing: 0.03em;
-     border: 2px solid var(--red); color: var(--red);
+    border: 2px solid var(--red);
+    color: var(--red);
     background: transparent;
 }
 .btn-rejected:hover {
-     color: var(--white);
+    color: var(--white);
     background: var(--red);
     transform: translateY(-1px);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ============================================================
    BACKWARDS-COMPATIBLE CLASSES (originals — do not remove)
@@ -1033,4 +1026,57 @@
     .col-unit {
         display: none;
     }
+}
+
+
+/* ── Toast stack — top right ── */
+.toast-stack {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    left: unset;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    pointer-events: none;
+    width: 360px;
+}
+
+.cashier-toast {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.97rem;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 0.02em;
+    border-left: 6px solid transparent;
+    background: var(--white);
+    box-shadow:
+        0 4px 6px hsla(30, 97%, 15%, 0.10),
+        0 10px 28px hsla(30, 97%, 15%, 0.16);
+}
+
+/* ── Success: white card, green accent ── */
+.cashier-toast--success {
+    border-left-color: #38a169;
+    color: #276749;
+    background: #f0fff6;
+}
+
+/* ── Error: white card, red accent ── */
+.cashier-toast--error {
+    border-left-color: var(--red);
+    color: #c53030;
+    background: #fff5f5;
+}
+
+/* ── Cancel: cream card, orange accent ── */
+.cashier-toast--cancel {
+    border-left-color: var(--orange-solid);
+    color: var(--orange-hover);
+    background:#ffffff;
 }

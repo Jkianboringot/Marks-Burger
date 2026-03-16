@@ -66,6 +66,6 @@
   </td>
 
   {{-- Unit price (display only — multiply in backend for line total) --}}
-  <td>{{ number_format( $productItem['price'], 2) }}</td>
+  <td>{{$productItem['quantity']*$productItem['price'] }}</td>
 
 </tr>

@@ -13,16 +13,16 @@
 
      LIVEWIRE METHODS  (public function ... in your Livewire component class)
      ─────────────────────────────────────────────────────────────────────
-       addProduct($productId)       → add 1 of product to $productList (or increment qty)
-       cancelOrder()                → clear $productList and reset $total
+       addProduct($productId)       → add 1 of product to $productList (or increment qty)✅
+       cancelOrder()                → clear $productList and reset $total✅
        holdOrder()                  → park order, clear cart (implement as you see fit)
        openPaymentModal()           → set $showPaymentModal = true
        closePaymentModal()          → set $showPaymentModal = false; reset $customerPay
        appendToPayment($digit)      → append digit/dot to $customerPay string; recalc $customerChange
        clearPayment()               → reset $customerPay = '0'; reset $customerChange
        completeOrder()              → save transaction, clear cart, close modal
-       increment($productId)        → +1 qty on item in $productList; recalc $total
-       decrement($productId)        → -1 qty (remove item if qty reaches 0); recalc $total
+       increment($productId)        → +1 qty on item in $productList; recalc $total✅
+       decrement($productId)        → -1 qty (remove item if qty reaches 0); recalc $total✅
      =====================================================================
 --}}
 
@@ -100,7 +100,7 @@
                 {{-- METHOD: none needed — $total is a computed property --}}
                 <div class="checkout-total">
                     <span>Total</span>
-                    <span>{{ number_format($total ?? 0, 2) }}</span>
+                    <span>{{ $total}}</span>
                 </div>
 
             </div>

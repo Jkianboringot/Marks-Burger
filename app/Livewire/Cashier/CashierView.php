@@ -56,6 +56,23 @@ class CashierView extends Component
         // dd($this->productList);D
     }
 
+    public function total()
+    {
+        $total=0;
+        foreach ($this->productList as $item) {
+            $total += $item['quantity']*$item['price'];
+        }
+        return $total;
+    // return collect($$this->productList)->sum(fn($item) => $item['quantity'] * $item['price']);
+
+        //   two ways can be done, get all the quantity and price in one go,
+        //   or we loop to it nad get the quantity and price then add it to var
+    }
+
+
+
+
+
     public function cancelOrder()
     {
         session()->flash('success', 'Ordered Cancel');
@@ -65,19 +82,13 @@ class CashierView extends Component
     public function decrement($id)
     {
         $this->productList[$id]['quantity']--; //the shorthand syntax of the buttom one
-//        $this->productList[$id] = [
-//     'quantity' => $this->quantity--
-// ];
+
     }
 
     public function increment($id)
     {
-        $this->productList[$id]['quantity']++;//the shorthand syntax of the buttom one
+        $this->productList[$id]['quantity']++; //the shorthand syntax of the buttom one
 
-        // dd('add');
-//    $this->productList[$id] = [
-//     'quantity' => $this->quantity++
-// ];
     }
 
 
@@ -122,7 +133,8 @@ class CashierView extends Component
         return view(
             'livewire.cashier.cashier-view',
             [
-                'products' => $products
+                'products' => $products,
+                'total' => $this->total()
             ]
         );
     }

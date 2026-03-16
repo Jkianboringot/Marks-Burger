@@ -1,4 +1,4 @@
-@props(['productItem','quantity'=>0])
+@props(['productItem','key'])
 {{-- =====================================================================
      selected-product-card.blade.php
      resources/views/components/livewire/selected-product-card.blade.php
@@ -39,7 +39,6 @@
 
 
 <!-- fuck optimization for now do it later, just fix it for now -->
-
   {{-- Product name --}}
   <td>{{ Product::find($productItem['product_id'])->name }}</td>
   {{-- QTY stepper --}}
@@ -48,17 +47,17 @@
 
       {{-- METHOD: decrement($product->id) --}}
       <button class="qty-btn"
-        wire:click="decrement({{ $productItem['product_id'] }})"
+        wire:click="decrement({{ $key }})"
         title="Remove one">
         &minus;
       </button>
 
       {{-- PROPERTY: $product->quantity --}}
-      <span class="qty-value">{{$quantity }}</span>
+      <span class="qty-value">{{$productItem['quantity'] }}</span>
 
       {{-- METHOD: increment($product->id) --}}
       <button class="qty-btn"
-        wire:click="increment({{ $productItem['product_id']  }})"
+        wire:click="increment({{ $key  }})"
         title="Add one">
         &plus;
       </button>

@@ -64,16 +64,20 @@ class CashierView extends Component
 
     public function decrement($id)
     {
-        array_push($this->productList, [
-            'product_id' => $id,
-            'quantity' =>  $this->quantity--
-        ]);
+        $this->productList[$id]['quantity']--; //the shorthand syntax of the buttom one
+//        $this->productList[$id] = [
+//     'quantity' => $this->quantity--
+// ];
     }
 
     public function increment($id)
     {
-        dd('add');
-        // $this->quantity--;
+        $this->productList[$id]['quantity']++;//the shorthand syntax of the buttom one
+
+        // dd('add');
+//    $this->productList[$id] = [
+//     'quantity' => $this->quantity++
+// ];
     }
 
 

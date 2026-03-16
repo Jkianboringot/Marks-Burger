@@ -89,8 +89,8 @@
                         <tbody>
                             {{-- selected-product-card renders a <tr>
                                  It fires: wire:click="increment/decrement($product->id)" internally --}}
-                            @foreach($productList as $productItem)
-                            <x-livewire.selected-product-card :productItem="$productItem" :quantity="$quantity" />
+                            @foreach($productList as $key=> $productItem)
+                            <x-livewire.selected-product-card :productItem="$productItem" :key="$key" />
                             @endforeach
                         </tbody>
                     </table>

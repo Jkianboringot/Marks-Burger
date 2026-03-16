@@ -9,6 +9,7 @@ use Filament\Forms\Components\ModalTableSelect;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\ToggleColumn;
@@ -18,39 +19,52 @@ class ProductForm
     public static function configure(Schema $schema): Schema
     {
         return $schema
+               ->columns(1)        // force the schema itself to single column
             ->components([
-                TextInput::make('name'),
-                TextInput::make('price')->label('price')
-                    ->numeric()->step(0.01)->minValue(0)->required(),
 
-                Repeater::make('ingredientProducts')
-                    ->label('Ingredient')
+                // ── TOP: Product details ──────────────────────────────
+                Section::make('Product Details')
+                    ->columnSpanFull()  // stretch full width
                     ->schema([
-                        Select::make('ingredient_id')
+                        TextInput::make('name'),
+                        TextInput::make('price')->label('price')
+                            ->numeric()->step(0.01)->minValue(0)->required(),
+                    ]),
+
+                // ── BOTTOM: Ingredients repeater ──────────────────────
+                Section::make('Ingredients')
+                    ->columnSpanFull()  // stretch full width
+                    ->schema([
+                        Repeater::make('ingredientProducts')
                             ->label('Ingredient')
-                            ->options(Ingredient::pluck('name', 'id'))
-                            ->searchable()
-                            ->required()
-                            ->distinct()
-                            ->disableOptionsWhenSelectedInSiblingRepeaterItems(),
+                            ->schema([
+                                Select::make('ingredient_id')
+                                    ->label('Ingredient')
+                                    ->options(Ingredient::pluck('name', 'id'))
+                                    ->searchable()
+                                    ->required()
+                                    ->distinct()
+                                    ->disableOptionsWhenSelectedInSiblingRepeaterItems(),
 
 
 
-                        TextInput::make('quantity')
-                            ->numeric()
-                            ->required()
-                            ->default(1)
-                            ->minValue(0.01)
-                            ->step(0.01),
+                                TextInput::make('quantity')
+                                    ->numeric()
+                                    ->required()
+                                    ->default(1)
+                                    ->minValue(0.01)
+                                    ->step(0.01),
 
 
-                    ])
-                    ->columns(2)
-                    ->defaultItems(0)
-                    ->addActionLabel('Add Product')
-                    ->reorderable(false)
-                    ->collapsible()
-                    ->collapsed(false),
+                            ])
+                            ->columns(1)    // inside each card: stacked vertically
+                            ->grid(2)       // cards displayed 2 per row
+                            ->defaultItems(0)
+                            ->addActionLabel('Add Product')
+                            ->reorderable(false)
+                            ->collapsible()
+                            ->collapsed(false),
+                   ]),
                 // ->itemLabel(fn (array $state): ?string => 
                 //     Ingredient::find($state['product_id'] ?? null)?->name ?? 'New Product'
                 // ),

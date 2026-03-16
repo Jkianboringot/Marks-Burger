@@ -4,20 +4,12 @@
 @source '../../../../resources/views/filament/**/*';
 
 /* ═══════════════════════════════════════════════════════════════════
-   EGO ENT. INVENTORY — FILAMENT 4 ADMIN THEME  (clean rewrite)
-
-   LESSON LEARNED: Do NOT override @theme gray scale. Filament v4
-   uses gray scale for both light AND dark mode text. Overriding it
-   breaks one or the other. Instead:
-   - Leave @theme gray alone (Filament handles text contrast itself)
-   - Only override primary color in @theme
-   - Use explicit hard-coded hex/oklch on structural elements only
-   - For sidebar: use CSS custom property inheritance to override text
+   EGO ENT. INVENTORY — FILAMENT 4 ADMIN THEME
+   Warm orange background + majestic gold-orange sidebar
 ═══════════════════════════════════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* ── Only override primary color — leave gray alone ──────────────── */
 @theme {
     --color-primary-50:  #fff7ed;
     --color-primary-100: #ffedd5;
@@ -33,57 +25,66 @@
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   1. BASE
+   1. BASE — force light mode, warm orange page background
 ════════════════════════════════════════════════════════════════════ */
+:root {
+    color-scheme: light !important;
+}
+
 html, body, .fi-body {
     font-family: 'Inter', ui-sans-serif, system-ui, sans-serif !important;
     -webkit-font-smoothing: antialiased;
+    background-color: #fef3e8 !important;
+    color-scheme: light !important;
+    color: #1e293b !important;
 }
 
-/* Light mode page background */
 .fi-layout,
 .fi-main,
 .fi-main-ctn,
 .fi-body {
-    background-color: #f1f5f9 !important;
+    background-color: #fef3e8 !important;
+}
+
+.dark,
+[data-theme="dark"] {
+    color-scheme: light !important;
+    background-color: #fef3e8 !important;
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   2. SIDEBAR — dark slate, all text explicitly white
-   
-   KEY: We set color: #ffffff on the sidebar container itself.
-   Because CSS `color` is inherited, every child element that uses
-   `currentColor` or doesn't override color will get white text.
-   We then use Tailwind's `[class]` attribute selectors as fallback
-   to beat any utility class that sets a different color.
+   2. SIDEBAR — majestic gold-orange gradient
 ════════════════════════════════════════════════════════════════════ */
-.fi-sidebar,
-.fi-sidebar * {
-    /* Declare white as the inherited color for the whole sidebar */
-    --tw-text-opacity: 1;
-}
-
 .fi-sidebar {
-    background-color: #1e293b !important;
+    background: linear-gradient(175deg, #b45309 0%, #92400e 40%, #78350f 100%) !important;
     border-right: none !important;
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.25) !important;
-    width: 220px !important;
-    max-width: 220px !important;
+    box-shadow: 4px 0 28px rgba(120, 53, 15, 0.45) !important;
+    width: 200px !important;
+    max-width: 200px !important;
     transition: width 0.25s ease, transform 0.25s ease !important;
-    /* Set color so it cascades to all children */
-    color: #ffffff !important;
+    color: #fef3c7 !important;
 }
 
-/* ── Brand / header area ─────────────────────────────────────────── */
+/* Gold shimmer top strip */
+.fi-sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24) !important;
+    z-index: 1;
+}
+
+/* Brand / header area */
 .fi-sidebar-header {
-    background-color: #0f172a !important;
-    border-bottom: 1px solid #334155 !important;
-    padding: 1rem 1.25rem !important;
-    /* All text in header = white */
-    color: #ffffff !important;
+    background: linear-gradient(135deg, #92400e 0%, #78350f 100%) !important;
+    border-bottom: 1px solid rgba(251, 191, 36, 0.3) !important;
+    padding: 0.875rem 1rem !important;
+    color: #fef3c7 !important;
 }
 
-/* Hit every possible element Filament could render the brand name in */
 .fi-sidebar-header,
 .fi-sidebar-header *,
 .fi-sidebar-header a,
@@ -93,63 +94,57 @@ html, body, .fi-body {
 .fi-sidebar-header p,
 .fi-brand-name,
 [class*="fi-brand"] {
-    color: #ffffff !important;
-    fill: #ffffff !important;
+    color: #fef3c7 !important;
+    fill: #fef3c7 !important;
+    font-weight: 700 !important;
 }
 
-/* SVG logo */
 .fi-sidebar-header svg,
 .fi-sidebar-header svg *,
 .fi-sidebar-header img {
-    fill: #ffffff !important;
-    color: #ffffff !important;
-    filter: brightness(0) invert(1); /* nuclear fallback for img logos */
+    fill: #fef3c7 !important;
+    color: #fef3c7 !important;
+    filter: brightness(0) saturate(100%) invert(94%) sepia(40%) saturate(400%) hue-rotate(340deg);
 }
 
-/* ── Nav group labels ────────────────────────────────────────────── */
+/* Nav group labels */
 .fi-sidebar-group-label,
 .fi-sidebar-group-label * {
-    color: #94a3b8 !important;
+    color: #fcd34d !important;
     font-size: 0.65rem !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.08em !important;
 }
 
-/* ── Nav items — inactive ────────────────────────────────────────── */
+/* Nav items — inactive */
 .fi-sidebar-item-button {
     border-radius: 0.5rem !important;
     margin-inline: 0.375rem !important;
     transition: background-color 0.15s !important;
-    /* Force text white — overrides any Tailwind text-gray-* utility */
-    color: #cbd5e1 !important;
+    color: #fde68a !important;
 }
-
 .fi-sidebar-item-button span,
 .fi-sidebar-item-button p,
 .fi-sidebar-item-button div,
 .fi-sidebar-item-label {
-    color: #cbd5e1 !important;
+    color: #fde68a !important;
 }
-
 .fi-sidebar-item-icon,
 .fi-sidebar-item-button svg,
 .fi-sidebar-item-button svg * {
-    color: #64748b !important;
-    fill: #64748b !important;
+    color: #fbbf24 !important;
+    fill: #fbbf24 !important;
 }
-
 .fi-sidebar-item-button:hover {
-    background-color: #334155 !important;
+    background-color: rgba(251, 191, 36, 0.18) !important;
 }
-
 .fi-sidebar-item-button:hover span,
 .fi-sidebar-item-button:hover p,
 .fi-sidebar-item-button:hover div,
 .fi-sidebar-item-button:hover .fi-sidebar-item-label {
     color: #ffffff !important;
 }
-
 .fi-sidebar-item-button:hover .fi-sidebar-item-icon,
 .fi-sidebar-item-button:hover svg,
 .fi-sidebar-item-button:hover svg * {
@@ -157,14 +152,14 @@ html, body, .fi-body {
     fill: #ffffff !important;
 }
 
-/* ── Active nav item ─────────────────────────────────────────────── */
+/* Active nav item — bright gold pill */
 .fi-sidebar-item-button.fi-active,
 .fi-sidebar-item-button[aria-current="page"],
 .fi-sidebar-item-button.fi-sidebar-item-active {
-    background-color: #ea7e1e !important;
-    color: #ffffff !important;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24) !important;
+    color: #78350f !important;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.5) !important;
 }
-
 .fi-sidebar-item-button.fi-active span,
 .fi-sidebar-item-button.fi-active p,
 .fi-sidebar-item-button.fi-active div,
@@ -177,79 +172,132 @@ html, body, .fi-body {
 .fi-sidebar-item-button[aria-current="page"] .fi-sidebar-item-icon,
 .fi-sidebar-item-button[aria-current="page"] svg,
 .fi-sidebar-item-button[aria-current="page"] svg * {
-    color: #ffffff !important;
-    fill: #ffffff !important;
+    color: #78350f !important;
+    fill: #78350f !important;
 }
 
-/* ── Group collapse button ───────────────────────────────────────── */
+/* Group collapse button */
 .fi-sidebar-group-button {
     border-radius: 0.5rem !important;
     margin-inline: 0.375rem !important;
-    color: #94a3b8 !important;
+    color: #fcd34d !important;
 }
-
 .fi-sidebar-group-button span,
 .fi-sidebar-group-button p,
 .fi-sidebar-group-button svg,
 .fi-sidebar-group-button svg * {
-    color: #94a3b8 !important;
-    fill: #94a3b8 !important;
+    color: #fcd34d !important;
+    fill: #fcd34d !important;
 }
-
 .fi-sidebar-group-button:hover {
-    background-color: #334155 !important;
+    background-color: rgba(251, 191, 36, 0.18) !important;
     color: #ffffff !important;
 }
 
-/* ── Sidebar icon buttons (collapse toggle) ──────────────────────── */
+/* Sidebar icon buttons */
 .fi-sidebar .fi-icon-btn,
 .fi-sidebar-close-overlay-btn {
-    color: #94a3b8 !important;
+    color: #fcd34d !important;
     border-radius: 0.5rem !important;
     transition: background-color 0.15s, color 0.15s !important;
 }
-
 .fi-sidebar .fi-icon-btn:hover,
 .fi-sidebar-close-overlay-btn:hover {
-    background-color: #334155 !important;
+    background-color: rgba(251, 191, 36, 0.18) !important;
     color: #ffffff !important;
 }
 
-.fi-sidebar .fi-icon-btn svg,
-.fi-sidebar .fi-icon-btn svg *,
-.fi-sidebar-close-overlay-btn svg {
-    fill: currentColor !important;
-}
-
 /* ════════════════════════════════════════════════════════════════════
-   3. TOPBAR
+   3. TOPBAR — warm orange tint matching page bg
 ════════════════════════════════════════════════════════════════════ */
 .fi-topbar {
-    background-color: #ffffff !important;
-    border-bottom: 1px solid #e2e8f0 !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+    background-color: #fde8cc !important;
+    border-bottom: 1px solid #fcd4a0 !important;
+    box-shadow: 0 1px 4px rgba(180, 83, 9, 0.12) !important;
 }
-
 .fi-topbar .fi-icon-btn {
-    color: #475569 !important;
+    color: #92400e !important;
     background: transparent !important;
     border-radius: 0.5rem !important;
 }
-
 .fi-topbar .fi-icon-btn:hover {
-    background-color: #f1f5f9 !important;
-    color: #1e293b !important;
+    background-color: #fcd4a0 !important;
+    color: #78350f !important;
 }
 
+.fi-global-search-field input {
+    background-color: #fff8f0 !important;
+    border: 1px solid #fcd4a0 !important;
+    border-radius: 0.5rem !important;
+    color: #1e293b !important;
+}
+.fi-global-search-field input:focus {
+    border-color: #ea7e1e !important;
+    box-shadow: 0 0 0 3px rgba(234, 126, 30, 0.15) !important;
+    outline: none !important;
+}
+.fi-global-search-field input::placeholder { color: #b45309 !important; }
+
 .fi-user-avatar {
-    background-color: #fde68a !important;
-    color: #92400e !important;
+    background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+    color: #ffffff !important;
     font-weight: 700 !important;
     border-radius: 9999px !important;
+    box-shadow: 0 2px 6px rgba(217, 119, 6, 0.4) !important;
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   4. CARDS & SECTIONS
+   4. PAGE LAYOUT — tighter, closer to edges and top
+════════════════════════════════════════════════════════════════════ */
+.fi-main-ctn,
+.fi-simple-main-ctn {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+}
+
+.fi-page {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+}
+
+/* Hide breadcrumbs entirely */
+.fi-breadcrumbs,
+nav[aria-label="breadcrumb"],
+.fi-page-header + nav,
+[class*="breadcrumb"] {
+    display: none !important;
+}
+
+/* Tighten page header */
+.fi-page-header {
+    padding-top: 0 !important;
+    padding-bottom: 0.625rem !important;
+    margin-bottom: 0.75rem !important;
+    margin-top: 0 !important;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   5. PAGE HEADING — always dark
+════════════════════════════════════════════════════════════════════ */
+.fi-page-header-heading,
+.fi-page-header h1,
+h1.fi-page-header-heading,
+.fi-page > .fi-page-header h1,
+[class*="fi-page-header"] h1,
+[class*="fi-page-header"] [class*="heading"] {
+    color: #431f08 !important;
+    -webkit-text-fill-color: #431f08 !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+    font-size: 1.375rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   6. CARDS & SECTIONS — warm white with orange tint border
 ════════════════════════════════════════════════════════════════════ */
 .fi-section,
 .fi-card,
@@ -258,130 +306,122 @@ html, body, .fi-body {
 .fi-wi-filament-info,
 .fi-wi-chart,
 .fi-wi-stats-overview-stat {
-    background-color: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
+    background-color: #fffbf7 !important;
+    border: 1px solid #fde8cc !important;
     border-radius: 0.75rem !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06) !important;
+    box-shadow: 0 1px 3px rgba(180, 83, 9, 0.06), 0 4px 12px rgba(180, 83, 9, 0.08) !important;
 }
-
 .fi-section-header {
-    border-bottom: 1px solid #f1f5f9 !important;
+    border-bottom: 1px solid #fde8cc !important;
     padding-bottom: 0.875rem !important;
 }
-
 .fi-section-header-heading {
-    color: #0f172a !important;
+    color: #431f08 !important;
     font-weight: 700 !important;
     font-size: 1rem !important;
 }
-
-/* Stats overview cards */
 .fi-wi-stats-overview-stat {
-    background-color: #f8fafc !important;
-    border-color: #e2e8f0 !important;
+    background-color: #fff7ed !important;
+    border-color: #fde8cc !important;
     transition: transform 0.15s, box-shadow 0.15s !important;
 }
-
 .fi-wi-stats-overview-stat:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08) !important;
+    box-shadow: 0 8px 20px rgba(180, 83, 9, 0.12) !important;
 }
-
 .fi-wi-stats-overview-stat-label {
     font-size: 0.7rem !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.06em !important;
-    color: #64748b !important;
+    color: #92400e !important;
 }
-
 .fi-wi-stats-overview-stat-value {
     font-size: 1.625rem !important;
     font-weight: 700 !important;
-    color: #0f172a !important;
+    color: #431f08 !important;
 }
-
 .fi-wi-stats-overview-stat-description {
     font-size: 0.75rem !important;
-    color: #64748b !important;
+    color: #b45309 !important;
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   5. TABLES
+   7. TABLES — warm tinted whites
 ════════════════════════════════════════════════════════════════════ */
 .fi-ta,
 .fi-ta-ctn {
-    background-color: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
+    background-color: #fffbf7 !important;
+    border: 1px solid #fde8cc !important;
     border-radius: 0.75rem !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06) !important;
+    box-shadow: 0 1px 3px rgba(180, 83, 9, 0.06), 0 4px 12px rgba(180, 83, 9, 0.08) !important;
     overflow: hidden;
+    width: 100% !important;
+    max-width: 100% !important;
 }
 
-/* Toolbar */
+.fi-ta-content,
+.fi-ta-wrp {
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+.fi-ta table {
+    width: 100% !important;
+    table-layout: auto !important;
+}
+
+.fi-ta tbody td:first-child,
+.fi-ta thead th:first-child {
+    width: 45% !important;
+    min-width: 260px !important;
+}
+
 .fi-ta-header {
-    background-color: #f8fafc !important;
-    border-bottom: 1px solid #e2e8f0 !important;
-    padding: 0.75rem 1rem !important;
+    background-color: #fff3e6 !important;
+    border-bottom: 1px solid #fde8cc !important;
+    padding: 0.625rem 1rem !important;
 }
-
-/* Column headers */
 .fi-ta thead tr,
 .fi-ta table thead tr {
-    background-color: #f1f5f9 !important;
-    border-bottom: 2px solid #e2e8f0 !important;
+    background-color: #fff3e6 !important;
+    border-bottom: 2px solid #fde8cc !important;
 }
-
 .fi-ta thead th,
 .fi-ta table thead th,
 .fi-ta-header-cell {
-    background-color: #f1f5f9 !important;
-    color: #475569 !important;
+    background-color: #fff3e6 !important;
+    color: #92400e !important;
     font-size: 0.7rem !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.06em !important;
-    padding: 0.875rem 1rem !important;
+    padding: 0.75rem 1rem !important;
     border-bottom: none !important;
     white-space: nowrap !important;
 }
-
 .fi-ta thead th *,
 .fi-ta-header-cell * {
-    color: #475569 !important;
+    color: #92400e !important;
 }
-
-/* Data rows */
 .fi-ta-row,
 .fi-ta tbody tr {
-    background-color: #ffffff !important;
-    border-bottom: 1px solid #f1f5f9 !important;
+    background-color: #fffbf7 !important;
+    border-bottom: 1px solid #fde8cc !important;
     transition: background-color 0.1s !important;
 }
-
 .fi-ta-row:last-child,
-.fi-ta tbody tr:last-child {
-    border-bottom: none !important;
-}
-
+.fi-ta tbody tr:last-child { border-bottom: none !important; }
 .fi-ta-row:hover,
-.fi-ta tbody tr:hover {
-    background-color: #f8fafc !important;
-}
+.fi-ta tbody tr:hover { background-color: #fff3e6 !important; }
 
-/* ── TABLE CELL TEXT ─────────────────────────────────────────────────
-   Hard-coded dark color — no CSS variables, no @theme dependency.
-   This works in both light AND dark mode because we're not relying
-   on any Filament/Tailwind color system.
-────────────────────────────────────────────────────────────────── */
 .fi-ta-cell,
 .fi-ta tbody td {
-    padding: 0.875rem 1rem !important;
+    padding: 0.75rem 1rem !important;
     vertical-align: middle !important;
     color: #1e293b !important;
     font-size: 0.875rem !important;
 }
-
 .fi-ta-cell *,
 .fi-ta tbody td *,
 .fi-ta-cell span,
@@ -390,27 +430,19 @@ html, body, .fi-body {
     color: #1e293b !important;
 }
 
-/* Footer */
 .fi-ta-footer {
-    background-color: #f8fafc !important;
-    border-top: 1px solid #e2e8f0 !important;
+    background-color: #fff3e6 !important;
+    border-top: 1px solid #fde8cc !important;
     border-radius: 0 0 0.75rem 0.75rem !important;
+    padding: 0.5rem 1rem !important;
 }
-
-/* Empty state */
+.fi-ta-footer * { color: #92400e !important; }
 .fi-ta-empty-state { padding: 3rem 1rem !important; }
-.fi-ta-empty-state-heading { color: #1e293b !important; font-weight: 600 !important; }
-.fi-ta-empty-state-description { color: #64748b !important; }
+.fi-ta-empty-state-heading { color: #431f08 !important; font-weight: 600 !important; }
+.fi-ta-empty-state-description { color: #92400e !important; }
 
 /* ════════════════════════════════════════════════════════════════════
-   6. FILTER COUNT BADGE
-   
-   Filament 4 renders this as a <span> with Tailwind utility classes
-   like `bg-primary-500/10 text-primary-700 rounded-full`.
-   In light mode, bg-primary-500/10 = very light amber = invisible.
-   
-   Fix: use [class*=] attribute selector which beats utility specificity
-   when combined with a parent selector for higher specificity.
+   8. FILTER COUNT BADGE
 ════════════════════════════════════════════════════════════════════ */
 @layer utilities {
     .fi-ta-header span[class*="rounded-full"],
@@ -422,8 +454,6 @@ html, body, .fi-body {
         font-weight: 700 !important;
     }
 }
-
-/* Extra fallback outside @layer */
 .fi-ta-header span[class*="rounded-full"],
 .fi-ta-header-toolbar span[class*="rounded-full"],
 .fi-ta-filters-action span[class*="rounded-full"],
@@ -443,49 +473,37 @@ html, body, .fi-body {
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   7. SEARCH & FILTER BUTTONS
+   9. SEARCH & FILTER BUTTONS
 ════════════════════════════════════════════════════════════════════ */
-.fi-ta-search-field input,
-.fi-global-search-field input {
-    background-color: #ffffff !important;
-    border: 1px solid #cbd5e1 !important;
+.fi-ta-search-field input {
+    background-color: #fff8f0 !important;
+    border: 1px solid #fcd4a0 !important;
     border-radius: 0.5rem !important;
     color: #1e293b !important;
     font-size: 0.875rem !important;
 }
-
-.fi-ta-search-field input:focus,
-.fi-global-search-field input:focus {
+.fi-ta-search-field input:focus {
     border-color: #ea7e1e !important;
     box-shadow: 0 0 0 3px rgba(234, 126, 30, 0.15) !important;
     outline: none !important;
 }
-
-.fi-ta-search-field input::placeholder,
-.fi-global-search-field input::placeholder {
-    color: #94a3b8 !important;
-}
-
+.fi-ta-search-field input::placeholder { color: #b45309 !important; }
 .fi-ta-filter-trigger-action,
-.fi-ta-toggle-column-trigger-action,
-.fi-ta-filters-action button,
-.fi-ta-toggle-columns-action button {
-    background-color: #ffffff !important;
-    border: 1px solid #cbd5e1 !important;
+.fi-ta-toggle-column-trigger-action {
+    background-color: #fff8f0 !important;
+    border: 1px solid #fcd4a0 !important;
     border-radius: 0.5rem !important;
-    color: #475569 !important;
+    color: #92400e !important;
     transition: all 0.15s !important;
 }
-
 .fi-ta-filter-trigger-action:hover,
 .fi-ta-toggle-column-trigger-action:hover {
-    background-color: #f1f5f9 !important;
-    border-color: #94a3b8 !important;
-    color: #1e293b !important;
+    background-color: #fde8cc !important;
+    color: #78350f !important;
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   8. BADGES
+   10. BADGES
 ════════════════════════════════════════════════════════════════════ */
 .fi-badge {
     border-radius: 9999px !important;
@@ -493,47 +511,43 @@ html, body, .fi-body {
     font-weight: 600 !important;
     padding: 0.2rem 0.6rem !important;
 }
-
 .fi-badge-color-primary  { background-color: #fed7aa !important; color: #9a4c15 !important; }
 .fi-badge-color-success  { background-color: #bbf7d0 !important; color: #166534 !important; }
 .fi-badge-color-danger   { background-color: #fecaca !important; color: #991b1b !important; }
 .fi-badge-color-warning  { background-color: #fef08a !important; color: #854d0e !important; }
-.fi-badge-color-gray     { background-color: #f1f5f9 !important; color: #475569 !important; }
+.fi-badge-color-gray     { background-color: #fde8cc !important; color: #92400e !important; }
 
 /* ════════════════════════════════════════════════════════════════════
-   9. BUTTONS
+   11. BUTTONS
 ════════════════════════════════════════════════════════════════════ */
 .fi-btn-color-primary,
 .fi-btn[data-color="primary"] {
-    background-color: #ea7e1e !important;
+    background: linear-gradient(135deg, #ea7e1e, #d97706) !important;
     color: #ffffff !important;
-    border: 1px solid #c2601a !important;
+    border: 1px solid #b45309 !important;
     font-weight: 600 !important;
     border-radius: 0.5rem !important;
-    transition: background-color 0.15s, box-shadow 0.15s !important;
+    transition: all 0.15s !important;
+    box-shadow: 0 2px 6px rgba(180, 83, 9, 0.3) !important;
 }
-
 .fi-btn-color-primary:hover,
 .fi-btn[data-color="primary"]:hover {
-    background-color: #c2601a !important;
-    box-shadow: 0 4px 12px rgba(194, 96, 26, 0.35) !important;
+    background: linear-gradient(135deg, #c2601a, #b45309) !important;
+    box-shadow: 0 4px 12px rgba(180, 83, 9, 0.4) !important;
 }
-
 .fi-btn-color-gray,
 .fi-btn[data-color="gray"] {
-    background-color: #ffffff !important;
-    color: #374151 !important;
-    border: 1px solid #d1d5db !important;
+    background-color: #fff8f0 !important;
+    color: #78350f !important;
+    border: 1px solid #fcd4a0 !important;
     font-weight: 500 !important;
     border-radius: 0.5rem !important;
 }
-
 .fi-btn-color-gray:hover,
 .fi-btn[data-color="gray"]:hover {
-    background-color: #f9fafb !important;
-    border-color: #9ca3af !important;
+    background-color: #fde8cc !important;
+    border-color: #f59e0b !important;
 }
-
 .fi-btn-color-danger,
 .fi-btn[data-color="danger"] {
     background-color: #fef2f2 !important;
@@ -542,14 +556,12 @@ html, body, .fi-body {
     font-weight: 600 !important;
     border-radius: 0.5rem !important;
 }
-
 .fi-btn-color-danger:hover,
 .fi-btn[data-color="danger"]:hover {
     background-color: #dc2626 !important;
     color: #ffffff !important;
     border-color: #dc2626 !important;
 }
-
 .fi-btn-color-success,
 .fi-btn[data-color="success"] {
     background-color: #f0fdf4 !important;
@@ -558,33 +570,29 @@ html, body, .fi-body {
     font-weight: 600 !important;
     border-radius: 0.5rem !important;
 }
-
 .fi-btn-color-success:hover,
 .fi-btn[data-color="success"]:hover {
     background-color: #16a34a !important;
     color: #ffffff !important;
     border-color: #16a34a !important;
 }
-
-/* Icon row action buttons */
 .fi-ta-row-action button,
 .fi-ac-icon-btn {
-    background-color: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
+    background-color: #fff8f0 !important;
+    border: 1px solid #fde8cc !important;
     border-radius: 0.375rem !important;
-    color: #64748b !important;
+    color: #92400e !important;
     transition: all 0.15s !important;
 }
-
 .fi-ta-row-action button:hover,
 .fi-ac-icon-btn:hover {
-    background-color: #fff7ed !important;
-    border-color: #fed7aa !important;
-    color: #ea7e1e !important;
+    background-color: #fde8cc !important;
+    border-color: #f59e0b !important;
+    color: #78350f !important;
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   10. FORM INPUTS
+   12. FORM INPUTS
 ════════════════════════════════════════════════════════════════════ */
 .fi-input-wrp,
 .fi-input,
@@ -597,13 +605,12 @@ input[type="number"],
 input[type="search"],
 select,
 textarea {
-    background-color: #ffffff !important;
-    border-color: #d1d5db !important;
+    background-color: #fff8f0 !important;
+    border-color: #fcd4a0 !important;
     border-radius: 0.5rem !important;
-    color: #111827 !important;
+    color: #1e293b !important;
     font-family: 'Inter', sans-serif !important;
 }
-
 .fi-input-wrp:focus-within,
 .fi-input:focus,
 input:focus,
@@ -613,111 +620,86 @@ textarea:focus {
     box-shadow: 0 0 0 3px rgba(234, 126, 30, 0.15) !important;
     outline: none !important;
 }
-
-input::placeholder, textarea::placeholder { color: #9ca3af !important; }
-
-label, .fi-fo-field-wrp-label label {
-    color: #111827 !important;
-    font-weight: 500 !important;
-}
+input::placeholder, textarea::placeholder { color: #b45309 !important; }
+label, .fi-fo-field-wrp-label label { color: #431f08 !important; font-weight: 500 !important; }
 
 /* ════════════════════════════════════════════════════════════════════
-   11. MODALS
+   13. MODALS
 ════════════════════════════════════════════════════════════════════ */
 .fi-modal-window {
-    background-color: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
+    background-color: #fffbf7 !important;
+    border: 1px solid #fde8cc !important;
     border-radius: 0.875rem !important;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.18), 0 8px 20px rgba(0,0,0,0.08) !important;
+    box-shadow: 0 20px 60px rgba(120, 53, 15, 0.15), 0 8px 20px rgba(120, 53, 15, 0.08) !important;
 }
-
-.fi-modal-header { border-bottom: 1px solid #f1f5f9 !important; }
-.fi-modal-heading { color: #0f172a !important; font-weight: 700 !important; font-size: 1.125rem !important; }
-.fi-modal-footer { background-color: #f8fafc !important; border-top: 1px solid #f1f5f9 !important; border-radius: 0 0 0.875rem 0.875rem !important; }
-.fi-modal-backdrop { background-color: rgba(15, 23, 42, 0.45) !important; backdrop-filter: blur(4px) !important; }
+.fi-modal-header { border-bottom: 1px solid #fde8cc !important; }
+.fi-modal-heading { color: #431f08 !important; font-weight: 700 !important; font-size: 1.125rem !important; }
+.fi-modal-footer { background-color: #fff3e6 !important; border-top: 1px solid #fde8cc !important; border-radius: 0 0 0.875rem 0.875rem !important; }
+.fi-modal-backdrop { background-color: rgba(120, 53, 15, 0.4) !important; backdrop-filter: blur(4px) !important; }
 
 /* ════════════════════════════════════════════════════════════════════
-   12. DROPDOWNS
+   14. DROPDOWNS
 ════════════════════════════════════════════════════════════════════ */
 .fi-dropdown-panel {
-    background-color: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
+    background-color: #fffbf7 !important;
+    border: 1px solid #fde8cc !important;
     border-radius: 0.625rem !important;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.10), 0 4px 8px rgba(0,0,0,0.05) !important;
+    box-shadow: 0 10px 25px rgba(120, 53, 15, 0.12), 0 4px 8px rgba(120, 53, 15, 0.06) !important;
 }
-
-.fi-dropdown-list-item-label { color: #374151 !important; font-size: 0.875rem !important; }
-.fi-dropdown-list-item-button:hover { background-color: #f9fafb !important; }
+.fi-dropdown-list-item-label { color: #431f08 !important; font-size: 0.875rem !important; }
+.fi-dropdown-list-item-button:hover { background-color: #fff3e6 !important; }
 .fi-dropdown-list-item-color-danger .fi-dropdown-list-item-label { color: #b91c1c !important; }
 .fi-dropdown-list-item-color-danger .fi-dropdown-list-item-button:hover { background-color: #fef2f2 !important; }
 
 /* ════════════════════════════════════════════════════════════════════
-   13. NOTIFICATIONS
+   15. NOTIFICATIONS
 ════════════════════════════════════════════════════════════════════ */
 .fi-no-notification {
-    background-color: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
+    background-color: #fffbf7 !important;
+    border: 1px solid #fde8cc !important;
     border-radius: 0.75rem !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
+    box-shadow: 0 4px 20px rgba(120, 53, 15, 0.1) !important;
 }
-
-.fi-no-notification-title { color: #0f172a !important; font-weight: 700 !important; }
-.fi-no-notification-body  { color: #475569 !important; font-size: 0.875rem !important; }
+.fi-no-notification-title { color: #431f08 !important; font-weight: 700 !important; }
+.fi-no-notification-body  { color: #92400e !important; font-size: 0.875rem !important; }
 .fi-no-notification[data-status="success"] { border-left: 4px solid #16a34a !important; }
 .fi-no-notification[data-status="danger"]  { border-left: 4px solid #dc2626 !important; }
 .fi-no-notification[data-status="warning"] { border-left: 4px solid #ea7e1e !important; }
 .fi-no-notification[data-status="info"]    { border-left: 4px solid #3b82f6 !important; }
 
 /* ════════════════════════════════════════════════════════════════════
-   14. PAGE HEADERS & BREADCRUMBS
-════════════════════════════════════════════════════════════════════ */
-.fi-page-header-heading,
-.fi-page-header h1 {
-    color: #0f172a !important;
-    font-size: 1.5rem !important;
-    font-weight: 700 !important;
-    letter-spacing: -0.01em !important;
-}
-
-.fi-breadcrumbs-item-label { color: #94a3b8 !important; font-size: 0.8125rem !important; }
-.fi-breadcrumbs-item-label:hover { color: #ea7e1e !important; }
-.fi-breadcrumbs-item:last-child .fi-breadcrumbs-item-label { color: #475569 !important; font-weight: 500 !important; }
-
-/* ════════════════════════════════════════════════════════════════════
-   15. PAGINATION
+   16. PAGINATION
 ════════════════════════════════════════════════════════════════════ */
 .fi-pagination-previous-btn,
 .fi-pagination-next-btn,
 .fi-pagination-item-btn {
-    background-color: #ffffff !important;
-    border: 1px solid #d1d5db !important;
-    color: #374151 !important;
+    background-color: #fff8f0 !important;
+    border: 1px solid #fcd4a0 !important;
+    color: #92400e !important;
     border-radius: 0.5rem !important;
     font-size: 0.8125rem !important;
     font-weight: 500 !important;
 }
-
 .fi-pagination-previous-btn:hover,
 .fi-pagination-next-btn:hover,
 .fi-pagination-item-btn:hover {
-    background-color: #f9fafb !important;
-    color: #111827 !important;
+    background-color: #fde8cc !important;
+    color: #78350f !important;
 }
-
 .fi-pagination-item-btn[aria-current="page"] {
-    background-color: #ea7e1e !important;
+    background: linear-gradient(135deg, #f59e0b, #d97706) !important;
     color: #ffffff !important;
-    border-color: #c2601a !important;
+    border-color: #b45309 !important;
     font-weight: 700 !important;
+    box-shadow: 0 2px 6px rgba(180, 83, 9, 0.35) !important;
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   16. TABS
+   17. TABS
 ════════════════════════════════════════════════════════════════════ */
-.fi-tabs { border-bottom: 2px solid #e2e8f0 !important; }
-
+.fi-tabs { border-bottom: 2px solid #fde8cc !important; }
 .fi-tabs-tab {
-    color: #64748b !important;
+    color: #b45309 !important;
     font-size: 0.8125rem !important;
     font-weight: 500 !important;
     border-bottom: 2px solid transparent !important;
@@ -725,172 +707,38 @@ label, .fi-fo-field-wrp-label label {
     padding: 0.5rem 1rem !important;
     transition: color 0.15s !important;
 }
-
-.fi-tabs-tab:hover { color: #1e293b !important; background-color: #f8fafc !important; }
-
+.fi-tabs-tab:hover { color: #78350f !important; background-color: #fff3e6 !important; }
 .fi-tabs-tab[aria-selected="true"],
 .fi-tabs-tab.fi-active {
-    color: #ea7e1e !important;
+    color: #d97706 !important;
     font-weight: 700 !important;
-    border-bottom-color: #ea7e1e !important;
+    border-bottom-color: #d97706 !important;
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   17. MISC
+   18. MISC
 ════════════════════════════════════════════════════════════════════ */
 *:focus-visible { outline: 2px solid #ea7e1e !important; outline-offset: 2px !important; }
-hr, .fi-fo-section-divider { border-color: #f1f5f9 !important; }
-
-.fi-checkbox:checked { background-color: #ea7e1e !important; border-color: #c2601a !important; }
-.fi-toggle-button[aria-checked="true"] { background-color: #ea7e1e !important; }
-
-a.fi-link       { color: #c2601a !important; }
-a.fi-link:hover { color: #9a4c15 !important; }
-
-/* Sidebar transition */
-.fi-sidebar { transition: width 0.25s ease, transform 0.25s ease !important; }
-
-/* Scrollbar */
+hr, .fi-fo-section-divider { border-color: #fde8cc !important; }
+.fi-checkbox:checked { background-color: #d97706 !important; border-color: #b45309 !important; }
+.fi-toggle-button[aria-checked="true"] { background: linear-gradient(90deg, #f59e0b, #d97706) !important; }
+a.fi-link       { color: #b45309 !important; }
+a.fi-link:hover { color: #ea7e1e !important; }
 ::-webkit-scrollbar { width: 5px; height: 5px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+::-webkit-scrollbar-track { background: #fde8cc; }
+::-webkit-scrollbar-thumb { background: #f59e0b; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #d97706; }
 
 /* ════════════════════════════════════════════════════════════════════
-   REPEATER COMPONENT STYLES
-════════════════════════════════════════════════════════════════════ */
-
-/* Repeater container */
-.fi-fo-repeater {
-    gap: 0.75rem !important;
-}
-
-/* Each repeater item — styled as a lifted card */
-.fi-fo-repeater-item {
-    background-color: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 0.75rem !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.06) !important;
-    overflow: hidden !important;
-    transition: box-shadow 0.15s !important;
-}
-
-.fi-fo-repeater-item:hover {
-    box-shadow: 0 2px 6px rgba(0,0,0,0.07), 0 6px 16px rgba(0,0,0,0.08) !important;
-}
-
-/* Repeater item header (the collapsible label bar) */
-.fi-fo-repeater-item-header {
-    background-color: #f8fafc !important;
-    border-bottom: 1px solid #e2e8f0 !important;
-    padding: 0.75rem 1rem !important;
-    border-radius: 0.75rem 0.75rem 0 0 !important;
-}
-
-/* Label text inside header */
-.fi-fo-repeater-item-label,
-.fi-fo-repeater-item-header span,
-.fi-fo-repeater-item-header p {
-    color: #1e293b !important;
-    font-weight: 600 !important;
-    font-size: 0.875rem !important;
-}
-
-/* Repeater item content area */
-.fi-fo-repeater-item-content {
-    padding: 1rem !important;
-    background-color: #ffffff !important;
-}
-
-/* Delete / action buttons in repeater header */
-.fi-fo-repeater-item-header .fi-icon-btn,
-.fi-fo-repeater-delete-action {
-    color: #94a3b8 !important;
-    border-radius: 0.375rem !important;
-    transition: background-color 0.15s, color 0.15s !important;
-}
-
-.fi-fo-repeater-item-header .fi-icon-btn:hover,
-.fi-fo-repeater-delete-action:hover {
-    background-color: #fef2f2 !important;
-    color: #dc2626 !important;
-}
-
-/* Collapse chevron */
-.fi-fo-repeater-item-collapse-btn svg,
-.fi-fo-repeater-item-header button svg {
-    color: #94a3b8 !important;
-    transition: transform 0.2s !important;
-}
-
-/* Add item button */
-.fi-fo-repeater-add-action {
-    background-color: #ffffff !important;
-    border: 2px dashed #cbd5e1 !important;
-    border-radius: 0.75rem !important;
-    color: #64748b !important;
-    font-weight: 500 !important;
-    padding: 0.75rem !important;
-    transition: all 0.15s !important;
-    width: 100% !important;
-}
-
-.fi-fo-repeater-add-action:hover {
-    border-color: #ea7e1e !important;
-    background-color: #fff7ed !important;
-    color: #ea7e1e !important;
-}
-
-.fi-fo-repeater-add-action svg {
-    color: inherit !important;
-}
-
-/* Repeater inside dark mode */
-@media (prefers-color-scheme: dark) {
-    .fi-fo-repeater-item {
-        background-color: #1e293b !important;
-        border-color: #334155 !important;
-    }
-    .fi-fo-repeater-item-header {
-        background-color: #0f172a !important;
-        border-bottom-color: #334155 !important;
-    }
-    .fi-fo-repeater-item-label,
-    .fi-fo-repeater-item-header span,
-    .fi-fo-repeater-item-header p {
-        color: #e2e8f0 !important;
-    }
-    .fi-fo-repeater-item-content {
-        background-color: #1e293b !important;
-    }
-    .fi-fo-repeater-add-action {
-        background-color: #1e293b !important;
-        border-color: #334155 !important;
-        color: #64748b !important;
-    }
-    .fi-fo-repeater-add-action:hover {
-        border-color: #ea7e1e !important;
-        background-color: #1c1a10 !important;
-        color: #ea7e1e !important;
-    }
-}
-
-.dark .fi-fo-repeater-item { background-color: #1e293b !important; border-color: #334155 !important; }
-.dark .fi-fo-repeater-item-header { background-color: #0f172a !important; border-bottom-color: #334155 !important; }
-.dark .fi-fo-repeater-item-label,
-.dark .fi-fo-repeater-item-header span { color: #e2e8f0 !important; }
-.dark .fi-fo-repeater-item-content { background-color: #1e293b !important; }
-
-/* ════════════════════════════════════════════════════════════════════
-   RESPONSIVE
+   19. RESPONSIVE
 ════════════════════════════════════════════════════════════════════ */
 @media (max-width: 1024px) {
-    .fi-sidebar { width: 200px !important; max-width: 200px !important; }
-    .fi-main-ctn, .fi-page { padding: 1rem !important; }
+    .fi-sidebar { width: 180px !important; max-width: 180px !important; }
+    .fi-page { padding: 0.75rem !important; }
     .fi-wi-stats-overview { grid-template-columns: repeat(2, 1fr) !important; }
     .fi-ta-content { overflow-x: auto !important; }
-    .fi-page-header-heading { font-size: 1.25rem !important; }
-    .fi-section-content { padding: 1rem !important; }
+    .fi-page-header-heading { font-size: 1.125rem !important; }
+    .fi-section-content { padding: 0.75rem !important; }
 }
 
 @media (max-width: 640px) {
@@ -903,265 +751,21 @@ a.fi-link:hover { color: #9a4c15 !important; }
         top: 0 !important;
         left: 0 !important;
     }
-
     .fi-topbar { padding-inline: 0.75rem !important; }
-    .fi-main-ctn, .fi-page { padding: 0.75rem !important; }
+    .fi-page { padding: 0.625rem 0.75rem !important; }
     .fi-wi-stats-overview { grid-template-columns: 1fr !important; }
-
-    .fi-page-header {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 0.75rem !important;
-    }
-
-    .fi-page-header-heading { font-size: 1.125rem !important; }
-
-    .fi-page-header .fi-btn-color-primary {
-        width: 100% !important;
-        justify-content: center !important;
-    }
-
-    .fi-ta-header {
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: 0.5rem !important;
-    }
-
-    .fi-ta-search-field,
-    .fi-ta-search-field input { width: 100% !important; }
-
-    .fi-ta-content {
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-    }
-
-    .fi-ta-cell, .fi-ta tbody td {
-        padding: 0.625rem 0.75rem !important;
-        font-size: 0.8125rem !important;
-    }
-
-    .fi-ta thead th, .fi-ta-header-cell {
-        padding: 0.625rem 0.75rem !important;
-        font-size: 0.65rem !important;
-    }
-
+    .fi-page-header { flex-direction: column !important; align-items: flex-start !important; gap: 0.5rem !important; }
+    .fi-page-header-heading { font-size: 1rem !important; }
+    .fi-page-header .fi-btn-color-primary { width: 100% !important; justify-content: center !important; }
+    .fi-ta-header { flex-direction: column !important; align-items: stretch !important; gap: 0.5rem !important; }
+    .fi-ta-search-field, .fi-ta-search-field input { width: 100% !important; }
+    .fi-ta-content { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+    .fi-ta-cell, .fi-ta tbody td { padding: 0.5rem 0.75rem !important; font-size: 0.8125rem !important; }
+    .fi-ta thead th, .fi-ta-header-cell { padding: 0.5rem 0.75rem !important; font-size: 0.65rem !important; }
     .fi-section { border-radius: 0.5rem !important; }
-    .fi-section-content { padding: 0.75rem !important; }
-
-    .fi-modal-window {
-        margin: 0.5rem !important;
-        max-height: calc(100dvh - 1rem) !important;
-        overflow-y: auto !important;
-        border-radius: 0.75rem !important;
-    }
-
-    .fi-breadcrumbs-item-label { font-size: 0.75rem !important; }
-
+    .fi-section-content { padding: 0.625rem !important; }
+    .fi-modal-window { margin: 0.5rem !important; max-height: calc(100dvh - 1rem) !important; overflow-y: auto !important; border-radius: 0.75rem !important; }
     .fi-pagination-previous-btn,
     .fi-pagination-next-btn,
-    .fi-pagination-item-btn {
-        padding: 0.25rem 0.5rem !important;
-        font-size: 0.75rem !important;
-    }
+    .fi-pagination-item-btn { padding: 0.25rem 0.5rem !important; font-size: 0.75rem !important; }
 }
-
-/* ════════════════════════════════════════════════════════════════════
-   DARK MODE OVERRIDES
-   Filament applies dark styles via both .dark class AND
-   prefers-color-scheme. We cover both cases.
-   The sidebar already looks correct in dark mode (dark bg + white text).
-   We only need to fix the CONTENT area — cards, tables, inputs.
-════════════════════════════════════════════════════════════════════ */
-
-@media (prefers-color-scheme: dark) {
-    /* Page background */
-    .fi-layout, .fi-main, .fi-main-ctn, .fi-body {
-        background-color: #0f172a !important;
-    }
-
-    /* Topbar */
-    .fi-topbar {
-        background-color: #1e293b !important;
-        border-bottom-color: #334155 !important;
-    }
-    .fi-topbar .fi-icon-btn { color: #94a3b8 !important; }
-    .fi-topbar .fi-icon-btn:hover { background-color: #334155 !important; color: #f1f5f9 !important; }
-
-    /* Cards & sections */
-    .fi-section, .fi-card, .fi-wi,
-    .fi-wi-account, .fi-wi-filament-info,
-    .fi-wi-chart, .fi-wi-stats-overview-stat {
-        background-color: #1e293b !important;
-        border-color: #334155 !important;
-    }
-
-    .fi-section-header { border-bottom-color: #334155 !important; }
-    .fi-section-header-heading { color: #f1f5f9 !important; }
-
-    .fi-wi-stats-overview-stat { background-color: #1e293b !important; border-color: #334155 !important; }
-    .fi-wi-stats-overview-stat-label { color: #94a3b8 !important; }
-    .fi-wi-stats-overview-stat-value { color: #f8fafc !important; }
-    .fi-wi-stats-overview-stat-description { color: #64748b !important; }
-
-    /* Page heading */
-    .fi-page-header-heading, .fi-page-header h1 { color: #f8fafc !important; }
-    .fi-breadcrumbs-item-label { color: #64748b !important; }
-    .fi-breadcrumbs-item:last-child .fi-breadcrumbs-item-label { color: #94a3b8 !important; }
-
-    /* Tables */
-    .fi-ta, .fi-ta-ctn {
-        background-color: #1e293b !important;
-        border-color: #334155 !important;
-    }
-
-    .fi-ta-header {
-        background-color: #1e293b !important;
-        border-bottom-color: #334155 !important;
-    }
-
-    .fi-ta thead tr, .fi-ta table thead tr {
-        background-color: #0f172a !important;
-        border-bottom-color: #334155 !important;
-    }
-
-    .fi-ta thead th, .fi-ta table thead th, .fi-ta-header-cell {
-        background-color: #0f172a !important;
-        color: #94a3b8 !important;
-    }
-
-    .fi-ta thead th *, .fi-ta-header-cell * { color: #94a3b8 !important; }
-
-    .fi-ta-row, .fi-ta tbody tr {
-        background-color: #1e293b !important;
-        border-bottom-color: #334155 !important;
-    }
-
-    .fi-ta-row:hover, .fi-ta tbody tr:hover {
-        background-color: #263548 !important;
-    }
-
-    /* THE KEY FIX: table cell text white in dark mode */
-    .fi-ta-cell, .fi-ta tbody td { color: #e2e8f0 !important; }
-    .fi-ta-cell *, .fi-ta tbody td *,
-    .fi-ta-cell span, .fi-ta-cell div, .fi-ta-cell p {
-        color: #e2e8f0 !important;
-    }
-
-    .fi-ta-footer {
-        background-color: #0f172a !important;
-        border-top-color: #334155 !important;
-    }
-    .fi-ta-footer * { color: #94a3b8 !important; }
-
-    .fi-ta-empty-state-heading { color: #e2e8f0 !important; }
-    .fi-ta-empty-state-description { color: #64748b !important; }
-
-    /* Search / filter */
-    .fi-ta-search-field input, .fi-global-search-field input {
-        background-color: #0f172a !important;
-        border-color: #334155 !important;
-        color: #e2e8f0 !important;
-    }
-    .fi-ta-search-field input::placeholder,
-    .fi-global-search-field input::placeholder { color: #475569 !important; }
-
-    .fi-ta-filter-trigger-action,
-    .fi-ta-toggle-column-trigger-action {
-        background-color: #0f172a !important;
-        border-color: #334155 !important;
-        color: #94a3b8 !important;
-    }
-
-    /* Buttons */
-    .fi-btn-color-gray, .fi-btn[data-color="gray"] {
-        background-color: #1e293b !important;
-        color: #e2e8f0 !important;
-        border-color: #334155 !important;
-    }
-    .fi-btn-color-gray:hover, .fi-btn[data-color="gray"]:hover {
-        background-color: #334155 !important;
-    }
-
-    /* Row action buttons */
-    .fi-ta-row-action button, .fi-ac-icon-btn {
-        background-color: #0f172a !important;
-        border-color: #334155 !important;
-        color: #94a3b8 !important;
-    }
-    .fi-ta-row-action button:hover, .fi-ac-icon-btn:hover {
-        background-color: #1c2e45 !important;
-        color: #ea7e1e !important;
-    }
-
-    /* Form inputs */
-    .fi-input-wrp, .fi-input, .fi-select-input, .fi-textarea,
-    input[type="text"], input[type="email"], input[type="password"],
-    input[type="number"], input[type="search"], select, textarea {
-        background-color: #0f172a !important;
-        border-color: #334155 !important;
-        color: #e2e8f0 !important;
-    }
-    input::placeholder, textarea::placeholder { color: #475569 !important; }
-    label, .fi-fo-field-wrp-label label { color: #e2e8f0 !important; }
-
-    /* Modals */
-    .fi-modal-window {
-        background-color: #1e293b !important;
-        border-color: #334155 !important;
-    }
-    .fi-modal-heading { color: #f8fafc !important; }
-    .fi-modal-footer {
-        background-color: #0f172a !important;
-        border-top-color: #334155 !important;
-    }
-
-    /* Dropdowns */
-    .fi-dropdown-panel {
-        background-color: #1e293b !important;
-        border-color: #334155 !important;
-    }
-    .fi-dropdown-list-item-label { color: #e2e8f0 !important; }
-    .fi-dropdown-list-item-button:hover { background-color: #334155 !important; }
-
-    /* Pagination */
-    .fi-pagination-previous-btn, .fi-pagination-next-btn, .fi-pagination-item-btn {
-        background-color: #1e293b !important;
-        border-color: #334155 !important;
-        color: #94a3b8 !important;
-    }
-    .fi-pagination-previous-btn:hover, .fi-pagination-next-btn:hover,
-    .fi-pagination-item-btn:hover {
-        background-color: #334155 !important;
-        color: #e2e8f0 !important;
-    }
-
-    /* Tabs */
-    .fi-tabs { border-bottom-color: #334155 !important; }
-    .fi-tabs-tab { color: #64748b !important; }
-    .fi-tabs-tab:hover { color: #94a3b8 !important; background-color: #1e293b !important; }
-
-    /* Badges */
-    .fi-badge-color-gray { background-color: #334155 !important; color: #94a3b8 !important; }
-
-    /* Scrollbar in dark */
-    ::-webkit-scrollbar-thumb { background: #334155; }
-    ::-webkit-scrollbar-thumb:hover { background: #475569; }
-}
-
-/* Also cover Filament's .dark class (used when darkMode toggle is shown) */
-.dark .fi-layout, .dark .fi-main, .dark .fi-main-ctn { background-color: #0f172a !important; }
-.dark .fi-ta-cell, .dark .fi-ta tbody td { color: #e2e8f0 !important; }
-.dark .fi-ta-cell *, .dark .fi-ta tbody td * { color: #e2e8f0 !important; }
-.dark .fi-ta, .dark .fi-ta-ctn { background-color: #1e293b !important; border-color: #334155 !important; }
-.dark .fi-ta thead th, .dark .fi-ta-header-cell { background-color: #0f172a !important; color: #94a3b8 !important; }
-.dark .fi-ta-row, .dark .fi-ta tbody tr { background-color: #1e293b !important; border-bottom-color: #334155 !important; }
-.dark .fi-ta-row:hover, .dark .fi-ta tbody tr:hover { background-color: #263548 !important; }
-.dark .fi-section, .dark .fi-card, .dark .fi-wi { background-color: #1e293b !important; border-color: #334155 !important; }
-.dark .fi-page-header-heading { color: #f8fafc !important; }
-.dark .fi-topbar { background-color: #1e293b !important; border-bottom-color: #334155 !important; }
-.dark .fi-section-header-heading { color: #f1f5f9 !important; }
-.dark label, .dark .fi-fo-field-wrp-label label { color: #e2e8f0 !important; }
-.dark .fi-modal-window { background-color: #1e293b !important; border-color: #334155 !important; }
-.dark .fi-modal-heading { color: #f8fafc !important; }
-.dark .fi-dropdown-panel { background-color: #1e293b !important; border-color: #334155 !important; }
-.dark .fi-dropdown-list-item-label { color: #e2e8f0 !important; }

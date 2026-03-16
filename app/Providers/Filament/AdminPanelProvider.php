@@ -34,7 +34,7 @@ class AdminPanelProvider extends PanelProvider
                 // Changed from Amber → Blue to match cashier-side primary #2563EB
            
                 'primary' => Color::Amber,   // orange — matches --adm-orange in theme
-                'gray'    => Color::Gray,
+                'gray'    => Color::Amber,
                 'danger'  => Color::Red,
                 'success' => Color::Green,
                 'warning' => Color::Yellow,

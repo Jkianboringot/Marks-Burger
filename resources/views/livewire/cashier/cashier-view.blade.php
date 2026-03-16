@@ -177,15 +177,19 @@
                     @endforeach
 
                     {{-- Bottom row: 00 · 0 · dot --}}
-                    <button class="numpad-btn"
-                        wire:click="appendToPayment('00')">00</button>
-
-                    <button class="numpad-btn numpad-zero"
-                        wire:click="appendToPayment('0')">0</button>
 
                     <button class="numpad-btn"
                         wire:click="appendToPayment('.')">.</button>
+                        
+                    <button class="numpad-btn numpad-zero"
+                        wire:click="appendToPayment('0')">0</button>
 
+
+                    <button class="numpad-backspace"
+                        wire:click="backSpace"
+                        title="Backspace">
+                        &#9003; {{-- ⌫ unicode backspace symbol --}}
+                    </button>
                 </div>
 
                 {{-- Action column --}}

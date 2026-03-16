@@ -444,6 +444,30 @@
 .numpad-zero {
     grid-column: 2;
 }
+/* ── Numpad backspace key ── */
+.numpad-backspace {
+    background: #fff0f0;
+    border: 1px solid #e0c0c0;
+    border-radius: var(--radius-md);
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--red);
+    transition: background 0.1s, border-color 0.1s, transform 0.08s;
+    font-family: "Poppins", sans-serif;
+}
+.numpad-backspace:hover {
+    background: #ffe0e0;
+    border-color: var(--red);
+}
+.numpad-backspace:active {
+    transform: scale(0.92);
+    background: #ffbbbb;
+}
 
 .payment-actions {
     display: flex;

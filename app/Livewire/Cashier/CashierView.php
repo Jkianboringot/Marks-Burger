@@ -60,7 +60,7 @@ class CashierView extends Component
 
     public function total()
     {
-        $total = 0;
+        $total = (int) 0;
         foreach ($this->productList as $item) {
             $total += $item['quantity'] * $item['price'];
         }
@@ -90,7 +90,7 @@ class CashierView extends Component
 
     protected function customerChange()
     {
-        $this->customerChange = 100 - (int)$this->customerPay;
+        $this->customerChange = $this->total - (int)$this->customerPay;
     }
 
     public function appendToPayment($num)
@@ -103,6 +103,7 @@ class CashierView extends Component
 
     public function backSpace()
     {
+        // subtract the last part of a string, 0 is start and -1 is the very last char
         $this->customerPay = substr($this->customerPay, 0, -1);
         $this->customerChange();
 

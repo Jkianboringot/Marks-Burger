@@ -18,7 +18,7 @@
        holdOrder()                  → park order, clear cart (implement as you see fit)
        ✅openPaymentModal()           → set $showPaymentModal = true
        ✅closePaymentModal()          → set $showPaymentModal = false; reset $customerPay
-       appendToPayment($digit)      → append digit/dot to $customerPay string; recalc $customerChange
+       ✅appendToPayment($digit)      → append digit/dot to $customerPay string; recalc $customerChange
        ✅clearPayment()               → reset $customerPay = '0'; reset $customerChange
        completeOrder()              → save transaction, clear cart, close modal
        ✅increment($productId)        → +1 qty on item in $productList; recalc $total✅
@@ -180,7 +180,7 @@
 
                     <button class="numpad-btn"
                         wire:click="appendToPayment('.')">.</button>
-                        
+
                     <button class="numpad-btn numpad-zero"
                         wire:click="appendToPayment('0')">0</button>
 
@@ -204,12 +204,10 @@
                     <button class="btn-cancel-pay" wire:click="closePaymentModal">
                         Cancel
                     </button>
-                    <button class="btn-cancel-pay" wire:click="backSpace">
-                        backspace
-                    </button>
+                 
 
                     {{-- METHOD: completeOrder() — save, clear cart, close modal --}}
-                    <button class="btn-complete" wire:click="completeOrder">
+                    <button class="btn-complete" wire:click="save">
                         Complete
                     </button>
 

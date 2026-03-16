@@ -33,7 +33,6 @@ class CashierView extends Component
 
     public function mount()
     {
-        $this->showPaymentModal = true;
         $this->orders = new Order();
     }
 
@@ -90,7 +89,7 @@ class CashierView extends Component
 
     protected function customerChange()
     {
-        $this->customerChange = $this->total - (int)$this->customerPay;
+        $this->customerChange =max((int)$this->customerPay-$this->total() ,0);
     }
 
     public function appendToPayment($num)
@@ -169,6 +168,7 @@ class CashierView extends Component
 
             // $this->dispatch('done', success: 'Order complete');
             $this->reset();
+            $this->showPaymentModal=false;
             session()->flash('success', 'Order complete');
         } catch (\Throwable $th) {
             $this->dispatch('done', error: 'Something went wrong' . $th->getMessage());

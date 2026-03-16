@@ -82,16 +82,23 @@ class CashierView extends Component
 
     public  function openPaymentModal()
     {
+
+        // for some reason it only work if its like this, doing it with one if only does not work
         if ($this->productList) {
             $this->showPaymentModal = true;
+        } else {
+            $this->dispatch('toast', message: 'No order', type: 'cancel');
         }
-
-        $this->dispatch('toast', message: 'No order', type: 'cancel');
     }
 
     public  function closePaymentModal()
     {
         $this->showPaymentModal = false;
+
+        // this in important here so that customer payment is re inputed again, 
+        // this is safer than just leaving customerPay with the prev data
+        $this->reset(['customerPay']);
+
     }
 
     protected function customerChange()
@@ -117,20 +124,16 @@ class CashierView extends Component
 
 
 
-    public function completeOrder()
-    {
-        dd($this->customerPay);
-    }
+
 
     public  function clearPayment()
     {
-        $this->customerPay = '0';
+        $this->reset(['customerPay']);
     }
 
     public function cancelOrder()
     {
         $this->dispatch('toast', message: 'Order Cancelled', type: 'cancel');
-
 
         $this->reset();
     }

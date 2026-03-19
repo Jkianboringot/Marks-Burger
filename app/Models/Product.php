@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Product extends Model
 {
 
-  use HasFactory;
+    use HasFactory;
 
     public $fillable = ['name', 'price'];
 
@@ -34,26 +34,24 @@ class Product extends Model
     public function ingredients(): BelongsToMany
     {
         return $this->belongsToMany(Ingredient::class, 'product_ingredients')
-        ->withPivot(['quantity']);
-        ;
+            ->withPivot(['quantity']);;
     } //might cause error, i feel it
 
 
 
 
-// i just need to figure out who can we access ingredient stock in product, take one step at the time
+    // i just need to figure out who can we access ingredient stock in product, take one step at the time
 
-// ok i cannot access the pivot table of ingredient , i think the only way is to create a model for it
+    // ok i cannot access the pivot table of ingredient , i think the only way is to create a model for it
 
 
-    public function productStock():int
+    public function productStock()
     {
-          return Ingredient::join('add_to_ingredient', 'ingredients.id', '=', 'add_to_ingredient.ingredient_id')
-                            ->sum('add_to_ingredient.quantity');
+        return Product::join('product_ingredients', 'product.id', '=', 'product_ingredients.product_id');
     }
 
 
-/*
+    /*
 i think i need to use case for this to work
 first we need to access product join that with product ingedient, then check if this still has stock, but
 that think about this is, we need to knw the stock of ingedient, so e becuase product_ingredient does not really tell me

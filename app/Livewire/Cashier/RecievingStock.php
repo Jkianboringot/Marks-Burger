@@ -48,7 +48,7 @@ class RecievingStock extends Component
     {
 
         //this where are the data form add_to_product
-        $addToIngredients = AddIngredient::where('branch_id', 3)->latest()->first();
+        $addToIngredients = AddIngredient::where('branch_id',Auth::user()->branch_id )->latest()->first();
 
         // dd($addToProducts->ingredients);
         return view('livewire.cashier.receiving-stock', ['addToIngredients' => $addToIngredients]);

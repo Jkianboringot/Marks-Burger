@@ -160,10 +160,9 @@ class CashierView extends Component
             //making a query -- dangerous 
             //this is note for functions that is causing too much query
             //temporary for now, just to make sure that order->branch_id gets the assigned user->branch_id
-            $user = Auth::user();
 
-
-            $this->orders->branch_id = $user->branch_id;
+//probably the Auth is being forgotten at run time
+            $this->orders->branch_id = Auth::user()->branch_id;
             $this->orders->save();
 
             foreach ($this->productList as $product) {

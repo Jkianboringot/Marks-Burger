@@ -25,11 +25,13 @@ class ProductForm
                 // ── TOP: Product details ──────────────────────────────
                 Section::make('Product Details')
                     ->columnSpanFull()  // stretch full width
+                     ->columns(2)
                     ->schema([
                         TextInput::make('name'),
                         TextInput::make('price')->label('price')
                             ->numeric()->step(0.01)->minValue(0)->required(),
-                    ]),
+                    ])
+                   ,
 
                 // ── BOTTOM: Ingredients repeater ──────────────────────
                 Section::make('Ingredients')

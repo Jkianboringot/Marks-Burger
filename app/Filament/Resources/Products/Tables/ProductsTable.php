@@ -40,19 +40,26 @@ class ProductsTable
                     ->sortable(), //sort by column
 
 
+                // TextColumn::make('Stock')
+                //     // //will not work if its product_count needs to be prural
+                //     ->getStateUsing(function ($record) {
+                //         return $record->productStock()                        ;
+                //     })
+                //     ->label('Product Stock'),
+
+
+
                 TextColumn::make('ingredients.name')->badge(),
 
 
-                TextColumn::make('Stock')
-                    // //will not work if its product_count needs to be prural
-                    // ->getStateUsing(function ($record) {
-                    // //  return $record->productStock();
-                    // // dd($record->ingredients());
-                    // })
+                // TextColumn::make('Stock')
+                //     // //will not work if its product_count needs to be prural
+                //     // ->getStateUsing(function ($record) {
+                //     // //  return $record->productStock();
+                //     // // dd($record->ingredients());
+                //     // })
 
-                    ->label('Stock'), //  aliase name
-
-
+                //     ->label('Stock'), //  aliase name
 
                 TextColumn::make('created_at')
                     ->dateTime()

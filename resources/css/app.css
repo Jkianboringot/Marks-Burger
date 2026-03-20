@@ -1080,3 +1080,199 @@
     color: var(--orange-hover);
     background:#ffffff;
 }
+
+
+/**
+ * Filament Admin Theme
+ * Sourced from cashier CSS variables:
+ *   --orange:       hsl(30, 100%, 50%)  → #FF8000
+ *   --cream:        #f5ede0
+ *   --white:        #ffffff
+ *   --green:        #38a169
+ *   --red:          #e53e3e
+ *   --shadow-card:  0 2px 12px hsla(30,97%,15%,0.12)
+ */
+
+
+/* ── Override Filament's body / page background with cream ─────────────── */
+.fi-body {
+    background-color: #f5ede0 !important; /* --cream */
+    font-family: "Poppins", sans-serif !important;
+}
+
+/* ── Sidebar ────────────────────────────────────────────────────────────── */
+.fi-sidebar {
+    background-color: #ffffff !important;
+    border-right: 1px solid rgba(255, 128, 0, 0.15);
+    box-shadow: 2px 0 12px hsla(30, 97%, 15%, 0.08);
+}
+
+.fi-sidebar-nav-group-label {
+    color: #FF8000 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+/* Active nav item gets orange bg */
+.fi-sidebar-item-active .fi-sidebar-item-label {
+    color: #FF8000 !important;
+    font-weight: 700 !important;
+}
+.fi-sidebar-item-active .fi-icon {
+    color: #FF8000 !important;
+}
+
+/* ── Topbar ─────────────────────────────────────────────────────────────── */
+.fi-topbar {
+    background-color: #ffffff !important;
+    border-bottom: 2px solid hsl(30, 94%, 45%) !important;  /* --border-solid */
+    box-shadow: 0 2px 8px hsla(30, 97%, 15%, 0.1);
+}
+
+/* Brand name in topbar */
+.fi-brand-name {
+    color: #FF8000 !important;
+    font-weight: 800 !important;
+    font-size: 1.1rem;
+    font-family: "Poppins", sans-serif !important;
+}
+
+/* ── Widgets general cards ──────────────────────────────────────────────── */
+.fi-wi-stats-overview-stat,
+.fi-widget,
+.fi-ta-ctn {
+    border-radius: 1rem !important;           /* --radius-lg */
+    box-shadow: 0 2px 12px hsla(30, 97%, 15%, 0.12) !important; /* --shadow-card */
+    border: none !important;
+    background: #ffffff !important;
+}
+
+/* ── Stat card accents ──────────────────────────────────────────────────── */
+.dashboard-stat-card {
+    border-top: 3px solid #FF8000 !important;
+}
+
+/* ── Tables inside widgets ──────────────────────────────────────────────── */
+.fi-ta-header-cell {
+    background: #faf6f1 !important;  /* warm off-white, matches .stock-table thead */
+    font-weight: 600 !important;
+    font-size: 0.83rem !important;
+    color: #1a1a1a !important;
+    border-bottom: 2px solid #f0e8dc !important;
+}
+
+.fi-ta-row:hover td {
+    background: #fef9f2 !important;  /* .stock-table tbody tr:hover */
+}
+
+.fi-ta-row td {
+    border-bottom: 1px solid #f0ebe3 !important;
+    font-size: 0.83rem !important;
+    color: #444 !important;
+}
+
+/* Low-stock row highlight — mirrors .stock-row-low from cashier CSS */
+.bg-red-50 {
+    background-color: #fff5f5 !important;
+}
+.border-l-4.border-red-400 {
+    border-left-color: #e53e3e !important;
+}
+
+/* ── Buttons ────────────────────────────────────────────────────────────── */
+.fi-btn-primary {
+    background: #FF8000 !important;
+    border-radius: 0.75rem !important; /* --radius-md */
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 700 !important;
+    box-shadow: 2px 3px 4px 2px hsla(30, 97%, 15%, 0.233) !important; /* --box-shadow */
+    transition: background 0.15s, transform 0.1s !important;
+}
+.fi-btn-primary:hover {
+    background: hsl(30, 100%, 44%) !important; /* --orange-hover */
+    transform: translateY(-1px) !important;
+}
+
+/* ── Badge colors ───────────────────────────────────────────────────────── */
+/* warning badge = orange (used for branch name + held status) */
+.fi-badge-color-warning {
+    background-color: rgba(255, 128, 0, 0.12) !important;
+    color: #FF8000 !important;
+    border: 1px solid rgba(255, 128, 0, 0.3) !important;
+}
+
+/* ── Chart widget heading ───────────────────────────────────────────────── */
+.fi-wi-chart .fi-widget-heading,
+.fi-wi-table .fi-widget-heading {
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    color: #1a1a1a !important;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #f0e8dc;
+}
+
+/* ── Dashboard page padding ─────────────────────────────────────────────── */
+.fi-main {
+    padding: 1.25rem !important;
+    gap: 1rem !important;
+}
+
+/* ── Search inputs ──────────────────────────────────────────────────────── */
+.fi-input {
+    border-radius: 0.75rem !important;
+    border: 1.5px solid #e0d0c0 !important;
+    font-family: "Poppins", sans-serif !important;
+}
+.fi-input:focus {
+    border-color: #FF8000 !important;
+    box-shadow: 0 0 0 3px hsla(30, 100%, 50%, 0.14) !important;
+}
+
+/* ── Select / filter dropdowns ──────────────────────────────────────────── */
+.fi-select-input {
+    border-radius: 0.75rem !important;
+    border-color: #e0d0c0 !important;
+    font-family: "Poppins", sans-serif !important;
+}
+
+/* ── Pagination ─────────────────────────────────────────────────────────── */
+.fi-pagination-item-btn[aria-current="page"] {
+    background: #FF8000 !important;
+    color: #ffffff !important;
+    border-radius: 0.5rem !important;
+}
+
+/* ── Low Stock Widget — search bar inline with heading ─────────────────── */
+.low-stock-table .fi-ta-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #f0e8dc;
+}
+
+.low-stock-table .fi-ta-header-heading {
+    flex-shrink: 0;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #1a1a1a;
+    white-space: nowrap;
+}
+
+.low-stock-table .fi-ta-search-input {
+    max-width: 220px;
+    margin: 0 !important;
+}
+
+.low-stock-table .fi-ta-header-toolbar {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+
+

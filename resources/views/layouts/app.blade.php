@@ -23,7 +23,7 @@
 <body class="font-sans antialiased">
     <x-banner />
 
-    <div class="cashier-bg">
+    <div class="cashier-bg" >
         <!-- <div wire:offline.class="bg-red-300">
             You are now offline.
         </div> 

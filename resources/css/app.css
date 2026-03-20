@@ -48,7 +48,7 @@
    CASHIER PAGE
    ============================================================ */
 
-.cashier-bg {
+body {
     background: var(--cream);
     overflow: hidden;
     height: 100vh;
